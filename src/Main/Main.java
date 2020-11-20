@@ -25,10 +25,8 @@ public class Main {
         video1.printInfo();
         System.out.println("***************************");
 
-        PPT ppt1 = new PPT("", "", "ppt","ppt1", 128,"Sam Smith",
+        PPT ppt1 = new PPT("", "", "ppt", "ppt1", 128, "Sam Smith",
                 12, true);
         ppt1.printInfo();
-
-
     }
 }
