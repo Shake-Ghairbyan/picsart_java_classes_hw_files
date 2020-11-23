@@ -1,6 +1,9 @@
 package Media_SubClasses;
+
 import Model.File;
-public class Audio extends File {
+import Interfaces.I_Media;
+
+public class Audio extends File implements I_Media {
     private double durationOfTrack = 0.0;
     private int voice_volume = 0;
     private boolean isPlaybackAvailable;
@@ -11,6 +14,7 @@ public class Audio extends File {
         return durationOfTrack;
     }
 
+    @Override
     public void setDurationOfTrack(double durationOfTrack) {
         this.durationOfTrack = durationOfTrack;
     }
@@ -19,6 +23,7 @@ public class Audio extends File {
         return voice_volume;
     }
 
+    @Override
     public void setVoice_volume(int voice_volume) {
         if (voice_volume < 0) {
             System.out.println("Invalid input for voice volume!");
@@ -31,6 +36,7 @@ public class Audio extends File {
         return isPlaybackAvailable;
     }
 
+    @Override
     public void setPlaybackAvailable(boolean playbackAvailable) {
         isPlaybackAvailable = playbackAvailable;
     }
@@ -39,6 +45,7 @@ public class Audio extends File {
         return playlist;
     }
 
+    @Override
     public void setPlaylist(String playlist) {
         if (playlist.length() > 0) {
             this.playlist = playlist;
@@ -49,6 +56,7 @@ public class Audio extends File {
         return isOriginalRecord;
     }
 
+    @Override
     public void setOriginalRecord(boolean originalRecord) {
         isOriginalRecord = originalRecord;
     }
@@ -75,6 +83,43 @@ public class Audio extends File {
         } else {
             System.out.println("Audio file is empty.");
         }
+    }
+
+    @Override
+    public void play() {
+        System.out.println(getFileName() + " is playing now.");
+    }
+
+    @Override
+    public void stop() {
+        System.out.println(getFileName() + " is on pause.");
+    }
+
+    @Override
+    public String volumeUp() {
+        if (voice_volume >= 100) {
+            voice_volume = 100;
+            return "Voice is on " + voice_volume + ".. Can't be increased.";
+        } else {
+            ++voice_volume;
+            return "Current voice volume is " + voice_volume;
+        }
+    }
+
+    @Override
+    public String volumeDown() {
+        if (voice_volume <= 0) {
+            voice_volume = 0;
+            return "Voice is on " + voice_volume + ". Can't be decreased.";
+        } else {
+            --voice_volume;
+            return "Current voice volume is " + voice_volume;
+        }
+    }
+
+    @Override
+    public void recordAudio() {
+        System.out.println("This file " + getFileName() + " is being recorded");
     }
 }
 

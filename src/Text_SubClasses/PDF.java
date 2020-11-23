@@ -1,6 +1,9 @@
 package Text_SubClasses;
+
 import Model.File;
-public class PDF extends File {
+import Interfaces.I_TextFiles;
+
+public class PDF extends File implements I_TextFiles {
     private int numberOfPages;
     private boolean isSecured;
 
@@ -8,6 +11,7 @@ public class PDF extends File {
         return isSecured;
     }
 
+    @Override
     public void setSecured(boolean secured) {
         isSecured = secured;
     }

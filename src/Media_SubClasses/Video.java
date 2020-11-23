@@ -1,6 +1,8 @@
 package Media_SubClasses;
 
-public class Video extends Audio {
+import Interfaces.I_Video;
+
+public class Video extends Audio implements I_Video {
     private String resolution = "1920x720";
     private String producer = "No name";
     private String artist = "No info.";
@@ -11,6 +13,7 @@ public class Video extends Audio {
         return videoGenre;
     }
 
+    @Override
     public void setVideoGenre(String videoGenre) {
         if (videoGenre.length() > 0 && videoGenre != null) {
             this.videoGenre = videoGenre;
@@ -21,6 +24,7 @@ public class Video extends Audio {
         return resolution;
     }
 
+    @Override
     public void setResolution(String resolution) {
         if (resolution != null && resolution.length() > 0) {
             this.resolution = resolution;
@@ -31,6 +35,7 @@ public class Video extends Audio {
         return producer;
     }
 
+    @Override
     public void setProducer(String producer) {
         this.producer = producer;
     }
@@ -39,6 +44,7 @@ public class Video extends Audio {
         return artist;
     }
 
+    @Override
     public void setArtist(String artist) {
         if (artist != null && artist.length() > 0) {
             this.artist = artist;
@@ -67,6 +73,37 @@ public class Video extends Audio {
             System.out.println("Artist: " + artist);
             System.out.println("Video Genre: " + videoGenre);
         }
+    }
+
+    @Override
+    public void zoomIn() {
+        System.out.println("You just zoomed in the video");
+    }
+
+    @Override
+    public void zoomOut() {
+        System.out.println("You just zoomed out the video");
+    }
+
+    @Override
+    public void changeQuality(String res) {
+        if (resolution.compareTo(res) != 0) {
+            resolution = res;
+            System.out.println("Quality is changed to " + resolution);
+        } else {
+            System.out.println("No changes made");
+        }
+
+    }
+
+    @Override
+    public String turnOnCaptions() {
+        return "Turned On";
+    }
+
+    @Override
+    public String turnOffCaptions(){
+        return  "Turned On";
     }
 }
 

@@ -1,9 +1,11 @@
 package Model;
 
+import Interfaces.I_File;
 
-public class File {
-    private String creationDate = "No info available";
-    private String lastModified = "No info available";
+
+public class File implements I_File {
+    private String creationDate = "15 Nov 2020";
+    private String lastModified = "15 Nov 2020";
     private String fileFormat = "No info available.";
     private String fileName = "No name";
     private double storageSize;
@@ -13,6 +15,7 @@ public class File {
         return creationDate;
     }
 
+    @Override
     public void setCreationDate(String creationDate) {
         if (creationDate != null && creationDate.length() > 0) {
             this.creationDate = creationDate;
@@ -23,6 +26,7 @@ public class File {
         return lastModified;
     }
 
+    @Override
     public void setLastModified(String lastModified) {
         if (lastModified != null && lastModified.length() > 0) {
             this.lastModified = lastModified;
@@ -33,6 +37,7 @@ public class File {
         return fileName;
     }
 
+    @Override
     public void setFileName(String fileName) {
         if (fileName != null && fileName.length() > 0) {
             this.fileName = fileName;
@@ -43,6 +48,7 @@ public class File {
         return storageSize;
     }
 
+    @Override
     public void setStorageSize(double storageSize) {
         if (storageSize < 0) {
             System.out.println("Invalid input for storage size");
@@ -55,6 +61,7 @@ public class File {
         return author;
     }
 
+    @Override
     public void setAuthor(String author) {
         if (author != null && author.length() > 0) {
             this.author = author;
@@ -65,6 +72,7 @@ public class File {
         return fileFormat;
     }
 
+    @Override
     public void setFileFormat(String fileFormat) {
         if (fileFormat != null && fileFormat.length() > 0) {
             this.fileFormat = fileFormat;
@@ -84,6 +92,7 @@ public class File {
         setAuthor(author);
     }
 
+    @Override
     public void printInfo() {
         System.out.println("___________________________");
         System.out.println("File name: " + getFileName() + "." + getFileFormat());
@@ -92,4 +101,10 @@ public class File {
         System.out.println("Last Modified: " + getLastModified());
         System.out.println("File Size: " + getStorageSize());
     }
+
+    @Override
+    public void printAuthor() {
+        System.out.println("Author of the file is : " + getAuthor());
+    }
+
 }
