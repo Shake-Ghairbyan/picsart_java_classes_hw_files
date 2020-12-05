@@ -1,19 +1,13 @@
 package Text_SubClasses;
 
 import Model.File;
-import Interfaces.I_TextFiles;
 
-public class PDF extends File implements I_TextFiles {
+public class PDF extends File {
     private int numberOfPages;
     private boolean isSecured;
 
     public boolean isSecured() {
         return isSecured;
-    }
-
-    @Override
-    public void setSecured(boolean secured) {
-        isSecured = secured;
     }
 
     public int getNumberOfPages() {
@@ -22,6 +16,27 @@ public class PDF extends File implements I_TextFiles {
 
     public void setNumberOfPages(int numberOfPages) {
         this.numberOfPages = numberOfPages;
+    }
+
+    public void setSecured(boolean isSecured) {
+        this.isSecured = isSecured;
+    }
+
+    public PDF() {
+    }
+
+    public PDF(String s) throws IndexOutOfBoundsException {
+        String[] split = s.split(",");
+        setCreationDate(split[0]);
+        setFileName(split[1]);
+        setAuthor(split[2]);
+        numberOfPages = Integer.parseInt(split[3]);
+        isSecured = Boolean.parseBoolean(split[4]);
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + "," + numberOfPages + "," + isSecured + "\n";
     }
 
     @Override
