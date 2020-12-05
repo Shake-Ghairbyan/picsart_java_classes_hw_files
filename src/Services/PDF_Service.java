@@ -57,22 +57,19 @@ public class PDF_Service {
     }
 
     public static void printPDFFilesSortedByPNumberOfPages()  {
-//        if (File_Service.checkArrayIsEmpty(pdfs)) {
-//            return;
-//        }
-//
-//        for (int i = 0; i < readPDFFiles().length; i++) {
-//            for (int j = 0; j < readPDFFiles().length - 1 - i; j++) {
-//                if (real_PDFs[j].getNumberOfPages() > real_PDFs[j + 1].getNumberOfPages()) {
-//                    PDF reservedPDF = real_PDFs[j];
-//                    real_PDFs[j] = real_PDFs[j + 1];
-//                    real_PDFs[j + 1] = reservedPDF;
-//                }
-//            }
-//        }
-//        for (PDF p : real_PDFs) {
-//            p.printInfo();
-//        }
+        PDF[] pdfs = readPDFFiles();
+        for (int i = 0; i < pdfs.length; i++) {
+            for (int j = 0; j < pdfs.length - 1 - i; j++) {
+                if (pdfs[j].getNumberOfPages() > pdfs[j + 1].getNumberOfPages()) {
+                    PDF reservedPDF = pdfs[j];
+                    pdfs[j] = pdfs[j + 1];
+                    pdfs[j + 1] = reservedPDF;
+                }
+            }
+        }
+        for (PDF p : pdfs) {
+            p.printInfo();
+        }
     }
 }
 
