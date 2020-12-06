@@ -9,7 +9,6 @@ public abstract class File implements Printable, Stringify {
     private String creationDate = "No date";
     private String fileName = "No name";
     private String author = "No Name";
-    public static int count = 0;
 
     public String getCreationDate() {
         return creationDate;

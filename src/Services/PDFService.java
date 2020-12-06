@@ -2,7 +2,6 @@ package Services;
 
 import Exceptions.NameException;
 import Exceptions.PageException;
-import Model.File;
 import Model.PDF;
 
 import java.io.IOException;
@@ -29,7 +28,6 @@ public class PDFService {
             System.out.println("PDF file was created.");
             System.out.println("***************************");
             FileService.write(PATH, pdf);
-            ++File.count;
         } catch (NameException | PageException | IOException e) {
             System.out.println(e);
             System.out.println("Inputs are discarded");

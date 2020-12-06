@@ -3,7 +3,6 @@ package Services;
 import Exceptions.NameException;
 import Exceptions.TrackDurationException;
 import Model.Audio;
-import Model.File;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -27,7 +26,6 @@ public class AudioService {
             System.out.println("Set mode for record status: 1. Licensed , 2. Not Licensed.");
             audio.setLicensedRecord(scan.nextInt() == 1);
             FileService.write(PATH, audio);
-            ++File.count;
             System.out.println("***************************");
         } catch (NameException | TrackDurationException | IOException e) {
             System.out.println(e);

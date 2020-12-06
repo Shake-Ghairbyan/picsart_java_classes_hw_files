@@ -1,7 +1,7 @@
 package Main;
 
-import Model.File;
 import Services.AudioService;
+import Services.FileService;
 import Services.PDFService;
 
 import java.util.Scanner;
@@ -30,7 +30,7 @@ public class Main {
                     executeAudioSubMenu();
                     break;
                 case 3:
-                    System.out.println("Total number of created files: " + File.count);
+                    System.out.println("Total number of created files during current session: " + FileService.getCount());
                     break;
                 case 4:
                     System.out.println("Have a nice day.");
