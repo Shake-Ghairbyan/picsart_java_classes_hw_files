@@ -55,6 +55,7 @@ public abstract class File implements Printable, Stringify {
         System.out.println("File name: " + getFileName());
         System.out.println("Author: " + getAuthor());
         System.out.println("Created: " + getCreationDate());
+        System.out.println("Estimated Storage Size: " + getEstimatedStorageSize() + " bytes");
     }
 
     public abstract int getEstimatedStorageSize();

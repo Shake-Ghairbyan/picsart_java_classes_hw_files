@@ -52,6 +52,7 @@ public class PDF extends File {
             System.out.println("Number of pages: " + numberOfPages);
             System.out.println("Status of PDF file: Not Secured.");
         } else {
+            System.out.println("___________________________________________________");
             System.out.println("Status of PDF file: Secured: Info is not available.");
         }
     }

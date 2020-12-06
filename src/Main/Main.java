@@ -52,15 +52,14 @@ public class Main {
             System.out.println("2. Print all PDF files");
             System.out.println("3. Print all PDF files by number of pages.");
             System.out.println("4. Print all PDF files by Authors.");
-            System.out.println("5. Exit the PDF SubMenu");
+            System.out.println("5. Print all Non-Secured PDF files.");
+            System.out.println("6. Exit the PDF SubMenu");
             int command = scan.nextInt();
             switch (command) {
                 case 1:
-                    System.out.println("Creating PDF files");
                     PDFService.createPDFFile();
                     break;
                 case 2:
-                    System.out.println("Printing all PDF files");
                     PDFService.printPDFFiles();
                     break;
                 case 3:
@@ -70,6 +69,9 @@ public class Main {
                     PDFService.printSortedByAuthor();
                     break;
                 case 5:
+                    PDFService.printNonSecuredPDFFiles();
+                    break;
+                case 6:
                     System.out.println("Exit SubMenu");
                     isActive = false;
                     break;
