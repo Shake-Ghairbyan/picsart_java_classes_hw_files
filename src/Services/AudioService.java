@@ -8,7 +8,7 @@ import Model.File;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class Audio_Service {
+public class AudioService {
     private static final String PATH = "ForAudioObjects.txt";
 
     public static Audio createAudioFile() {
@@ -39,7 +39,7 @@ public class Audio_Service {
         System.out.println("Set mode for record status: 1. Licensed , 2. Not Licensed.");
         audio.setLicensedRecord(scan.nextInt() == 1);
         try {
-            File_Service.write(PATH, audio);
+            FileService.write(PATH, audio);
         } catch (IOException e) {
             System.out.println("Could not write to the file.");
         }
@@ -50,7 +50,7 @@ public class Audio_Service {
     private static Audio[] readAudioFiles() {
         String[] strings = {};
         try {
-            strings = File_Service.read(PATH);
+            strings = FileService.read(PATH);
         } catch (IOException e) {
             System.out.println("Could not read Audio files");
         }

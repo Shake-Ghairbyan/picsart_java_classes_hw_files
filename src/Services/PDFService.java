@@ -8,7 +8,7 @@ import Model.PDF;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class PDF_Service {
+public class PDFService {
     private static final String PATH = "ForPDFObjects.txt";
 
     public static void createPDFFile() {
@@ -40,7 +40,7 @@ public class PDF_Service {
         System.out.println("PDF file was created.");
         System.out.println("***************************");
         try {
-            File_Service.write(PATH, pdf);
+            FileService.write(PATH, pdf);
             ++File.count;
         } catch (IOException e){
             System.out.println("Could not write to the file.");
@@ -50,7 +50,7 @@ public class PDF_Service {
     private static PDF[] readPDFFiles() {
         String[] strings = {};
         try {
-            strings = File_Service.read(PATH);
+            strings = FileService.read(PATH);
         } catch (IOException e) {
             System.out.println("Could not read PDF files");
         }

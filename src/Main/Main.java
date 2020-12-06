@@ -1,6 +1,8 @@
 package Main;
 
 import Model.File;
+import Services.AudioService;
+import Services.PDFService;
 
 import java.util.Scanner;
 
@@ -55,17 +57,17 @@ public class Main {
             switch (command) {
                 case 1:
                     System.out.println("Creating PDF files");
-                    Services.PDF_Service.createPDFFile();
+                    PDFService.createPDFFile();
                     break;
                 case 2:
                     System.out.println("Printing all PDF files");
-                    Services.PDF_Service.printPDFFiles();
+                    PDFService.printPDFFiles();
                     break;
                 case 3:
-                    Services.PDF_Service.printPDFFilesSortedByPNumberOfPages();
+                    PDFService.printPDFFilesSortedByPNumberOfPages();
                     break;
                 case 4:
-                    Services.PDF_Service.printSortedByAuthor();
+                    PDFService.printSortedByAuthor();
                     break;
                 case 5:
                     System.out.println("Exit SubMenu");
@@ -91,16 +93,16 @@ public class Main {
             int command = scan.nextInt();
             switch (command) {
                 case 1:
-                    Services.Audio_Service.createAudioFile();
+                    AudioService.createAudioFile();
                     break;
                 case 2:
-                    Services.Audio_Service.printAudioFiles();
+                    AudioService.printAudioFiles();
                     break;
                 case 3:
-                    Services.Audio_Service.sortByTrackDuration();
+                    AudioService.sortByTrackDuration();
                     break;
                 case 4:
-                    Services.Audio_Service.printSortedByAuthor();
+                    AudioService.printSortedByAuthor();
                     break;
                 case 5:
                     System.out.println("Back to the Main Menu.");

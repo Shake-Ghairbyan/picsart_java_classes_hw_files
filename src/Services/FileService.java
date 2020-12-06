@@ -8,7 +8,7 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 
 
-class File_Service {
+class FileService {
     public static String[] read(String path) throws IOException {
         return Files.readAllLines(Paths.get(path)).toArray(new String[0]);
     }
