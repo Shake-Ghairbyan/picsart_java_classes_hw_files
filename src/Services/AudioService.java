@@ -50,9 +50,7 @@ public class AudioService {
     }
 
     public static void printAudioFiles() {
-        for (Audio a : readAudioFiles()) {
-            a.printInfo();
-        }
+        PrintableService.printAllInfo(readAudioFiles());
     }
 
     public static void sortByTrackDuration() {
@@ -66,9 +64,7 @@ public class AudioService {
                 }
             }
         }
-        for (Audio a : audios) {
-            a.printInfo();
-        }
+        PrintableService.printAllInfo(audios);
     }
 
     public static void printSortedByAuthor() {
@@ -83,9 +79,7 @@ public class AudioService {
                 }
             }
         }
-        for (Audio a : audios) {
-            a.printInfo();
-        }
+        PrintableService.printAllInfo(audios);
     }
 }
 

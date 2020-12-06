@@ -54,9 +54,7 @@ public class PDFService {
     }
 
     public static void printPDFFiles() {
-        for (PDF pdf : readPDFFiles()) {
-            pdf.printInfo();
-        }
+        PrintableService.printAllInfo(readPDFFiles());
     }
 
     public static void printPDFFilesSortedByPNumberOfPages() {
@@ -70,9 +68,7 @@ public class PDFService {
                 }
             }
         }
-        for (PDF p : pdfs) {
-            p.printInfo();
-        }
+        PrintableService.printAllInfo(pdfs);
     }
 
     public static void printNonSecuredPDFFiles() {
@@ -96,9 +92,7 @@ public class PDFService {
                 }
             }
         }
-        for (PDF p : pdfs) {
-            p.printInfo();
-        }
+        PrintableService.printAllInfo(pdfs);
     }
 }
 
