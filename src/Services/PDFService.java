@@ -35,22 +35,19 @@ public class PDFService {
     }
 
     private static PDF[] readPDFFiles() {
-        String[] strings = {};
         try {
-            strings = FileService.read(PATH);
-        } catch (IOException e) {
-            System.out.println("Could not read PDF files");
-        }
-        PDF[] pdfs = new PDF[strings.length];
-        for (int i = 0; i < pdfs.length; i++) {
-            try {
+            String[] strings = FileService.read(PATH);
+            PDF[] pdfs = new PDF[strings.length];
+            for (int i = 0; i < pdfs.length; i++) {
                 pdfs[i] = new PDF(strings[i]);
-            } catch (IndexOutOfBoundsException | NameException | PageException e) {
-                System.out.println("Could not read PDF files due to corrupted record");
-                return new PDF[]{};
             }
+            return pdfs;
+        } catch (IndexOutOfBoundsException | NameException | PageException e) {
+            System.out.println(e);
+        } catch (IOException e) {
+            System.out.println("Could not read PDF files.");
         }
-        return pdfs;
+        return new PDF[]{};
     }
 
     public static void printPDFFiles() {
