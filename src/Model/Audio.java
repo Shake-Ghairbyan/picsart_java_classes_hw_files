@@ -36,7 +36,7 @@ public class Audio extends File {
         setCreationDate(split[0]);
         setFileName(split[1]);
         setAuthor(split[2]);
-        durationOfTrack = Double.parseDouble(split[3].substring(0, split[3].length() - 2));
+        durationOfTrack = Double.parseDouble(split[3]);
         isLicensedRecord = Boolean.parseBoolean(split[4]);
     }
 
@@ -47,13 +47,9 @@ public class Audio extends File {
 
     @Override
     public void printInfo() {
-        if (getDurationOfTrack() > 0) {
-            super.printInfo();
-            System.out.println("Duration of track (s): " + getDurationOfTrack() + "s");
-            System.out.println("Licensed Record Status: " + (isLicensedRecord ? "Licensed" : "Not Licensed"));
-        } else {
-            System.out.println("Audio file is empty.");
-        }
+        super.printInfo();
+        System.out.println("Duration of track (s): " + getDurationOfTrack() + "s");
+        System.out.println("Licensed Record Status: " + (isLicensedRecord ? "Licensed" : "Not Licensed"));
     }
 
     @Override
