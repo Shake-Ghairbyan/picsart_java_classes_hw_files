@@ -6,7 +6,7 @@ import Interfaces.Stringify;
 
 
 public abstract class File implements Printable, Stringify {
-    private String creationDate = "15 Nov 2020";
+    private String creationDate = "No date";
     private String fileName = "No name";
     private String author = "No Name";
     public static int count = 0;
@@ -16,7 +16,7 @@ public abstract class File implements Printable, Stringify {
     }
 
     public void setCreationDate(String creationDate) {
-        if (creationDate != null && creationDate.length() > 0) {
+        if (creationDate.length() > 0) {
             this.creationDate = creationDate;
         }
     }
@@ -26,7 +26,7 @@ public abstract class File implements Printable, Stringify {
     }
 
     public void setFileName(String fileName) throws NameException {
-        if (author != null) {
+        if (fileName.length() > 0) {
             this.fileName = fileName;
         } else {
             throw new NameException(fileName);
@@ -38,7 +38,7 @@ public abstract class File implements Printable, Stringify {
     }
 
     public void setAuthor(String author) throws NameException {
-        if (author.length() != 0 ) {
+        if (author.matches("[A-Za-z\\s\\.]+")) {
             this.author = author;
         } else {
             throw new NameException(author);
