@@ -31,13 +31,13 @@ public class Audio extends File {
     public Audio() {
     }
 
-    public Audio(String a) throws NameException {
+    public Audio(String a) throws NameException, TrackDurationException {
         String[] split = a.split(",");
         setCreationDate(split[0]);
         setFileName(split[1]);
         setAuthor(split[2]);
-        durationOfTrack = Double.parseDouble(split[3]);
-        isLicensedRecord = Boolean.parseBoolean(split[4]);
+        setDurationOfTrack(Double.parseDouble(split[3]));
+        setLicensedRecord(Boolean.parseBoolean(split[4]));
     }
 
     @Override

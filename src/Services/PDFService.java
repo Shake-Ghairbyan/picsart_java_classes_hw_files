@@ -42,7 +42,7 @@ public class PDFService {
         try {
             FileService.write(PATH, pdf);
             ++File.count;
-        } catch (IOException e){
+        } catch (IOException e) {
             System.out.println("Could not write to the file.");
         }
     }
@@ -58,7 +58,7 @@ public class PDFService {
         for (int i = 0; i < pdfs.length; i++) {
             try {
                 pdfs[i] = new PDF(strings[i]);
-            } catch (IndexOutOfBoundsException e) {
+            } catch (IndexOutOfBoundsException | NameException | PageException e) {
                 System.out.println("Could not read PDF files due to corrupted record");
                 return new PDF[]{};
             }
@@ -72,7 +72,7 @@ public class PDFService {
         }
     }
 
-    public static void printPDFFilesSortedByPNumberOfPages()  {
+    public static void printPDFFilesSortedByPNumberOfPages() {
         PDF[] pdfs = readPDFFiles();
         for (int i = 0; i < pdfs.length; i++) {
             for (int j = 0; j < pdfs.length - 1 - i; j++) {
@@ -88,14 +88,15 @@ public class PDFService {
         }
     }
 
-    public static void printNonSecuredPDFFiles(){
+    public static void printNonSecuredPDFFiles() {
         PDF[] pdfs = readPDFFiles();
-        for (PDF p: pdfs) {
-            if(!p.isSecured()){
+        for (PDF p : pdfs) {
+            if (!p.isSecured()) {
                 p.printInfo();
             }
         }
     }
+
     public static void printSortedByAuthor() {
         PDF[] pdfs = readPDFFiles();
         for (int i = 0; i < pdfs.length; i++) {

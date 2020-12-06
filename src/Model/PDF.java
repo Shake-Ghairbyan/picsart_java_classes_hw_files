@@ -20,7 +20,7 @@ public class PDF extends File {
         return numberOfPages;
     }
 
-    public void setNumberOfPages(int numberOfPages) {
+    public void setNumberOfPages(int numberOfPages) throws PageException {
         if (numberOfPages < 0) {
             throw new PageException(numberOfPages);
         } else {
@@ -31,21 +31,13 @@ public class PDF extends File {
     public PDF() {
     }
 
-    public PDF(String s) throws IndexOutOfBoundsException {
+    public PDF(String s) throws IndexOutOfBoundsException, NameException, PageException {
         String[] split = s.split(",");
         setCreationDate(split[0]);
-        try {
-            setFileName(split[1]);
-        } catch (NameException e) {
-            e.printStackTrace();
-        }
-        try {
-            setAuthor(split[2]);
-        } catch (NameException e) {
-            e.printStackTrace();
-        }
-        numberOfPages = Integer.parseInt(split[3]);
-        isSecured = Boolean.parseBoolean(split[4]);
+        setFileName(split[1]);
+        setAuthor(split[2]);
+        setNumberOfPages(Integer.parseInt(split[3]));
+        setSecured(Boolean.parseBoolean(split[4]));
     }
 
     @Override

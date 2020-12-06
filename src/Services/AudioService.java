@@ -58,7 +58,7 @@ public class AudioService {
         for (int i = 0; i < audios.length; i++) {
             try {
                 audios[i] = new Audio(strings[i]);
-            } catch (IndexOutOfBoundsException | NameException e) {
+            } catch (IndexOutOfBoundsException | NameException | TrackDurationException e) {
                 System.out.println("Could not read PDF files due to corrupted record");
                 return new Audio[]{};
             }
