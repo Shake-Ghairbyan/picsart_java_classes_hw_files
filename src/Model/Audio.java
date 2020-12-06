@@ -6,7 +6,7 @@ import Exceptions.NameException;
 public class Audio extends File {
     private static final int BIT_RATE = 128 * 1024;
     private double durationOfTrack = 0.0;
-    private boolean isLicensedRecord;
+    private boolean isLicensedRecord = false;
 
     public double getDurationOfTrack() {
         return durationOfTrack;
@@ -29,29 +29,20 @@ public class Audio extends File {
     }
 
     public Audio() {
-
     }
 
-    public Audio(String a) {
+    public Audio(String a) throws NameException {
         String[] split = a.split(",");
         setCreationDate(split[0]);
-        try {
-            setFileName(split[1]);
-        } catch (NameException e) {
-            e.printStackTrace();
-        }
-        try {
-            setAuthor(split[2]);
-        } catch (NameException e) {
-            e.printStackTrace();
-        }
+        setFileName(split[1]);
+        setAuthor(split[2]);
         durationOfTrack = Double.parseDouble(split[3].substring(0, split[3].length() - 2));
         isLicensedRecord = Boolean.parseBoolean(split[4]);
     }
 
     @Override
     public String toString() {
-        return super.toString() + "," + durationOfTrack + "," + isLicensedRecord + "\n";
+        return super.toString() + "," + durationOfTrack + "," + isLicensedRecord;
     }
 
     @Override
@@ -67,7 +58,7 @@ public class Audio extends File {
 
     @Override
     public int getEstimatedStorageSize() {
-        return (int) (durationOfTrack * BIT_RATE/8);
+        return (int) (durationOfTrack * BIT_RATE / 8);
     }
 }
 

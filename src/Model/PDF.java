@@ -50,7 +50,7 @@ public class PDF extends File {
 
     @Override
     public String toString() {
-        return super.toString() + "," + numberOfPages + "," + isSecured + "\n";
+        return super.toString() + "," + numberOfPages + "," + isSecured;
     }
 
     @Override

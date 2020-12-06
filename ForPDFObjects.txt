@@ -2,3 +2,6 @@
 26 Jun 1997,Harry Potter and the Philosopher's Stone,J. K. Rowling,223,false
 6 Nov 2020,Test,Tester,0,false
 11 Dec 2006,No name,No Name,352,true
+04 Dec 2020,soomething2,Alphred Hichkok,213,false
+06 Dec 2020,Something4,R. R. Martin,456,true
+06 Dec,Chachki,E. Degenerous,666,false

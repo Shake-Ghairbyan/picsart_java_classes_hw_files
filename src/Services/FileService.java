@@ -14,6 +14,7 @@ class FileService {
     }
 
     public static void write(String path, File file) throws IOException {
-        Files.write(Paths.get(path), file.toString().getBytes(), StandardOpenOption.APPEND);
+        String s = file.toString() + "\n";
+        Files.write(Paths.get(path), s.getBytes(), StandardOpenOption.APPEND);
     }
 }
