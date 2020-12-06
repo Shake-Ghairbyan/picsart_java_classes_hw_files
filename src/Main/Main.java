@@ -5,11 +5,11 @@ import Model.File;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         executeMainMenu();
     }
 
-    static void executeMainMenu() throws Exception {
+    static void executeMainMenu() {
         Scanner scan = new Scanner(System.in);
         boolean isActive = true;
         while (isActive) {
@@ -28,7 +28,7 @@ public class Main {
                     executeAudioSubMenu();
                     break;
                 case 3:
-                    System.out.println("Total number of created files: " + Model.File.count);
+                    System.out.println("Total number of created files: " + File.count);
                     break;
                 case 4:
                     System.out.println("Have a nice day.");
@@ -49,7 +49,8 @@ public class Main {
             System.out.println("1. Create PDF File");
             System.out.println("2. Print all PDF files");
             System.out.println("3. Print all PDF files by number of pages.");
-            System.out.println("4. Exit the PDF SubMenu");
+            System.out.println("4. Print all PDF files by Authors.");
+            System.out.println("5. Exit the PDF SubMenu");
             int command = scan.nextInt();
             switch (command) {
                 case 1:
@@ -62,7 +63,11 @@ public class Main {
                     break;
                 case 3:
                     Services.PDF_Service.printPDFFilesSortedByPNumberOfPages();
+                    break;
                 case 4:
+                    Services.PDF_Service.printSortedByAuthor();
+                    break;
+                case 5:
                     System.out.println("Exit SubMenu");
                     isActive = false;
                     break;
@@ -73,7 +78,7 @@ public class Main {
         }
     }
 
-    static void executeAudioSubMenu() throws Exception {
+    static void executeAudioSubMenu() {
         Scanner scan = new Scanner(System.in);
         boolean isActive = true;
         while (isActive) {
@@ -81,7 +86,8 @@ public class Main {
             System.out.println("1. Create Audio File");
             System.out.println("2. Print all Audio files");
             System.out.println("3. Print all Audio files sorted by duration.");
-            System.out.println("4. Exit the Audio SubMenu");
+            System.out.println("4. Print all Audio files sorted by Author.");
+            System.out.println("5. Exit the Audio SubMenu");
             int command = scan.nextInt();
             switch (command) {
                 case 1:
@@ -94,6 +100,9 @@ public class Main {
                     Services.Audio_Service.sortByTrackDuration();
                     break;
                 case 4:
+                    Services.Audio_Service.printSortedByAuthor();
+                    break;
+                case 5:
                     System.out.println("Back to the Main Menu.");
                     isActive = false;
                     break;

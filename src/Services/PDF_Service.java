@@ -1,5 +1,8 @@
 package Services;
 
+import Exceptions.FileExceptions.NameException;
+import Exceptions.PDFExceptions.PageException;
+import Model.File;
 import Text_SubClasses.PDF;
 
 import java.io.IOException;
@@ -15,17 +18,30 @@ public class PDF_Service {
         System.out.println("Insert creation Date");
         pdf.setCreationDate(scan.nextLine());
         System.out.println("Print file name");
-        pdf.setFileName(scan.nextLine());
+        try {
+            pdf.setFileName(scan.nextLine());
+        } catch (NameException e) {
+            e.printStackTrace();
+        }
         System.out.println("Print Author's name");
-        pdf.setAuthor(scan.nextLine());
+        try {
+            pdf.setAuthor(scan.nextLine());
+        } catch (NameException e) {
+            e.printStackTrace();
+        }
         System.out.println("Insert number of pages of the file");
-        pdf.setNumberOfPages(scan.nextInt());
+        try {
+            pdf.setNumberOfPages(scan.nextInt());
+        } catch (PageException e) {
+            e.printStackTrace();
+        }
         System.out.println("Set Secured mode for the file: 1. Secured , 2. Not Secured.");
         pdf.setSecured(scan.nextInt() == 1);
         System.out.println("PDF file was created.");
         System.out.println("***************************");
         try {
             File_Service.write(PATH, pdf);
+            ++File.count;
         } catch (IOException e){
             System.out.println("Could not write to the file.");
         }
@@ -61,6 +77,31 @@ public class PDF_Service {
         for (int i = 0; i < pdfs.length; i++) {
             for (int j = 0; j < pdfs.length - 1 - i; j++) {
                 if (pdfs[j].getNumberOfPages() > pdfs[j + 1].getNumberOfPages()) {
+                    PDF reservedPDF = pdfs[j];
+                    pdfs[j] = pdfs[j + 1];
+                    pdfs[j + 1] = reservedPDF;
+                }
+            }
+        }
+        for (PDF p : pdfs) {
+            p.printInfo();
+        }
+    }
+
+    public static void printNonSecuredPDFFiles(){
+        PDF[] pdfs = readPDFFiles();
+        for (PDF p: pdfs) {
+            if(!p.isSecured()){
+                p.printInfo();
+            }
+        }
+    }
+    public static void printSortedByAuthor() {
+        PDF[] pdfs = readPDFFiles();
+        for (int i = 0; i < pdfs.length; i++) {
+            for (int j = 0; j < pdfs.length - 1 - i; j++) {
+                int compare = pdfs[j].getAuthor().compareTo(pdfs[j + 1].getAuthor());
+                if (compare > 0) {
                     PDF reservedPDF = pdfs[j];
                     pdfs[j] = pdfs[j + 1];
                     pdfs[j + 1] = reservedPDF;

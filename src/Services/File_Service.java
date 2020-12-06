@@ -1,4 +1,5 @@
 package Services;
+
 import Model.File;
 
 import java.io.IOException;
@@ -14,13 +15,5 @@ class File_Service {
 
     public static void write(String path, File file) throws IOException {
         Files.write(Paths.get(path), file.toString().getBytes(), StandardOpenOption.APPEND);
-    }
-
-    public static boolean checkArrayIsEmpty(String[] f) {
-        if (f == null || f.length == 0) {
-            System.out.println("Array of files is null or empty.");
-            return true;
-        }
-        return false;
     }
 }

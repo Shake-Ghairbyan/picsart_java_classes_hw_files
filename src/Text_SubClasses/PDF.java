@@ -1,8 +1,11 @@
 package Text_SubClasses;
 
+import Exceptions.FileExceptions.NameException;
+import Exceptions.PDFExceptions.PageException;
 import Model.File;
 
 public class PDF extends File {
+    private static final int PAGE_SIZE = 70 * 1024;
     private int numberOfPages;
     private boolean isSecured;
 
@@ -10,16 +13,20 @@ public class PDF extends File {
         return isSecured;
     }
 
+    public void setSecured(boolean isSecured) {
+        this.isSecured = isSecured;
+    }
+
     public int getNumberOfPages() {
         return numberOfPages;
     }
 
     public void setNumberOfPages(int numberOfPages) {
-        this.numberOfPages = numberOfPages;
-    }
-
-    public void setSecured(boolean isSecured) {
-        this.isSecured = isSecured;
+        if (numberOfPages < 0) {
+            throw new PageException(numberOfPages);
+        } else {
+            this.numberOfPages = numberOfPages;
+        }
     }
 
     public PDF() {
@@ -28,8 +35,16 @@ public class PDF extends File {
     public PDF(String s) throws IndexOutOfBoundsException {
         String[] split = s.split(",");
         setCreationDate(split[0]);
-        setFileName(split[1]);
-        setAuthor(split[2]);
+        try {
+            setFileName(split[1]);
+        } catch (NameException e) {
+            e.printStackTrace();
+        }
+        try {
+            setAuthor(split[2]);
+        } catch (NameException e) {
+            e.printStackTrace();
+        }
         numberOfPages = Integer.parseInt(split[3]);
         isSecured = Boolean.parseBoolean(split[4]);
     }
@@ -48,6 +63,11 @@ public class PDF extends File {
         } else {
             System.out.println("Status of PDF file: Secured: Info is not available.");
         }
+    }
+
+    @Override
+    public int getEstimatedStorageSize() {
+        return numberOfPages * PAGE_SIZE;
     }
 }
 

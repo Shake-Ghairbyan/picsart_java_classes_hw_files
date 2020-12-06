@@ -1,9 +1,10 @@
 package Model;
 
-import Interfaces.I_File;
+import Exceptions.FileExceptions.NameException;
+import Interfaces.Printable;
 
 
-public class File implements I_File {
+public abstract class File implements Printable {
     private String creationDate = "15 Nov 2020";
     private String fileName = "No name";
     private String author = "No Name";
@@ -23,9 +24,11 @@ public class File implements I_File {
         return fileName;
     }
 
-    public void setFileName(String fileName) {
-        if (fileName != null && fileName.length() > 0) {
+    public void setFileName(String fileName) throws NameException {
+        if (author != null) {
             this.fileName = fileName;
+        } else {
+            throw new NameException(fileName);
         }
     }
 
@@ -33,14 +36,12 @@ public class File implements I_File {
         return author;
     }
 
-    public void setAuthor(String author) {
-        if (author != null && author.length() > 0) {
+    public void setAuthor(String author) throws NameException {
+        if (author.length() != 0 ) {
             this.author = author;
+        } else {
+            throw new NameException(author);
         }
-    }
-
-    public File() {
-        ++count;
     }
 
     public String toString() {
@@ -55,9 +56,5 @@ public class File implements I_File {
         System.out.println("Created: " + getCreationDate());
     }
 
-    @Override
-    public void printAuthor() {
-        System.out.println("Author of the file is : " + getAuthor());
-    }
-
+    public abstract int getEstimatedStorageSize();
 }
