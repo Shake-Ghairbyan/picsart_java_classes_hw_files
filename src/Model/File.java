@@ -2,9 +2,10 @@ package Model;
 
 import Exceptions.NameException;
 import Interfaces.Printable;
+import Interfaces.Stringify;
 
 
-public abstract class File implements Printable {
+public abstract class File implements Printable, Stringify {
     private String creationDate = "15 Nov 2020";
     private String fileName = "No name";
     private String author = "No Name";
@@ -44,6 +45,7 @@ public abstract class File implements Printable {
         }
     }
 
+    @Override
     public String toString() {
         return creationDate + "," + fileName + "," + author;
     }
