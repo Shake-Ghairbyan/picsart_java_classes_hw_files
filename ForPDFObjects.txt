@@ -5,3 +5,4 @@
 04 Dec 2020,soomething2,Alphred Hichkok,213,false
 06 Dec 2020,Something4,R. R. Martin,456,true
 06 Dec,Chachki,E. Degenerous,666,false
+05 Dec 2020,some3,sam smith,342,false

@@ -14,36 +14,25 @@ public class PDFService {
     public static void createPDFFile() {
         Scanner scan = new Scanner(System.in);
         PDF pdf = new PDF();
-        System.out.println("***************************");
-        System.out.println("Insert creation Date");
-        pdf.setCreationDate(scan.nextLine());
-        System.out.println("Print file name");
         try {
+            System.out.println("***************************");
+            System.out.println("Insert creation Date");
+            pdf.setCreationDate(scan.nextLine());
+            System.out.println("Print file name");
             pdf.setFileName(scan.nextLine());
-        } catch (NameException e) {
-            e.printStackTrace();
-        }
-        System.out.println("Print Author's name");
-        try {
+            System.out.println("Print Author's name");
             pdf.setAuthor(scan.nextLine());
-        } catch (NameException e) {
-            e.printStackTrace();
-        }
-        System.out.println("Insert number of pages of the file");
-        try {
+            System.out.println("Insert number of pages of the file");
             pdf.setNumberOfPages(scan.nextInt());
-        } catch (PageException e) {
-            e.printStackTrace();
-        }
-        System.out.println("Set Secured mode for the file: 1. Secured , 2. Not Secured.");
-        pdf.setSecured(scan.nextInt() == 1);
-        System.out.println("PDF file was created.");
-        System.out.println("***************************");
-        try {
+            System.out.println("Set Secured mode for the file: 1. Secured , 2. Not Secured.");
+            pdf.setSecured(scan.nextInt() == 1);
+            System.out.println("PDF file was created.");
+            System.out.println("***************************");
             FileService.write(PATH, pdf);
             ++File.count;
-        } catch (IOException e) {
-            System.out.println("Could not write to the file.");
+        } catch (NameException | PageException | IOException e) {
+            System.out.println(e);
+            System.out.println("Inputs are discarded");
         }
     }
 

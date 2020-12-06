@@ -1,7 +1,7 @@
 package Services;
 
-import Exceptions.TrackDurationException;
 import Exceptions.NameException;
+import Exceptions.TrackDurationException;
 import Model.Audio;
 import Model.File;
 
@@ -11,40 +11,28 @@ import java.util.Scanner;
 public class AudioService {
     private static final String PATH = "ForAudioObjects.txt";
 
-    public static Audio createAudioFile() {
+    public static void createAudioFile() {
         Scanner scan = new Scanner(System.in);
         Audio audio = new Audio();
-        System.out.println("***************************");
-        System.out.println("Insert creation Date");
-        audio.setCreationDate(scan.nextLine());
-        System.out.println("Print file name");
         try {
+            System.out.println("***************************");
+            System.out.println("Insert creation Date");
+            audio.setCreationDate(scan.nextLine());
+            System.out.println("Print file name");
             audio.setFileName(scan.nextLine());
-        } catch (NameException e) {
-            e.printStackTrace();
-        }
-        System.out.println("Print Author's name");
-        try {
+            System.out.println("Print Author's name");
             audio.setAuthor(scan.nextLine());
-        } catch (NameException e) {
-            e.printStackTrace();
-        }
-        System.out.println("Insert duration of the track in seconds");
-        try{
+            System.out.println("Insert duration of the track in seconds");
             audio.setDurationOfTrack(scan.nextInt());
-        } catch (TrackDurationException e){
-            e.printStackTrace();
-            ++File.count;
-        }
-        System.out.println("Set mode for record status: 1. Licensed , 2. Not Licensed.");
-        audio.setLicensedRecord(scan.nextInt() == 1);
-        try {
+            System.out.println("Set mode for record status: 1. Licensed , 2. Not Licensed.");
+            audio.setLicensedRecord(scan.nextInt() == 1);
             FileService.write(PATH, audio);
-        } catch (IOException e) {
-            System.out.println("Could not write to the file.");
+            ++File.count;
+            System.out.println("***************************");
+        } catch (NameException | TrackDurationException | IOException e) {
+            System.out.println(e);
+            System.out.println("Inputs are discarded");
         }
-        System.out.println("***************************");
-        return audio;
     }
 
     private static Audio[] readAudioFiles() {
