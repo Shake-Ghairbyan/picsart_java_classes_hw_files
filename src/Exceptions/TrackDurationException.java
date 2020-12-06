@@ -1,4 +1,4 @@
-package Exceptions.AudioExceptions;
+package Exceptions;
 
 public class TrackDurationException extends RuntimeException {
 

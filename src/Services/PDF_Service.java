@@ -1,9 +1,9 @@
 package Services;
 
-import Exceptions.FileExceptions.NameException;
-import Exceptions.PDFExceptions.PageException;
+import Exceptions.NameException;
+import Exceptions.PageException;
 import Model.File;
-import Text_SubClasses.PDF;
+import Model.PDF;
 
 import java.io.IOException;
 import java.util.Scanner;

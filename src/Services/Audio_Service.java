@@ -1,8 +1,8 @@
 package Services;
 
-import Exceptions.AudioExceptions.TrackDurationException;
-import Exceptions.FileExceptions.NameException;
-import Media_SubClasses.Audio;
+import Exceptions.TrackDurationException;
+import Exceptions.NameException;
+import Model.Audio;
 import Model.File;
 
 import java.io.IOException;

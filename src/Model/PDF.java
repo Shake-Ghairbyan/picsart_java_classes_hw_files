@@ -1,8 +1,7 @@
-package Text_SubClasses;
+package Model;
 
-import Exceptions.FileExceptions.NameException;
-import Exceptions.PDFExceptions.PageException;
-import Model.File;
+import Exceptions.NameException;
+import Exceptions.PageException;
 
 public class PDF extends File {
     private static final int PAGE_SIZE = 70 * 1024;

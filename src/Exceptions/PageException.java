@@ -1,4 +1,4 @@
-package Exceptions.PDFExceptions;
+package Exceptions;
 
 public class PageException extends RuntimeException{
 

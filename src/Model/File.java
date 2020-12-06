@@ -1,6 +1,6 @@
 package Model;
 
-import Exceptions.FileExceptions.NameException;
+import Exceptions.NameException;
 import Interfaces.Printable;
 
 

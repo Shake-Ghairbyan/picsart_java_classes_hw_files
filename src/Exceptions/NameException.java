@@ -1,4 +1,4 @@
-package Exceptions.FileExceptions;
+package Exceptions;
 
 public class NameException extends Exception {
 

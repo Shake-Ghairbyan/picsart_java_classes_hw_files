@@ -1,8 +1,7 @@
-package Media_SubClasses;
+package Model;
 
-import Exceptions.AudioExceptions.TrackDurationException;
-import Exceptions.FileExceptions.NameException;
-import Model.File;
+import Exceptions.TrackDurationException;
+import Exceptions.NameException;
 
 public class Audio extends File {
     private static final int BIT_RATE = 128 * 1024;
