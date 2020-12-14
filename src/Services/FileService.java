@@ -7,6 +7,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
+import java.util.List;
 
 
 public class FileService {
@@ -17,8 +18,8 @@ public class FileService {
         return count;
     }
 
-    static String[] read(String path) throws IOException {
-        return Files.readAllLines(Paths.get(path)).toArray(new String[0]);
+    static List<String> read(String path) throws IOException {
+        return Files.readAllLines(Paths.get(path));
     }
 
     static void write(String path, File file) throws IOException {

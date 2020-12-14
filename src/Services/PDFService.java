@@ -1,10 +1,15 @@
 package Services;
 
+import Comparators.AuthorComparator;
+import Comparators.PagesComparator;
 import Exceptions.NameException;
 import Exceptions.PageException;
 import Model.PDF;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Scanner;
 
 public class PDFService {
@@ -34,12 +39,12 @@ public class PDFService {
         }
     }
 
-    private static PDF[] readPDFFiles() {
+    private static List<PDF> readPDFFiles() {
         try {
-            String[] strings = FileService.read(PATH);
-            PDF[] pdfs = new PDF[strings.length];
-            for (int i = 0; i < pdfs.length; i++) {
-                pdfs[i] = new PDF(strings[i]);
+            List<String> strings = FileService.read(PATH);
+            List<PDF> pdfs = new ArrayList<>();
+            for (String s: strings) {
+                pdfs.add(new PDF(s));
             }
             return pdfs;
         } catch (IndexOutOfBoundsException | NameException | PageException e) {
@@ -47,7 +52,7 @@ public class PDFService {
         } catch (IOException e) {
             System.out.println("Could not read PDF files.");
         }
-        return new PDF[]{};
+        return new ArrayList<>();
     }
 
     public static void printPDFFiles() {
@@ -55,21 +60,13 @@ public class PDFService {
     }
 
     public static void printPDFFilesSortedByPNumberOfPages() {
-        PDF[] pdfs = readPDFFiles();
-        for (int i = 0; i < pdfs.length; i++) {
-            for (int j = 0; j < pdfs.length - 1 - i; j++) {
-                if (pdfs[j].getNumberOfPages() > pdfs[j + 1].getNumberOfPages()) {
-                    PDF reservedPDF = pdfs[j];
-                    pdfs[j] = pdfs[j + 1];
-                    pdfs[j + 1] = reservedPDF;
-                }
-            }
-        }
+        List<PDF> pdfs = readPDFFiles();
+        Collections.sort(pdfs, new PagesComparator());
         PrintableService.printAllInfo(pdfs);
     }
 
     public static void printNonSecuredPDFFiles() {
-        PDF[] pdfs = readPDFFiles();
+        List<PDF> pdfs = readPDFFiles();
         for (PDF p : pdfs) {
             if (!p.isSecured()) {
                 p.printInfo();
@@ -78,17 +75,8 @@ public class PDFService {
     }
 
     public static void printSortedByAuthor() {
-        PDF[] pdfs = readPDFFiles();
-        for (int i = 0; i < pdfs.length; i++) {
-            for (int j = 0; j < pdfs.length - 1 - i; j++) {
-                int compare = pdfs[j].getAuthor().compareTo(pdfs[j + 1].getAuthor());
-                if (compare > 0) {
-                    PDF reservedPDF = pdfs[j];
-                    pdfs[j] = pdfs[j + 1];
-                    pdfs[j + 1] = reservedPDF;
-                }
-            }
-        }
+        List<PDF> pdfs = readPDFFiles();
+        Collections.sort(pdfs, new AuthorComparator());
         PrintableService.printAllInfo(pdfs);
     }
 }

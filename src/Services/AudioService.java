@@ -1,10 +1,15 @@
 package Services;
 
+import Comparators.AuthorComparator;
+import Comparators.DurationComparator;
 import Exceptions.NameException;
 import Exceptions.TrackDurationException;
 import Model.Audio;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Scanner;
 
 public class AudioService {
@@ -33,12 +38,12 @@ public class AudioService {
         }
     }
 
-    private static Audio[] readAudioFiles() {
+    private static List<Audio> readAudioFiles() {
         try {
-            String[] strings = FileService.read(PATH);
-            Audio[] audios = new Audio[strings.length];
-            for (int i = 0; i < audios.length; i++) {
-                audios[i] = new Audio(strings[i]);
+            List<String> strings = FileService.read(PATH);
+            List<Audio> audios = new ArrayList<>();
+            for (String s: strings) {
+                audios.add(new Audio(s));
             }
             return audios;
         } catch (IndexOutOfBoundsException | NameException | TrackDurationException e) {
@@ -46,7 +51,7 @@ public class AudioService {
         } catch (IOException e) {
             System.out.println("Could not read Audio files");
         }
-        return new Audio[]{};
+        return new ArrayList<>();
     }
 
     public static void printAudioFiles() {
@@ -54,31 +59,14 @@ public class AudioService {
     }
 
     public static void sortByTrackDuration() {
-        Audio[] audios = readAudioFiles();
-        for (int i = 0; i < audios.length; i++) {
-            for (int j = 0; j < audios.length - 1 - i; j++) {
-                if (audios[j].getDurationOfTrack() > audios[j + 1].getDurationOfTrack()) {
-                    Audio reservedAudio = audios[j];
-                    audios[j] = audios[j + 1];
-                    audios[j + 1] = reservedAudio;
-                }
-            }
-        }
+        List<Audio> audios = readAudioFiles();
+        Collections.sort(audios, new DurationComparator());
         PrintableService.printAllInfo(audios);
     }
 
     public static void printSortedByAuthor() {
-        Audio[] audios = readAudioFiles();
-        for (int i = 0; i < audios.length; i++) {
-            for (int j = 0; j < audios.length - 1 - i; j++) {
-                int compare = audios[j].getAuthor().compareTo(audios[j + 1].getAuthor());
-                if (compare > 0) {
-                    Audio reservedAudio = audios[j];
-                    audios[j] = audios[j + 1];
-                    audios[j + 1] = reservedAudio;
-                }
-            }
-        }
+        List<Audio> audios = readAudioFiles();
+        Collections.sort(audios, new AuthorComparator());
         PrintableService.printAllInfo(audios);
     }
 }
