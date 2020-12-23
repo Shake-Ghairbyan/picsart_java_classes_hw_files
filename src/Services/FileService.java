@@ -1,7 +1,5 @@
 package Services;
 
-import Model.File;
-
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -22,8 +20,8 @@ public class FileService {
         return Files.readAllLines(Paths.get(path));
     }
 
-    static void write(String path, File file) throws IOException {
-        String s = file.toString() + "\n";
+    static <T>void write(String path, T t ) throws IOException {
+        String s = t.toString() + "\n";
         Path path1 = Paths.get(path);
         if (Files.exists(path1)) {
             Files.write(path1, s.getBytes(), StandardOpenOption.APPEND);
