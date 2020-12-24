@@ -22,15 +22,11 @@ public class UserService {
             user.setFullName(scan.nextLine());
             System.out.println("Insert username /at least 10 symbols/.");
             String insertedUsername = scan.nextLine();
-            System.out.println("Checking if such username is already used .... ");
-            try {
-                if (!readUsers().isEmpty()) {
-                    if (readUsers().containsKey(insertedUsername)) {
-                        throw new UsernameException("Such username already exists: ", insertedUsername);
-                    }
+            if (!readUsers().isEmpty()) {
+                System.out.println("Checking if such username is already used .... ");
+                if (readUsers().containsKey(insertedUsername)) {
+                    throw new UsernameException("Such username already exists: ", insertedUsername);
                 }
-            } catch (Exception e) {
-                e.getMessage();
             }
             user.setUsername(insertedUsername);
             System.out.println("Insert email address.");
