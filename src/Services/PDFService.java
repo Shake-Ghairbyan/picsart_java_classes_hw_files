@@ -13,8 +13,20 @@ import java.util.List;
 import java.util.Scanner;
 
 public class PDFService {
+    /**
+     * This field shows where created pdf files will be written.
+     *
+     * @author Shake Gharibyan
+     * @since 2021-01-04
+     */
     private static final String PATH = "ForPDFObjects.txt";
 
+    /**
+     * This method is used to create new pdf file.
+     *
+     * @author Shake Gharibyan
+     * @since 2021-01-04
+     */
     public static void createPDFFile() {
         Scanner scan = new Scanner(System.in);
         PDF pdf = new PDF();
@@ -39,11 +51,19 @@ public class PDFService {
         }
     }
 
+    /**
+     * This method reads pdf files from the text file and
+     * returns the written pdf files as an ArrayList of pdfs.
+     *
+     * @return List
+     * @author Shake Gharibyan
+     * @since 2021-01-04
+     */
     private static List<PDF> readPDFFiles() {
         try {
             List<String> strings = FileService.read(PATH);
             List<PDF> pdfs = new ArrayList<>();
-            for (String s: strings) {
+            for (String s : strings) {
                 pdfs.add(new PDF(s));
             }
             return pdfs;
@@ -55,16 +75,34 @@ public class PDFService {
         return new ArrayList<>();
     }
 
+    /**
+     * Prints pdf files wirtten in the text file.
+     *
+     * @author Shake Gharibyan
+     * @since 2021-01-04
+     */
     public static void printPDFFiles() {
         PrintableService.printAllInfo(readPDFFiles());
     }
 
+    /**
+     * Prints pdf files wirtten in the text file sorted by number of pages in ascending order.
+     *
+     * @author Shake Gharibyan
+     * @since 2021-01-04
+     */
     public static void printPDFFilesSortedByPNumberOfPages() {
         List<PDF> pdfs = readPDFFiles();
         Collections.sort(pdfs, new PagesComparator());
         PrintableService.printAllInfo(pdfs);
     }
 
+    /**
+     * Prints non-secured pdf files wirtten in the text file.
+     *
+     * @author Shake Gharibyan
+     * @since 2021-01-04
+     */
     public static void printNonSecuredPDFFiles() {
         List<PDF> pdfs = readPDFFiles();
         for (PDF p : pdfs) {
@@ -74,6 +112,12 @@ public class PDFService {
         }
     }
 
+    /**
+     * Prints pdf files wirtten in the text file sorted by Author's full name in ascending order.
+     *
+     * @author Shake Gharibyan
+     * @since 2021-01-04
+     */
     public static void printSortedByAuthor() {
         List<PDF> pdfs = readPDFFiles();
         Collections.sort(pdfs, new AuthorComparator());
