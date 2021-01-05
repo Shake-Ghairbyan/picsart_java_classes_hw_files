@@ -13,7 +13,6 @@ public class PDF extends File {
      * This method is used to get the status of the instance of PDF class, whether it is secured or not.
      *
      * @return boolean
-     * @version 1.0
      * @since 2021-01-04
      */
     public boolean isSecured() {
@@ -23,8 +22,8 @@ public class PDF extends File {
     /**
      * This method is used to set the status of the instance of PDF class, whether it is secured or not.
      *
-     * @param isSecured
-     * @version 1.0
+     * @param isSecured boolean variable to set the status of the PDf class' instance:
+     *                  true: Secured status, false: Not - Secured Status.
      * @since 2021-01-04
      */
     public void setSecured(boolean isSecured) {
@@ -35,7 +34,6 @@ public class PDF extends File {
      * This method is used to get the number of pages of the instance of PDF class.
      *
      * @return numberOfPages
-     * @version 1.0
      * @since 2021-01-04
      */
 
@@ -46,9 +44,8 @@ public class PDF extends File {
     /**
      * This method is used to set the number of pages for the instance of PDF class.
      *
-     * @param numberOfPages
-     * @throws InvalidPageNumberException
-     * @version 1.0
+     * @param numberOfPages inserted number of pages for the instance of PDF class.
+     * @throws InvalidPageNumberException is thrown when assigned values of pages of PDF file is negative.
      * @since 2021-01-04
      */
 
@@ -63,7 +60,6 @@ public class PDF extends File {
     /**
      * This method is used to construct new instance of PDF class.
      *
-     * @version 1.0
      * @since 2021-01-04
      */
 
@@ -74,11 +70,12 @@ public class PDF extends File {
      * This method is used to construct new instance of PDF class,
      * from the stringified file that is read from "ForPDFObjects.txt".
      *
-     * @param s
-     * @throws InvalidAuthorNameException
-     * @throws IndexOutOfBoundsException
-     * @throws InvalidPageNumberException
-     * @version 1.0
+     * @param s CSVStringified PDF class' instance that is read from "ForPDFObjects.txt".
+     * @throws InvalidAuthorNameException is thrown when Author's full name of the File class' instance is not valid
+     *                                    /both first name and last name must be UpperCase and should be separated by space/.
+     * @throws IndexOutOfBoundsException  is thrown if an index of some sort (such as to an array, to a string, or to a vector)
+     *                                    is out of range.
+     * @throws InvalidPageNumberException is thrown when assigned values of pages of PDF file is negative.
      * @since 2021-01-04
      */
 
@@ -93,8 +90,8 @@ public class PDF extends File {
     }
 
     @Override
-    public String toString() {
-        return super.toString() + "," + numberOfPages + "," + isSecured;
+    public String toCSVString() {
+        return super.toCSVString() + "," + numberOfPages + "," + isSecured;
     }
 
     @Override

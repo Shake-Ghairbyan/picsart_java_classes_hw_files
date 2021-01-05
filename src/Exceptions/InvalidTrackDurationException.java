@@ -15,7 +15,6 @@ public class InvalidTrackDurationException extends Exception {
      *
      * @param t Track duration of the Audio's instance:
      *          should be non negative value.
-     * @version 1.0
      * @since 2021-01-04
      */
 

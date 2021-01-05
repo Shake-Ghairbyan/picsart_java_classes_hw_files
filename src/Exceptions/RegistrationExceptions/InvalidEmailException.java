@@ -15,7 +15,6 @@ public class InvalidEmailException extends Exception {
      * This method constructs a new EmailException with specified detail message.
      *
      * @param email email of the User's instance which should be valid email address.
-     * @version 1.0
      * @since 2021-01-04
      */
     public InvalidEmailException(String email) {

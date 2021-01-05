@@ -26,7 +26,6 @@ public class PDFService {
     /**
      * This field shows where created pdf files will be written.
      *
-     * @version 1.0
      * @since 2021-01-04
      */
     private static final String PATH = "ForPDFObjects.txt";
@@ -34,7 +33,6 @@ public class PDFService {
     /**
      * This method is used to create new pdf file.
      *
-     * @version 1.0
      * @since 2021-01-04
      */
     public static void createPDFFile() {
@@ -67,7 +65,6 @@ public class PDFService {
      * returns the written pdf files as an ArrayList of pdf files.
      *
      * @return new ArrayList<>()
-     * @version 1.0
      * @since 2021-01-04
      */
     private static List<PDF> readPDFFiles() {
@@ -90,7 +87,6 @@ public class PDFService {
     /**
      * Prints pdf files written in the "ForPDFObjects.txt" text file.
      *
-     * @version 1.0
      * @since 2021-01-04
      */
     public static void printPDFFiles() {
@@ -100,7 +96,6 @@ public class PDFService {
     /**
      * Prints pdf files written in the "ForPDFObjects.txt" text file sorted by number of pages in ascending order.
      *
-     * @version 1.0
      * @since 2021-01-04
      */
     public static void printPDFFilesSortedByPNumberOfPages() {
@@ -112,7 +107,6 @@ public class PDFService {
     /**
      * Prints non-secured pdf files written in the "ForPDFObjects.txt" text file.
      *
-     * @version 1.0
      * @since 2021-01-04
      */
     public static void printNonSecuredPDFFiles() {
@@ -128,8 +122,6 @@ public class PDFService {
      * This method is used to print instances of the PDF class, which are read from "ForPDFObjects.txt" file,
      * sorted by the filenames of those instances in Ascending Order.
      *
-     *
-     * @version 1.0
      * @since 2021-01-04
      */
     public static void printSortedByPDFFileNameInAscendingOrder() {
@@ -142,8 +134,6 @@ public class PDFService {
      * This method is used to print instances of the PDF class, which are read from "ForPDFObjects.txt" file,
      * sorted by the filenames of those instances in Descending Order.
      *
-     *
-     * @version 1.0
      * @since 2021-01-04
      */
     public static void printSortedByPDFFileNameInDescendingOrder() {
@@ -155,7 +145,6 @@ public class PDFService {
     /**
      * Prints pdf files written in the text file sorted by Author's full name in ascending order.
      *
-     * @version 1.0
      * @since 2021-01-04
      */
     public static void printSortedByAuthor() {

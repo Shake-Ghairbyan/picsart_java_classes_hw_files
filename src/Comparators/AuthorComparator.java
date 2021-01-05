@@ -16,8 +16,8 @@ import java.util.Comparator;
 public class AuthorComparator implements Comparator<File> {
 
     /**
-     *This method is used to compare two instances of File class by comparing
-     *their authors names in lexicographical order.
+     * This method is used to compare two instances of File class by comparing
+     * their authors names in lexicographical order.
      *
      * @param o1 - first File instance to be compared
      * @param o2 - second File instance to be compared

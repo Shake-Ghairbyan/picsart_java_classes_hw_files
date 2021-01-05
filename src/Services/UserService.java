@@ -24,7 +24,6 @@ public class UserService {
     /**
      * This field shows the name of .txt file where created users' info will be written/stored.
      *
-     * @version 1.0
      * @since 2021-01-04
      */
     private static final String PATH = "database.txt";
@@ -32,7 +31,6 @@ public class UserService {
     /**
      * This method is created to be used to create User and write them in the database if succeeded.
      *
-     * @version 1.0
      * @since 2021-01-04
      */
     public static void signUp() {
@@ -67,7 +65,6 @@ public class UserService {
      * This method is created to be used to read already created users from the database text file.
      *
      * @return HashMap of Users
-     * @version 1.0
      * @since 2021-01-04
      */
 
@@ -93,7 +90,6 @@ public class UserService {
      * This method is created to be used to allow registered user to access Files_Menus, if true.
      *
      * @return boolean
-     * @version 1.0
      * @since 2021-01-04
      */
     public static boolean login() {

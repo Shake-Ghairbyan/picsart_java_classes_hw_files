@@ -16,7 +16,6 @@ public class InvalidPasswordException extends Exception {
      * This method constructs a new PasswordException with specified detail message.
      *
      * @param message The detail message (which is saved for later retrieval by the getMessage() method)
-     * @version 1.0
      * @since 2021-01-04
      */
     public InvalidPasswordException(String message) {

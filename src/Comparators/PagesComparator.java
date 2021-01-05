@@ -22,7 +22,6 @@ public class PagesComparator implements Comparator<PDF> {
      * @param p1 first PDF instance to be compared
      * @param p2 second PDF instance to be compared
      * @return int
-     * @version 1.0
      * @since 2021-01-04
      */
 

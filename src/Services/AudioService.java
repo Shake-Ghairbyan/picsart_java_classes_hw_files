@@ -24,7 +24,6 @@ public class AudioService {
     /**
      * This field shows where created audio files will be written.
      *
-     * @version 1.0
      * @since 2021-01-04
      */
     private static final String PATH = "ForAudioObjects.txt";
@@ -32,7 +31,6 @@ public class AudioService {
     /**
      * This method is used to create new audio file.
      *
-     * @version 1.0
      * @since 2021-01-04
      */
 
@@ -65,7 +63,6 @@ public class AudioService {
      * returns the written pdf files as an ArrayList of audio files.
      *
      * @return new ArrayList<>();
-     * @version 1.0
      * @since 2021-01-04
      */
 
@@ -89,7 +86,6 @@ public class AudioService {
     /**
      * Prints audio files written in the text file.
      *
-     * @version 1.0
      * @since 2021-01-04
      */
 
@@ -100,7 +96,6 @@ public class AudioService {
     /**
      * Prints audio files written in the text file sorted by track duration in ascending order.
      *
-     * @version 1.0
      * @since 2021-01-04
      */
 
@@ -113,7 +108,6 @@ public class AudioService {
     /**
      * Prints audio files written in the text file sorted by track duration in ascending order.
      *
-     * @version 1.0
      * @since 2021-01-04
      */
 
@@ -127,7 +121,6 @@ public class AudioService {
      * This method is used to print those instances of the Audio class that are read from "ForAudioObjects.txt" file,
      * which have licensed status.
      *
-     * @version 1.0
      * @since 2021-01-04
      */
 
@@ -145,7 +138,6 @@ public class AudioService {
      * This method is used to print instances of the Audio class, which are read from "ForAudioObjects.txt" file,
      * sorted by the filenames of those instances in Ascending Order.
      *
-     * @version 1.0
      * @since 2021-01-04
      */
 
@@ -159,7 +151,6 @@ public class AudioService {
      * This method is used to print instances of the Audio class, which are read from "ForAudioObjects.txt" file,
      * sorted by the filenames of those instances in Descending Order.
      *
-     * @version 1.0
      * @since 2021-01-04
      */
 

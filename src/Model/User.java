@@ -4,7 +4,7 @@ import Exceptions.RegistrationExceptions.InvalidEmailException;
 import Exceptions.RegistrationExceptions.InvalidFullNameException;
 import Exceptions.RegistrationExceptions.InvalidPasswordException;
 import Exceptions.RegistrationExceptions.InvalidUsernameException;
-import Interfaces.Stringify;
+import Interfaces.CSVable;
 
 import java.math.BigInteger;
 import java.security.MessageDigest;
@@ -12,7 +12,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class User implements Stringify {
+public class User implements CSVable {
     private String fullName;
     private String username;
     private String email;
@@ -22,11 +22,13 @@ public class User implements Stringify {
      * This method is used to construct new instance of User class,
      * from the stringified file that is read from "database.txt".
      *
-     * @param s
-     * @throws InvalidFullNameException
-     * @throws InvalidUsernameException
-     * @throws InvalidEmailException
-     * @version 1.0
+     * @param s CSVStringified User class' instance that is read from "database.txt".
+     * @throws InvalidFullNameException is thrown to indicate that full name of the user is not valid
+     *                                  /first name and last name must start with UpperCase and separated by space/.
+     * @throws InvalidUsernameException is thrown to indicate that username of the user is not valid
+     *                                  /should contain at least 10 symbols/.
+     * @throws InvalidEmailException    is thrown to indicate that email of the user is not valid
+     *                                  /does not correspond to specifications/.
      * @since 2021-01-04
      */
 
@@ -41,7 +43,6 @@ public class User implements Stringify {
     /**
      * This method is used to construct new instance of User class.
      *
-     * @version 1.0
      * @since 2021-01-04
      */
 
@@ -49,25 +50,13 @@ public class User implements Stringify {
 
     }
 
-    /**
-     * This method is used to get the full name of the instance of User class.
-     *
-     * @return fullName
-     * @version 1.0
-     * @since 2021-01-04
-     */
-
-    public String getFullName() {
-        return fullName;
-    }
-
 
     /**
      * This method is used to set the full name for the instance of User class.
      *
-     * @param fullName
-     * @throws InvalidFullNameException
-     * @version 1.0
+     * @param fullName inserted value for the full name of the instance of User class
+     * @throws InvalidFullNameException is thrown to indicate that full name of the user is not valid
+     *                                  /first name and last name must start with UpperCase and separated by space/.
      * @since 2021-01-04
      */
 
@@ -83,7 +72,6 @@ public class User implements Stringify {
      * This method is used to get the username of the instance of User class.
      *
      * @return username
-     * @version 1.0
      * @since 2021-01-04
      */
 
@@ -94,9 +82,9 @@ public class User implements Stringify {
     /**
      * This method is used to set the username for the instance of User class.
      *
-     * @param username
-     * @throws InvalidUsernameException
-     * @version 1.0
+     * @param username inserted value for the username for the User class' instance.
+     * @throws InvalidUsernameException is thrown to indicate that username of the user is not valid
+     *                                  /should contain at least 10 symbols/.
      * @since 2021-01-04
      */
 
@@ -109,23 +97,11 @@ public class User implements Stringify {
     }
 
     /**
-     * This method is used to get the email of the instance of User class.
-     *
-     * @return email
-     * @version 1.0
-     * @since 2021-01-04
-     */
-
-    public String getEmail() {
-        return email;
-    }
-
-    /**
      * This method is used to set the username for the instance of User class.
      *
-     * @param email
-     * @throws InvalidEmailException
-     * @version 1.0
+     * @param email inserted value for the email for the User class' instance
+     * @throws InvalidEmailException is thrown to indicate that email of the user is not valid
+     *                               /does not correspond to specifications/.
      * @since 2021-01-04
      */
 
@@ -141,9 +117,9 @@ public class User implements Stringify {
     /**
      * This method is used to set the password for the instance of User class.
      *
-     * @param password
-     * @throws InvalidPasswordException
-     * @version 1.0
+     * @param password inserted value for the password for the User class' instance.
+     * @throws InvalidPasswordException is thrown to indicate that password of the user is not valid
+     *                                  /should contain at least 8 symbols, 2 upper case letters and 3 numbers/.
      * @since 2021-01-04
      */
 
@@ -157,16 +133,15 @@ public class User implements Stringify {
     }
 
     @Override
-    public String toString() {
+    public String toCSVString() {
         return fullName + "," + username + "," + email + "," + passwordHash;
     }
 
     /**
      * This method is used to hash the password for the instance of User class.
      *
-     * @param input
-     * @throws RuntimeException
-     * @version 1.0
+     * @param input password to be hashed by this method.
+     * @throws RuntimeException can be thrown during the normal operation of the Java Virtual Machine.
      * @since 2021-01-04
      */
 
@@ -194,7 +169,6 @@ public class User implements Stringify {
      * @param enteredPassword inserted password to be checked whether its hashed version equals
      *                        the hashed password kept in database for the current user /username/.
      * @return boolean
-     * @version 1.0
      * @since 2021-01-04
      */
 
@@ -219,18 +193,17 @@ public class User implements Stringify {
      * @return boolean
      * @throws InvalidPasswordException is thrown to indicate that password of the user is not valid
      *                                  /should contain at least 8 symbols, 2 upper case letters and 3 numbers/.
-     * @version 1.0
      * @since 2021-01-04
      */
 
     private static boolean validatePasswordNums(String password) throws InvalidPasswordException {
-        int counOfNums = 0;
+        int countOfNums = 0;
         for (int i = 0; i < password.length(); i++) {
             if (Character.isDigit(password.charAt(i))) {
-                ++counOfNums;
+                ++countOfNums;
             }
         }
-        if (counOfNums >= 3) {
+        if (countOfNums >= 3) {
             return true;
         }
         throw new InvalidPasswordException("Inserted password doesn't contain numbers or not sufficient quantity.");
@@ -246,7 +219,6 @@ public class User implements Stringify {
      * @return boolean
      * @throws InvalidPasswordException is thrown to indicate that password of the user is not valid
      *                                  /should contain at least 8 symbols, 2 upper case letters and 3 numbers/.
-     * @version 1.0
      * @since 2021-01-04
      */
     private static boolean validatePasswordUpperCase(String password) throws InvalidPasswordException {

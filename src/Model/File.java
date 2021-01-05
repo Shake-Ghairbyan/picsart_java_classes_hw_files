@@ -3,10 +3,10 @@ package Model;
 import Exceptions.InvalidAuthorNameException;
 import Exceptions.InvalidFileNameException;
 import Interfaces.Printable;
-import Interfaces.Stringify;
+import Interfaces.CSVable;
 
 
-public abstract class File implements Printable, Stringify {
+public abstract class File implements Printable, CSVable {
     private String creationDate = "No date";
     private String fileName = "No name";
     private String author = "No Name";
@@ -15,8 +15,7 @@ public abstract class File implements Printable, Stringify {
      * This method is used to get the creation date
      * of an instance of File class.
      *
-     * @return String creationDate
-     * @version 1.0
+     * @return creationDate
      * @since 2021-01-04
      */
     public String getCreationDate() {
@@ -27,8 +26,7 @@ public abstract class File implements Printable, Stringify {
      * This method is used to set the creation date
      * for an instance of File class.
      *
-     * @param creationDate
-     * @version 1.0
+     * @param creationDate creation
      * @since 2021-01-04
      */
     public void setCreationDate(String creationDate) {
@@ -42,7 +40,6 @@ public abstract class File implements Printable, Stringify {
      * of an instance of File class.
      *
      * @return String fileName
-     * @version 1.0
      * @since 2021-01-04
      */
 
@@ -54,8 +51,8 @@ public abstract class File implements Printable, Stringify {
      * This method is used to set the file name
      * for an instance of File class.
      *
-     * @throws InvalidAuthorNameException -
-     * @version 1.0
+     * @throws InvalidFileNameException is thrown when name of the file of the File class' instance is not valid
+     *                                  /non-empty string/.
      * @since 2021-01-04
      */
 
@@ -72,7 +69,6 @@ public abstract class File implements Printable, Stringify {
      * of an instance of File class.
      *
      * @return Author
-     * @version 1.0
      * @since 2021-01-04
      */
 
@@ -84,11 +80,10 @@ public abstract class File implements Printable, Stringify {
      * This method is used to set the Author's name
      * for an instance of File class.
      *
+     * @param author inserted value for the Author's name for an instance of File class.
      * @throws InvalidAuthorNameException is thrown when Author's name of File's
-     * instance is not valid: first name and last name must be upperCase and
-     * separated by space.
-     * @param author
-     * @version 1.0
+     *                                    instance is not valid: first name and last name must be upperCase and
+     *                                    separated by space.
      * @since 2021-01-04
      */
 
@@ -101,7 +96,7 @@ public abstract class File implements Printable, Stringify {
     }
 
     @Override
-    public String toString() {
+    public String toCSVString() {
         return creationDate + "," + fileName + "," + author;
     }
 
@@ -118,7 +113,6 @@ public abstract class File implements Printable, Stringify {
      * This method is to be used to get the estimated storage size of
      * a new instance of File class.
      *
-     * @version 1.0
      * @since 2021-01-04
      */
     public abstract int getEstimatedStorageSize();

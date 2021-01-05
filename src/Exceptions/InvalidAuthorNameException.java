@@ -16,7 +16,6 @@ public class InvalidAuthorNameException extends Exception {
      *
      * @param name Author's full name of the File class' instance, both first name and last name
      *             must be UpperCase and should be separated by space.
-     * @version 1.0
      * @since 2021-01-04
      */
     public InvalidAuthorNameException(String name) {

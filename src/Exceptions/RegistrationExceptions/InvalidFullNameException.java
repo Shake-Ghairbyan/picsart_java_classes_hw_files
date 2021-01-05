@@ -16,8 +16,7 @@ public class InvalidFullNameException extends Exception {
      * This method constructs a new FullNameException with specified detail message.
      *
      * @param fullName Full Name of the User's instance
-     *                /must start with UpperCase and separated by space/.
-     * @version 1.0
+     *                 /must start with UpperCase and separated by space/.
      * @since 2021-01-04
      */
 

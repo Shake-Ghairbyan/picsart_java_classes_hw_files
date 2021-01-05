@@ -18,7 +18,6 @@ public class Files_Menus {
     /**
      * This function executes Main Menu for the registered users allowing them to enter to files' submenus.
      *
-     * @version 1.0
      * @since 2021-01-04
      */
     static void executeMainMenu() {
@@ -49,7 +48,6 @@ public class Files_Menus {
      * This function executes submenu for pdf files, allowing registered users create pdf file,
      * and read pdf files, that are already written into the text file, with given options.
      *
-     * @version 1.0
      * @since 2021-01-04
      */
 
@@ -88,7 +86,6 @@ public class Files_Menus {
      * This function executes submenu for audio files, allowing registered users create audio file,
      * and read audio files, that are already written into the text file, with given options.
      *
-     * @version 1.0
      * @since 2021-01-04
      */
     static void executeAudioSubMenu() {

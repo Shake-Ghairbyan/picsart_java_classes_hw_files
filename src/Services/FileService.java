@@ -1,5 +1,7 @@
 package Services;
 
+import Interfaces.CSVable;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -21,7 +23,6 @@ public class FileService {
     /**
      * This method is used to get the count of how many files were created during current session at the called moment..
      *
-     * @version 1.0
      * @since 2021-01-04
      */
     public static int getCount() {
@@ -35,7 +36,6 @@ public class FileService {
      *
      * @param path the path of the text file from where stringified instances of File class are read.
      * @throws IOException is thrown if an I/O error occurs writing to or creating the file
-     * @version 1.0
      * @since 2021-01-04
      */
 
@@ -49,14 +49,14 @@ public class FileService {
      * .
      *
      * @param path the path to the file.
-     * @param t    the instance of T to be written to the file with provided
+     * @param t    the instance of class that implements CSVable interface
+     *             to be written to the file with provided
      * @throws IOException is thrown if an I/O error occurs writing to or creating the file.
-     * @version 1.0
      * @since 2021-01-04
      */
 
-    static <T> void write(String path, T t) throws IOException {
-        String s = t.toString() + "\n";
+    static void write(String path, CSVable t) throws IOException {
+        String s = t.toCSVString() + "\n";
         Path path1 = Paths.get(path);
         if (Files.exists(path1)) {
             Files.write(path1, s.getBytes(), StandardOpenOption.APPEND);
