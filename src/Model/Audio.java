@@ -8,9 +8,25 @@ public class Audio extends File {
     private double durationOfTrack = 0.0;
     private boolean isLicensedRecord = false;
 
+    /**
+     * This method is used to get the duration of the track for an instance of File Audio class.
+     *
+     * @author Shake Gharibyan
+     * @version 1.0
+     * @since 2021-01-04
+     */
     public double getDurationOfTrack() {
         return durationOfTrack;
     }
+
+    /**
+     * This method is used to set the duration of the track for an instance of File Audio class.
+     *
+     * @throws TrackDurationException
+     * @author Shake Gharibyan
+     * @version 1.0
+     * @since 2021-01-04
+     */
 
     public void setDurationOfTrack(double durationOfTrack) throws TrackDurationException {
         if (durationOfTrack >= 0) {
@@ -20,16 +36,53 @@ public class Audio extends File {
         }
     }
 
+    /**
+     * This method is used to get the status of the audio file, whether it is licensed or not.
+     *
+     * @return boolean
+     * @author Shake Gharibyan
+     * @version 1.0
+     * @since 2021-01-04
+     */
+
     public boolean isLicensedRecord() {
         return isLicensedRecord;
     }
+
+    /**
+     * This method is used to set the status of the audio file, whether it is licensed or not.
+     *
+     * @param isLicensedRecord
+     * @author Shake Gharibyan
+     * @version 1.0
+     * @since 2021-01-04
+     */
 
     public void setLicensedRecord(boolean isLicensedRecord) {
         this.isLicensedRecord = isLicensedRecord;
     }
 
+    /**
+     * This method is used to construct new instance of Audio class.
+     *
+     * @author Shake Gharibyan
+     * @version 1.0
+     * @since 2021-01-04
+     */
     public Audio() {
     }
+
+    /**
+     * This method is used to construct new instance of Audio class,
+     * from the stringified file that is read from "ForAudioObjects.txt".
+     *
+     * @throws NameException
+     * @throws TrackDurationException
+     * @param a
+     * @author Shake Gharibyan
+     * @version 1.0
+     * @since 2021-01-04
+     */
 
     public Audio(String a) throws NameException, TrackDurationException {
         String[] split = a.split(",");

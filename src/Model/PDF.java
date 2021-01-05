@@ -2,23 +2,59 @@ package Model;
 
 import Exceptions.NameException;
 import Exceptions.PageException;
+import Exceptions.TrackDurationException;
 
 public class PDF extends File {
     private static final int PAGE_SIZE = 70 * 1024;
     private int numberOfPages;
     private boolean isSecured;
 
+    /**
+     * This method is used to get the status of the instance of PDF class, whether it is secured or not.
+     *
+     * @return boolean
+     * @author Shake Gharibyan
+     * @version 1.0
+     * @since 2021-01-04
+     */
     public boolean isSecured() {
         return isSecured;
     }
 
+    /**
+     * This method is used to set the status of the instance of PDF class, whether it is secured or not.
+     *
+     * @param isSecured
+     * @author Shake Gharibyan
+     * @version 1.0
+     * @since 2021-01-04
+     */
     public void setSecured(boolean isSecured) {
         this.isSecured = isSecured;
     }
 
+    /**
+     * This method is used to get the number of pages of the instance of PDF class.
+     *
+     * @return numberOfPages
+     * @author Shake Gharibyan
+     * @version 1.0
+     * @since 2021-01-04
+     */
+
     public int getNumberOfPages() {
         return numberOfPages;
     }
+
+    /**
+     * This method is used to set the number of pages for the instance of PDF class.
+     *
+     * @param numberOfPages
+     * @throws PageException
+     * @author Shake Gharibyan
+     * @version 1.0
+     * @since 2021-01-04
+     */
 
     public void setNumberOfPages(int numberOfPages) throws PageException {
         if (numberOfPages < 0) {
@@ -28,8 +64,29 @@ public class PDF extends File {
         }
     }
 
+    /**
+     * This method is used to construct new instance of PDF class.
+     *
+     * @author Shake Gharibyan
+     * @version 1.0
+     * @since 2021-01-04
+     */
+
     public PDF() {
     }
+
+    /**
+     * This method is used to construct new instance of PDF class,
+     * from the stringified file that is read from "ForPDFObjects.txt".
+     *
+     * @param s
+     * @throws NameException
+     * @throws IndexOutOfBoundsException
+     * @throws PageException
+     * @author Shake Gharibyan
+     * @version 1.0
+     * @since 2021-01-04
+     */
 
     public PDF(String s) throws IndexOutOfBoundsException, NameException, PageException {
         String[] split = s.split(",");

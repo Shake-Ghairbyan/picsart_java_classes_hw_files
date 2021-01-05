@@ -9,6 +9,14 @@ public class Main {
         entryMenu();
     }
 
+    /**
+     * This method is used to implement a menu for users registration /sing up, login.../.
+     *
+     *
+     * @author Shake Gharibyan
+     * @version 1.0
+     * @since 2021-01-04
+     */
     private static void entryMenu() {
         Scanner scan = new Scanner(System.in);
         boolean isActive = true;

@@ -12,8 +12,36 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * This class is used for working with audio type files /creating, reading, printing,
+ * sorting by different options, etc./.
+ *
+ * @author Shake Gharibyan
+ * @version 1.0
+ * @since 2021-01-04
+ */
+
+
 public class AudioService {
+    /**
+     * This field shows where created audio files will be written.
+     *
+     * @author Shake Gharibyan
+     * @version 1.0
+     * @since 2021-01-04
+     */
     private static final String PATH = "ForAudioObjects.txt";
+
+    /**
+     * This method is used to create new audio file.
+     *
+     * @throws NameException
+     * @throws IOException
+     * @throws TrackDurationException
+     * @author Shake Gharibyan
+     * @version 1.0
+     * @since 2021-01-04
+     */
 
     public static void createAudioFile() {
         Scanner scan = new Scanner(System.in);
@@ -38,11 +66,25 @@ public class AudioService {
         }
     }
 
+    /**
+     * This method reads audio files from the text file and
+     * returns the written pdf files as an ArrayList of audio files.
+     *
+     * @return List
+     * @throws IndexOutOfBoundsException
+     * @throws NameException
+     * @throws TrackDurationException
+     * @throws IOException
+     * @author Shake Gharibyan
+     * @version 1.0
+     * @since 2021-01-04
+     */
+
     private static List<Audio> readAudioFiles() {
         try {
             List<String> strings = FileService.read(PATH);
             List<Audio> audios = new ArrayList<>();
-            for (String s: strings) {
+            for (String s : strings) {
                 audios.add(new Audio(s));
             }
             return audios;
@@ -54,15 +96,39 @@ public class AudioService {
         return new ArrayList<>();
     }
 
+    /**
+     * Prints audio files written in the text file.
+     *
+     * @author Shake Gharibyan
+     * @version 1.0
+     * @since 2021-01-04
+     */
+
     public static void printAudioFiles() {
         PrintableService.printAllInfo(readAudioFiles());
     }
+
+    /**
+     * Prints audio files written in the text file sorted by track duration in ascending order.
+     *
+     * @author Shake Gharibyan
+     * @version 1.0
+     * @since 2021-01-04
+     */
 
     public static void sortByTrackDuration() {
         List<Audio> audios = readAudioFiles();
         Collections.sort(audios, new DurationComparator());
         PrintableService.printAllInfo(audios);
     }
+
+    /**
+     * Prints audio files written in the text file sorted by track duration in ascending order.
+     *
+     * @author Shake Gharibyan
+     * @version 1.0
+     * @since 2021-01-04
+     */
 
     public static void printSortedByAuthor() {
         List<Audio> audios = readAudioFiles();

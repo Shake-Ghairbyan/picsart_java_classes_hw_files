@@ -3,7 +3,7 @@ package Services;
 import java.util.Scanner;
 
 /**
- * This class is used for executing different menues of file formats and main menu for the registered users.
+ * This class is used for executing separate menus of different file formats and main menu for the registered users.
  *
  * @author Shake Gharibyan
  * @version 1.0
@@ -18,7 +18,7 @@ public class Files_Menus {
      * @version 1.0
      * @since 2021-01-04
      */
-    public static void executeMainMenu() {
+    static void executeMainMenu() {
         Scanner scan = new Scanner(System.in);
         boolean isActive = true;
         while (isActive) {
@@ -52,7 +52,7 @@ public class Files_Menus {
 
     /**
      * This function executes submenu for pdf files, allowing registered users create pdf file,
-     * and read pdf files, that are alreadu written into the text file, with given options.
+     * and read pdf files, that are already written into the text file, with given options.
      *
      * @author Shake Gharibyan
      * @version 1.0
@@ -100,9 +100,9 @@ public class Files_Menus {
 
     /**
      * This function executes submenu for audio files, allowing registered users create audio file,
-     * and read audio files, that are alreadu written into the text file, with given options.
+     * and read audio files, that are already written into the text file, with given options.
      *
-     * @author shake gharibyan
+     * @author Shake Gharibyan
      * @version 1.0
      * @since 2021-01-04
      */

@@ -10,9 +10,34 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * This class is used for working with user class instances and has methods for creating user /signUp()/,
+ * reading created users from text file, and if user is in the database, allowing the user to enter to
+ * next level menu.
+ *
+ * @author Shake Gharibyan
+ * @version 1.0
+ * @since 2021-01-04
+ */
 public class UserService {
+
+    /**
+     * This field shows the name of .txt file where created users' info will be written/stored.
+     *
+     * @author Shake Gharibyan
+     * @version 1.0
+     * @since 2021-01-04
+     */
     private static final String PATH = "database.txt";
 
+    /**
+     * This method is created to be used to create User and write them in the database if succeeded.
+     *
+     * @throws Exception
+     * @author Shake Gharibyan
+     * @version 1.0
+     * @since 2021-01-04
+     */
     public static void signUp() {
         Scanner scan = new Scanner(System.in);
         User user = new User();
@@ -41,6 +66,21 @@ public class UserService {
         }
     }
 
+    /**
+     * This method is created to be used to read already created users from the database text file.
+     *
+     *
+     * @throws IndexOutOfBoundsException
+     * @throws EmailException
+     * @throws FullNameException
+     * @throws UsernameException
+     * @throws IOException
+     * @return HashMap of Users
+     * @author Shake Gharibyan
+     * @version 1.0
+     * @since 2021-01-04
+     */
+
     public static HashMap<String, User> readUsers() {
         HashMap<String, User> users = new HashMap<>();
         try {
@@ -58,6 +98,14 @@ public class UserService {
         return new HashMap<>();
     }
 
+    /**
+     * This method is created to be used to allow registered user to access Files_Menus, if true.
+     *
+     * @return boolean
+     * @author Shake Gharibyan
+     * @version 1.0
+     * @since 2021-01-04
+     * */
     public static boolean login() {
         if (!readUsers().isEmpty()) {
             Scanner scan = new Scanner(System.in);

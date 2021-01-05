@@ -12,11 +12,21 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * This class is used for working with pdf type files /creating, reading, printing,
+ * sorting by different options, etc./.
+ *
+ * @author Shake Gharibyan
+ * @version 1.0
+ * @since 2021-01-04
+ */
+
 public class PDFService {
     /**
      * This field shows where created pdf files will be written.
      *
      * @author Shake Gharibyan
+     * @version 1.0
      * @since 2021-01-04
      */
     private static final String PATH = "ForPDFObjects.txt";
@@ -25,6 +35,7 @@ public class PDFService {
      * This method is used to create new pdf file.
      *
      * @author Shake Gharibyan
+     * @version 1.0
      * @since 2021-01-04
      */
     public static void createPDFFile() {
@@ -53,10 +64,11 @@ public class PDFService {
 
     /**
      * This method reads pdf files from the text file and
-     * returns the written pdf files as an ArrayList of pdfs.
+     * returns the written pdf files as an ArrayList of pdf files.
      *
-     * @return List
+     * @return  List
      * @author Shake Gharibyan
+     * @version 1.0
      * @since 2021-01-04
      */
     private static List<PDF> readPDFFiles() {
@@ -76,9 +88,10 @@ public class PDFService {
     }
 
     /**
-     * Prints pdf files wirtten in the text file.
+     * Prints pdf files written in the text file.
      *
      * @author Shake Gharibyan
+     * @version 1.0
      * @since 2021-01-04
      */
     public static void printPDFFiles() {
@@ -86,9 +99,10 @@ public class PDFService {
     }
 
     /**
-     * Prints pdf files wirtten in the text file sorted by number of pages in ascending order.
+     * Prints pdf files written in the text file sorted by number of pages in ascending order.
      *
      * @author Shake Gharibyan
+     * @version 1.0
      * @since 2021-01-04
      */
     public static void printPDFFilesSortedByPNumberOfPages() {
@@ -98,9 +112,10 @@ public class PDFService {
     }
 
     /**
-     * Prints non-secured pdf files wirtten in the text file.
+     * Prints non-secured pdf files written in the text file.
      *
      * @author Shake Gharibyan
+     * @version 1.0
      * @since 2021-01-04
      */
     public static void printNonSecuredPDFFiles() {
@@ -116,6 +131,7 @@ public class PDFService {
      * Prints pdf files wirtten in the text file sorted by Author's full name in ascending order.
      *
      * @author Shake Gharibyan
+     * @version 1.0
      * @since 2021-01-04
      */
     public static void printSortedByAuthor() {
