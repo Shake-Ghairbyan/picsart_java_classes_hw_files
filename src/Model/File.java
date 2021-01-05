@@ -1,6 +1,7 @@
 package Model;
 
 import Exceptions.InvalidAuthorNameException;
+import Exceptions.InvalidFileNameException;
 import Interfaces.Printable;
 import Interfaces.Stringify;
 
@@ -15,7 +16,6 @@ public abstract class File implements Printable, Stringify {
      * of an instance of File class.
      *
      * @return String creationDate
-     * @author Shake Gharibyan
      * @version 1.0
      * @since 2021-01-04
      */
@@ -28,7 +28,6 @@ public abstract class File implements Printable, Stringify {
      * for an instance of File class.
      *
      * @param creationDate
-     * @author Shake Gharibyan
      * @version 1.0
      * @since 2021-01-04
      */
@@ -43,7 +42,6 @@ public abstract class File implements Printable, Stringify {
      * of an instance of File class.
      *
      * @return String fileName
-     * @author Shake Gharibyan
      * @version 1.0
      * @since 2021-01-04
      */
@@ -56,17 +54,16 @@ public abstract class File implements Printable, Stringify {
      * This method is used to set the file name
      * for an instance of File class.
      *
-     * @throws InvalidAuthorNameException
-     * @author Shake Gharibyan
+     * @throws InvalidAuthorNameException -
      * @version 1.0
      * @since 2021-01-04
      */
 
-    public void setFileName(String fileName) throws InvalidAuthorNameException {
+    public void setFileName(String fileName) throws InvalidFileNameException {
         if (fileName.length() > 0) {
             this.fileName = fileName;
         } else {
-            throw new InvalidAuthorNameException(fileName);
+            throw new InvalidFileNameException(fileName);
         }
     }
 
@@ -75,7 +72,6 @@ public abstract class File implements Printable, Stringify {
      * of an instance of File class.
      *
      * @return Author
-     * @author Shake Gharibyan
      * @version 1.0
      * @since 2021-01-04
      */
@@ -88,9 +84,10 @@ public abstract class File implements Printable, Stringify {
      * This method is used to set the Author's name
      * for an instance of File class.
      *
-     * @throws InvalidAuthorNameException
+     * @throws InvalidAuthorNameException is thrown when Author's name of File's
+     * instance is not valid: first name and last name must be upperCase and
+     * separated by space.
      * @param author
-     * @author Shake Gharibyan
      * @version 1.0
      * @since 2021-01-04
      */
@@ -121,7 +118,6 @@ public abstract class File implements Printable, Stringify {
      * This method is to be used to get the estimated storage size of
      * a new instance of File class.
      *
-     * @author Shake Gharibyan
      * @version 1.0
      * @since 2021-01-04
      */

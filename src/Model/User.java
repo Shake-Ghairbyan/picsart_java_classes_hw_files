@@ -26,7 +26,6 @@ public class User implements Stringify {
      * @throws InvalidFullNameException
      * @throws InvalidUsernameException
      * @throws InvalidEmailException
-     * @author Shake Gharibyan
      * @version 1.0
      * @since 2021-01-04
      */
@@ -42,7 +41,6 @@ public class User implements Stringify {
     /**
      * This method is used to construct new instance of User class.
      *
-     * @author Shake Gharibyan
      * @version 1.0
      * @since 2021-01-04
      */
@@ -55,7 +53,6 @@ public class User implements Stringify {
      * This method is used to get the full name of the instance of User class.
      *
      * @return fullName
-     * @author Shake Gharibyan
      * @version 1.0
      * @since 2021-01-04
      */
@@ -70,7 +67,6 @@ public class User implements Stringify {
      *
      * @param fullName
      * @throws InvalidFullNameException
-     * @author Shake Gharibyan
      * @version 1.0
      * @since 2021-01-04
      */
@@ -87,7 +83,6 @@ public class User implements Stringify {
      * This method is used to get the username of the instance of User class.
      *
      * @return username
-     * @author Shake Gharibyan
      * @version 1.0
      * @since 2021-01-04
      */
@@ -101,7 +96,6 @@ public class User implements Stringify {
      *
      * @param username
      * @throws InvalidUsernameException
-     * @author Shake Gharibyan
      * @version 1.0
      * @since 2021-01-04
      */
@@ -118,7 +112,6 @@ public class User implements Stringify {
      * This method is used to get the email of the instance of User class.
      *
      * @return email
-     * @author Shake Gharibyan
      * @version 1.0
      * @since 2021-01-04
      */
@@ -132,7 +125,6 @@ public class User implements Stringify {
      *
      * @param email
      * @throws InvalidEmailException
-     * @author Shake Gharibyan
      * @version 1.0
      * @since 2021-01-04
      */
@@ -151,7 +143,6 @@ public class User implements Stringify {
      *
      * @param password
      * @throws InvalidPasswordException
-     * @author Shake Gharibyan
      * @version 1.0
      * @since 2021-01-04
      */
@@ -175,7 +166,6 @@ public class User implements Stringify {
      *
      * @param input
      * @throws RuntimeException
-     * @author Shake Gharibyan
      * @version 1.0
      * @since 2021-01-04
      */
@@ -197,12 +187,13 @@ public class User implements Stringify {
 
 
     /**
-     * This method is used to check whether the entered password
+     * This method is used to check whether the entered password /hashed/
      * for the instance of User class equals the hashed password
-     * kept in database.
+     * kept in database for the current user /username/.
      *
-     * @return enteredPassword
-     * @author Shake Gharibyan
+     * @param enteredPassword inserted password to be checked whether its hashed version equals
+     *                        the hashed password kept in database for the current user /username/.
+     * @return boolean
      * @version 1.0
      * @since 2021-01-04
      */
@@ -224,10 +215,10 @@ public class User implements Stringify {
      * for the instance of User class contains at least three
      * digits, that are required to be for password field.
      *
-     * @param password
+     * @param password password of the User's instance.
      * @return boolean
-     * @throws InvalidPasswordException
-     * @author Shake Gharibyan
+     * @throws InvalidPasswordException is thrown to indicate that password of the user is not valid
+     *                                  /should contain at least 8 symbols, 2 upper case letters and 3 numbers/.
      * @version 1.0
      * @since 2021-01-04
      */
@@ -251,10 +242,10 @@ public class User implements Stringify {
      * for the instance of User class contains at least two UpperCase
      * letters, that are required to be for password field.
      *
-     * @param password
+     * @param password password of the User's instance.
      * @return boolean
-     * @throws InvalidPasswordException is being thrown when password is invalid.
-     * @author Shake Gharibyan
+     * @throws InvalidPasswordException is thrown to indicate that password of the user is not valid
+     *                                  /should contain at least 8 symbols, 2 upper case letters and 3 numbers/.
      * @version 1.0
      * @since 2021-01-04
      */

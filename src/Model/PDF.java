@@ -1,6 +1,7 @@
 package Model;
 
 import Exceptions.InvalidAuthorNameException;
+import Exceptions.InvalidFileNameException;
 import Exceptions.InvalidPageNumberException;
 
 public class PDF extends File {
@@ -12,7 +13,6 @@ public class PDF extends File {
      * This method is used to get the status of the instance of PDF class, whether it is secured or not.
      *
      * @return boolean
-     * @author Shake Gharibyan
      * @version 1.0
      * @since 2021-01-04
      */
@@ -24,7 +24,6 @@ public class PDF extends File {
      * This method is used to set the status of the instance of PDF class, whether it is secured or not.
      *
      * @param isSecured
-     * @author Shake Gharibyan
      * @version 1.0
      * @since 2021-01-04
      */
@@ -36,7 +35,6 @@ public class PDF extends File {
      * This method is used to get the number of pages of the instance of PDF class.
      *
      * @return numberOfPages
-     * @author Shake Gharibyan
      * @version 1.0
      * @since 2021-01-04
      */
@@ -50,7 +48,6 @@ public class PDF extends File {
      *
      * @param numberOfPages
      * @throws InvalidPageNumberException
-     * @author Shake Gharibyan
      * @version 1.0
      * @since 2021-01-04
      */
@@ -66,7 +63,6 @@ public class PDF extends File {
     /**
      * This method is used to construct new instance of PDF class.
      *
-     * @author Shake Gharibyan
      * @version 1.0
      * @since 2021-01-04
      */
@@ -82,12 +78,12 @@ public class PDF extends File {
      * @throws InvalidAuthorNameException
      * @throws IndexOutOfBoundsException
      * @throws InvalidPageNumberException
-     * @author Shake Gharibyan
      * @version 1.0
      * @since 2021-01-04
      */
 
-    public PDF(String s) throws IndexOutOfBoundsException, InvalidAuthorNameException, InvalidPageNumberException {
+    public PDF(String s) throws IndexOutOfBoundsException, InvalidAuthorNameException,
+            InvalidPageNumberException, InvalidFileNameException {
         String[] split = s.split(",");
         setCreationDate(split[0]);
         setFileName(split[1]);

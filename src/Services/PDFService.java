@@ -1,14 +1,15 @@
 package Services;
 
 import Comparators.AuthorComparator;
+import Comparators.FileNameComparator;
 import Comparators.PagesComparator;
 import Exceptions.InvalidAuthorNameException;
+import Exceptions.InvalidFileNameException;
 import Exceptions.InvalidPageNumberException;
 import Model.PDF;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -25,7 +26,6 @@ public class PDFService {
     /**
      * This field shows where created pdf files will be written.
      *
-     * @author Shake Gharibyan
      * @version 1.0
      * @since 2021-01-04
      */
@@ -34,7 +34,6 @@ public class PDFService {
     /**
      * This method is used to create new pdf file.
      *
-     * @author Shake Gharibyan
      * @version 1.0
      * @since 2021-01-04
      */
@@ -56,18 +55,18 @@ public class PDFService {
             System.out.println("PDF file was created.");
             System.out.println("***************************");
             FileService.write(PATH, pdf);
-        } catch (InvalidAuthorNameException | InvalidPageNumberException | IOException e) {
+        } catch (InvalidAuthorNameException | InvalidPageNumberException | IOException
+                | InvalidFileNameException e) {
             System.out.println(e);
             System.out.println("Inputs are discarded");
         }
     }
 
     /**
-     * This method reads pdf files from the text file and
+     * This method reads pdf files from the "ForPDFObjects.txt" text file and
      * returns the written pdf files as an ArrayList of pdf files.
      *
-     * @return  List
-     * @author Shake Gharibyan
+     * @return new ArrayList<>()
      * @version 1.0
      * @since 2021-01-04
      */
@@ -79,7 +78,8 @@ public class PDFService {
                 pdfs.add(new PDF(s));
             }
             return pdfs;
-        } catch (IndexOutOfBoundsException | InvalidAuthorNameException | InvalidPageNumberException e) {
+        } catch (IndexOutOfBoundsException | InvalidAuthorNameException |
+                InvalidPageNumberException | InvalidFileNameException e) {
             System.out.println(e);
         } catch (IOException e) {
             System.out.println("Could not read PDF files.");
@@ -88,9 +88,8 @@ public class PDFService {
     }
 
     /**
-     * Prints pdf files written in the text file.
+     * Prints pdf files written in the "ForPDFObjects.txt" text file.
      *
-     * @author Shake Gharibyan
      * @version 1.0
      * @since 2021-01-04
      */
@@ -99,22 +98,20 @@ public class PDFService {
     }
 
     /**
-     * Prints pdf files written in the text file sorted by number of pages in ascending order.
+     * Prints pdf files written in the "ForPDFObjects.txt" text file sorted by number of pages in ascending order.
      *
-     * @author Shake Gharibyan
      * @version 1.0
      * @since 2021-01-04
      */
     public static void printPDFFilesSortedByPNumberOfPages() {
         List<PDF> pdfs = readPDFFiles();
-        Collections.sort(pdfs, new PagesComparator());
+        pdfs.sort(new PagesComparator());
         PrintableService.printAllInfo(pdfs);
     }
 
     /**
-     * Prints non-secured pdf files written in the text file.
+     * Prints non-secured pdf files written in the "ForPDFObjects.txt" text file.
      *
-     * @author Shake Gharibyan
      * @version 1.0
      * @since 2021-01-04
      */
@@ -128,15 +125,42 @@ public class PDFService {
     }
 
     /**
-     * Prints pdf files wirtten in the text file sorted by Author's full name in ascending order.
+     * This method is used to print instances of the PDF class, which are read from "ForPDFObjects.txt" file,
+     * sorted by the filenames of those instances in Ascending Order.
      *
-     * @author Shake Gharibyan
+     *
+     * @version 1.0
+     * @since 2021-01-04
+     */
+    public static void printSortedByPDFFileNameInAscendingOrder() {
+        List<PDF> pdfs = readPDFFiles();
+        pdfs.sort(new FileNameComparator(false));
+        PrintableService.printAllInfo(pdfs);
+    }
+
+    /**
+     * This method is used to print instances of the PDF class, which are read from "ForPDFObjects.txt" file,
+     * sorted by the filenames of those instances in Descending Order.
+     *
+     *
+     * @version 1.0
+     * @since 2021-01-04
+     */
+    public static void printSortedByPDFFileNameInDescendingOrder() {
+        List<PDF> pdfs = readPDFFiles();
+        pdfs.sort(new FileNameComparator(true));
+        PrintableService.printAllInfo(pdfs);
+    }
+
+    /**
+     * Prints pdf files written in the text file sorted by Author's full name in ascending order.
+     *
      * @version 1.0
      * @since 2021-01-04
      */
     public static void printSortedByAuthor() {
         List<PDF> pdfs = readPDFFiles();
-        Collections.sort(pdfs, new AuthorComparator());
+        pdfs.sort(new AuthorComparator());
         PrintableService.printAllInfo(pdfs);
     }
 }

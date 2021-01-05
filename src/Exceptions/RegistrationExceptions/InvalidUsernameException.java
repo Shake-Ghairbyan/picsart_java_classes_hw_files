@@ -2,8 +2,8 @@ package Exceptions.RegistrationExceptions;
 
 /**
  * This class extends Exception and PasswordException is thrown
- * when password of the user is not valid /does not correspond
- * to specifications/.
+ * to indicate that username of the user is not valid
+ * /should contain at least 10 symbols/.
  *
  * @author Shake Gharibyan
  * @version 1.0
@@ -15,9 +15,8 @@ public class InvalidUsernameException extends Exception {
     /**
      * This method constructs a new UsernameException with specified detail message.
      *
-     * @param message
-     * @param username
-     * @author Shake Gharibyan
+     * @param message  The detail message (which is saved for later retrieval by the getMessage() method)
+     * @param username username of the User's instance which should be at least 10 symbols.
      * @version 1.0
      * @since 2021-01-04
      */

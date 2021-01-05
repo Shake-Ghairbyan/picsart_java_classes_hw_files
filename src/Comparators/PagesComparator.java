@@ -19,10 +19,9 @@ public class PagesComparator implements Comparator<PDF> {
      * This method is used to compare two instances of PDF class by comparing
      * their page counts.
      *
-     * @param /PDF pdf/
-     * @param /PDF pdf/
+     * @param p1 first PDF instance to be compared
+     * @param p2 second PDF instance to be compared
      * @return int
-     * @author Shake Gharibyan
      * @version 1.0
      * @since 2021-01-04
      */

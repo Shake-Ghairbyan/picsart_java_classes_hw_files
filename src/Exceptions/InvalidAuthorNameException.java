@@ -1,9 +1,9 @@
 package Exceptions;
 
 /**
- * This class extends Exception and NameException is thrown
- * when Author's full name of the File class' instance is not valid /does not correspond
- * to specifications/.
+ * This class extends Exception and InvalidAuthorNameException is thrown
+ * when Author's full name of the File class' instance is not valid
+ * /both first name and last name must be UpperCase and should be separated by space/.
  *
  * @author Shake Gharibyan
  * @version 1.0
@@ -12,14 +12,14 @@ package Exceptions;
 public class InvalidAuthorNameException extends Exception {
 
     /**
-     * This method constructs a new NameException with specified detail message.
+     * This method constructs a new InvalidAuthorNameException with specified detail message.
      *
-     * @param /String name/
-     * @author Shake Gharibyan
+     * @param name Author's full name of the File class' instance, both first name and last name
+     *             must be UpperCase and should be separated by space.
      * @version 1.0
      * @since 2021-01-04
      */
     public InvalidAuthorNameException(String name) {
-        super("Wrong value for name input: " + name);
+        super("Wrong value for Author's name input: " + name);
     }
 }

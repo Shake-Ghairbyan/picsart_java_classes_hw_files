@@ -1,5 +1,6 @@
 package Model;
 
+import Exceptions.InvalidFileNameException;
 import Exceptions.InvalidTrackDurationException;
 import Exceptions.InvalidAuthorNameException;
 
@@ -11,7 +12,6 @@ public class Audio extends File {
     /**
      * This method is used to get the duration of the track for an instance of File Audio class.
      *
-     * @author Shake Gharibyan
      * @version 1.0
      * @since 2021-01-04
      */
@@ -22,8 +22,7 @@ public class Audio extends File {
     /**
      * This method is used to set the duration of the track for an instance of File Audio class.
      *
-     * @throws InvalidTrackDurationException
-     * @author Shake Gharibyan
+     * @throws InvalidTrackDurationException is thrown when track's duration was assigned a negative value.
      * @version 1.0
      * @since 2021-01-04
      */
@@ -39,8 +38,7 @@ public class Audio extends File {
     /**
      * This method is used to get the status of the audio file, whether it is licensed or not.
      *
-     * @return boolean
-     * @author Shake Gharibyan
+     * @return boolean status of the audio file: true -  Licensed : false - Not Licensed.
      * @version 1.0
      * @since 2021-01-04
      */
@@ -52,8 +50,8 @@ public class Audio extends File {
     /**
      * This method is used to set the status of the audio file, whether it is licensed or not.
      *
-     * @param isLicensedRecord
-     * @author Shake Gharibyan
+     * @param isLicensedRecord boolean variable which shows the status of the PDF's instance:
+     *                          true - Licensed : false - Not Licensed.
      * @version 1.0
      * @since 2021-01-04
      */
@@ -65,7 +63,6 @@ public class Audio extends File {
     /**
      * This method is used to construct new instance of Audio class.
      *
-     * @author Shake Gharibyan
      * @version 1.0
      * @since 2021-01-04
      */
@@ -76,15 +73,17 @@ public class Audio extends File {
      * This method is used to construct new instance of Audio class,
      * from the stringified file that is read from "ForAudioObjects.txt".
      *
-     * @throws InvalidAuthorNameException
-     * @throws InvalidTrackDurationException
-     * @param a
-     * @author Shake Gharibyan
+     * @throws InvalidAuthorNameException is thrown when Author name of File's instance is invalid.
+     * @throws InvalidTrackDurationException is thrown when Track Duration of the Audio's instance
+     * is given negative value.
+     * @throws InvalidFileNameException is thrown when name of the file of the File class'
+     * instance is not valid /non-empty string/.
+     * @param a Stringified File class' instance that is read from "ForAudioObjects.txt".
      * @version 1.0
      * @since 2021-01-04
      */
 
-    public Audio(String a) throws InvalidAuthorNameException, InvalidTrackDurationException {
+    public Audio(String a) throws InvalidAuthorNameException, InvalidTrackDurationException, InvalidFileNameException {
         String[] split = a.split(",");
         setCreationDate(split[0]);
         setFileName(split[1]);

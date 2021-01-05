@@ -15,8 +15,8 @@ public class InvalidPageNumberException extends Exception {
     /**
      * This method constructs a new PageException with specified detail message.
      *
-     * @param /int numberOfPage/
-     * @author Shake Gharibyan
+     * @param numberOfPage number of pages of PDF's instance:
+     *                     should be non negative value.
      * @version 1.0
      * @since 2021-01-04
      */

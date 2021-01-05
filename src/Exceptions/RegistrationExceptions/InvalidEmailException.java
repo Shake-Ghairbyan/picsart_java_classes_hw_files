@@ -2,7 +2,7 @@ package Exceptions.RegistrationExceptions;
 
 /**
  * This class extends Exception and EmailException is thrown
- * when email of the user is not valid /does not correspond
+ * to indicate that email of the user is not valid /does not correspond
  * to specifications/.
  *
  * @author Shake Gharibyan
@@ -14,8 +14,7 @@ public class InvalidEmailException extends Exception {
     /**
      * This method constructs a new EmailException with specified detail message.
      *
-     * @param /String email/
-     * @author Shake Gharibyan
+     * @param email email of the User's instance which should be valid email address.
      * @version 1.0
      * @since 2021-01-04
      */

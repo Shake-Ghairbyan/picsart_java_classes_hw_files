@@ -1,16 +1,14 @@
 package Services;
 
 import Comparators.AuthorComparator;
-import Comparators.DurationComparator;
+import Comparators.FileNameComparator;
 import Exceptions.InvalidAuthorNameException;
+import Exceptions.InvalidFileNameException;
 import Exceptions.InvalidTrackDurationException;
 import Model.Audio;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * This class is used for working with audio type files /creating, reading, printing,
@@ -34,10 +32,6 @@ public class AudioService {
     /**
      * This method is used to create new audio file.
      *
-     * @throws InvalidAuthorNameException
-     * @throws IOException
-     * @throws InvalidTrackDurationException
-     * @author Shake Gharibyan
      * @version 1.0
      * @since 2021-01-04
      */
@@ -59,7 +53,8 @@ public class AudioService {
             audio.setLicensedRecord(scan.nextInt() == 1);
             FileService.write(PATH, audio);
             System.out.println("***************************");
-        } catch (InvalidAuthorNameException | InvalidTrackDurationException | IOException e) {
+        } catch (InvalidAuthorNameException | InvalidTrackDurationException | IOException |
+                InvalidFileNameException e) {
             System.out.println(e);
             System.out.println("Inputs are discarded");
         }
@@ -69,12 +64,7 @@ public class AudioService {
      * This method reads audio files from the text file and
      * returns the written pdf files as an ArrayList of audio files.
      *
-     * @return List
-     * @throws IndexOutOfBoundsException
-     * @throws InvalidAuthorNameException
-     * @throws InvalidTrackDurationException
-     * @throws IOException
-     * @author Shake Gharibyan
+     * @return new ArrayList<>();
      * @version 1.0
      * @since 2021-01-04
      */
@@ -87,7 +77,8 @@ public class AudioService {
                 audios.add(new Audio(s));
             }
             return audios;
-        } catch (IndexOutOfBoundsException | InvalidAuthorNameException | InvalidTrackDurationException e) {
+        } catch (IndexOutOfBoundsException | InvalidAuthorNameException | InvalidTrackDurationException |
+                InvalidFileNameException e) {
             System.out.println(e);
         } catch (IOException e) {
             System.out.println("Could not read Audio files");
@@ -98,7 +89,6 @@ public class AudioService {
     /**
      * Prints audio files written in the text file.
      *
-     * @author Shake Gharibyan
      * @version 1.0
      * @since 2021-01-04
      */
@@ -110,29 +100,75 @@ public class AudioService {
     /**
      * Prints audio files written in the text file sorted by track duration in ascending order.
      *
-     * @author Shake Gharibyan
      * @version 1.0
      * @since 2021-01-04
      */
 
     public static void sortByTrackDuration() {
         List<Audio> audios = readAudioFiles();
-        Collections.sort(audios, new DurationComparator());
+        audios.sort(Comparator.comparingDouble(Audio::getDurationOfTrack));
         PrintableService.printAllInfo(audios);
     }
 
     /**
      * Prints audio files written in the text file sorted by track duration in ascending order.
      *
-     * @author Shake Gharibyan
      * @version 1.0
      * @since 2021-01-04
      */
 
     public static void printSortedByAuthor() {
         List<Audio> audios = readAudioFiles();
-        Collections.sort(audios, new AuthorComparator());
+        audios.sort(new AuthorComparator());
         PrintableService.printAllInfo(audios);
     }
+
+    /**
+     * This method is used to print those instances of the Audio class that are read from "ForAudioObjects.txt" file,
+     * which have licensed status.
+     *
+     * @version 1.0
+     * @since 2021-01-04
+     */
+
+
+    public static void printLicensedAudioFiles() {
+        List<Audio> audios = readAudioFiles();
+        for (Audio a : audios) {
+            if (!a.isLicensedRecord()) {
+                a.printInfo();
+            }
+        }
+    }
+
+    /**
+     * This method is used to print instances of the Audio class, which are read from "ForAudioObjects.txt" file,
+     * sorted by the filenames of those instances in Ascending Order.
+     *
+     * @version 1.0
+     * @since 2021-01-04
+     */
+
+    public static void printSortedByAudioFileNameInAscendingOrder() {
+        List<Audio> audios = readAudioFiles();
+        audios.sort(new FileNameComparator(false));
+        PrintableService.printAllInfo(audios);
+    }
+
+    /**
+     * This method is used to print instances of the Audio class, which are read from "ForAudioObjects.txt" file,
+     * sorted by the filenames of those instances in Descending Order.
+     *
+     * @version 1.0
+     * @since 2021-01-04
+     */
+
+    public static void printSortedByAudioFileNameInDescendingOrder() {
+        List<Audio> audios = readAudioFiles();
+        audios.sort(new FileNameComparator(true));
+        PrintableService.printAllInfo(audios);
+    }
+
+
 }
 

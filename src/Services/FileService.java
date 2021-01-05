@@ -21,7 +21,6 @@ public class FileService {
     /**
      * This method is used to get the count of how many files were created during current session at the called moment..
      *
-     * @author Shake Gharibyan
      * @version 1.0
      * @since 2021-01-04
      */
@@ -34,9 +33,8 @@ public class FileService {
      * This method is used to read stringified instances of File class from their path
      * and return them as List of Strings.
      *
-     * @param path
-     * @throws IOException
-     * @author Shake Gharibyan
+     * @param path the path of the text file from where stringified instances of File class are read.
+     * @throws IOException is thrown if an I/O error occurs writing to or creating the file
      * @version 1.0
      * @since 2021-01-04
      */
@@ -48,12 +46,11 @@ public class FileService {
     /**
      * This method is used to write instances of File class to their specified path,
      * and if such path doesn't exist, create that path.
-     *.
+     * .
      *
-     * @param path
-     * @param t
-     * @throws IOException
-     * @author Shake Gharibyan
+     * @param path the path to the file.
+     * @param t    the instance of T to be written to the file with provided
+     * @throws IOException is thrown if an I/O error occurs writing to or creating the file.
      * @version 1.0
      * @since 2021-01-04
      */

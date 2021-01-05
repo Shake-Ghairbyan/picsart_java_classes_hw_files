@@ -19,8 +19,9 @@ public class FileNameComparator implements Comparator<File> {
     /**
      * This method is used to assign boolean value to desc field.
      *
-     * @param desc
-     * @author Shake Gharibyan
+     * @param desc boolean variable to set the order in which instances of
+     *             File class will be compared:
+     *             true - descending, false - ascending.
      * @since 2021-01-04
      */
 
@@ -33,18 +34,17 @@ public class FileNameComparator implements Comparator<File> {
      * their names in lexicographical order, if desc is false, and reversed
      * lexicographical order, if desc is true.
      *
-     * @param /File file/
-     * @param /File file/
+     * @param o1 first File instance to be compared
+     * @param o2 second File instance to be compared
      * @return int
-     * @author Shake Gharibyan
      * @since 2021-01-04
      */
 
     @Override
     public int compare(File o1, File o2) {
         if (desc) {
-            return o1.getFileName().compareTo(o2.getFileName());
+            return -o1.getFileName().compareTo(o2.getFileName());
         }
-        return -o1.getFileName().compareTo(o2.getFileName());
+        return o1.getFileName().compareTo(o2.getFileName());
     }
 }

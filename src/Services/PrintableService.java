@@ -16,8 +16,7 @@ public class PrintableService {
     /**
      * This method is used to print all the files which implement Printable interface.
      *
-     * @param / List < ? extends Printable> printables /
-     * @author Shake Gharibyan
+     * @param printables List of the instances of the class, which implements Printable Interface
      * @version 1.0
      * @since 2021-01-04
      */

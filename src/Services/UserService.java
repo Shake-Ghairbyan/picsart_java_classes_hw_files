@@ -24,7 +24,6 @@ public class UserService {
     /**
      * This field shows the name of .txt file where created users' info will be written/stored.
      *
-     * @author Shake Gharibyan
      * @version 1.0
      * @since 2021-01-04
      */
@@ -33,8 +32,6 @@ public class UserService {
     /**
      * This method is created to be used to create User and write them in the database if succeeded.
      *
-     * @throws Exception
-     * @author Shake Gharibyan
      * @version 1.0
      * @since 2021-01-04
      */
@@ -69,14 +66,7 @@ public class UserService {
     /**
      * This method is created to be used to read already created users from the database text file.
      *
-     *
-     * @throws IndexOutOfBoundsException
-     * @throws InvalidEmailException
-     * @throws InvalidFullNameException
-     * @throws InvalidUsernameException
-     * @throws IOException
      * @return HashMap of Users
-     * @author Shake Gharibyan
      * @version 1.0
      * @since 2021-01-04
      */
@@ -90,7 +80,8 @@ public class UserService {
                 users.put(user.getUsername(), user);
             }
             return users;
-        } catch (IndexOutOfBoundsException | InvalidEmailException | InvalidFullNameException | InvalidUsernameException e) {
+        } catch (IndexOutOfBoundsException | InvalidEmailException |
+                InvalidFullNameException | InvalidUsernameException e) {
             System.out.println(e);
         } catch (IOException e) {
             System.out.println("Users database is empty.");
@@ -102,31 +93,32 @@ public class UserService {
      * This method is created to be used to allow registered user to access Files_Menus, if true.
      *
      * @return boolean
-     * @author Shake Gharibyan
      * @version 1.0
      * @since 2021-01-04
-     * */
+     */
     public static boolean login() {
-        if (!readUsers().isEmpty()) {
-            Scanner scan = new Scanner(System.in);
-            System.out.println("Insert username.");
-            String username = scan.nextLine();
-            HashMap<String, User> users = readUsers();
-            User currentUser = users.get(username);
-            if (currentUser != null) {
-                System.out.println("Insert password");
-                String password = scan.nextLine();
-                if (currentUser.checkPassword(password)) {
-                    System.out.println("Successfully logged in.");
-                    Files_Menus.executeMainMenu();
-                    return true;
-                } else {
-                    System.out.println("Incorrect password!");
-                }
-            } else {
-                System.out.println("Incorrect login!");
-            }
+        if (readUsers().isEmpty()) {
+            System.out.println("Users database is empty");
+            return false;
         }
-        return false;
+
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Insert username.");
+        String username = scan.nextLine();
+        HashMap<String, User> users = readUsers();
+        User currentUser = users.get(username);
+        if (currentUser == null) {
+            System.out.println("Incorrect login!");
+            return false;
+        }
+
+        System.out.println("Insert password");
+        String password = scan.nextLine();
+        if (!currentUser.checkPassword(password)) {
+            System.out.println("Incorrect password!");
+            return false;
+        }
+
+        return true;
     }
 }
