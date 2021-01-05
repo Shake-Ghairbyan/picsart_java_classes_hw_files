@@ -2,8 +2,8 @@ package Services;
 
 import Comparators.AuthorComparator;
 import Comparators.PagesComparator;
-import Exceptions.NameException;
-import Exceptions.PageException;
+import Exceptions.InvalidAuthorNameException;
+import Exceptions.InvalidPageNumberException;
 import Model.PDF;
 
 import java.io.IOException;
@@ -56,7 +56,7 @@ public class PDFService {
             System.out.println("PDF file was created.");
             System.out.println("***************************");
             FileService.write(PATH, pdf);
-        } catch (NameException | PageException | IOException e) {
+        } catch (InvalidAuthorNameException | InvalidPageNumberException | IOException e) {
             System.out.println(e);
             System.out.println("Inputs are discarded");
         }
@@ -79,7 +79,7 @@ public class PDFService {
                 pdfs.add(new PDF(s));
             }
             return pdfs;
-        } catch (IndexOutOfBoundsException | NameException | PageException e) {
+        } catch (IndexOutOfBoundsException | InvalidAuthorNameException | InvalidPageNumberException e) {
             System.out.println(e);
         } catch (IOException e) {
             System.out.println("Could not read PDF files.");

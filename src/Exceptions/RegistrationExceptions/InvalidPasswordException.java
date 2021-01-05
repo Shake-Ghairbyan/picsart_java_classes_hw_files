@@ -1,4 +1,4 @@
-package Exceptions.ExceptionsForRegistration;
+package Exceptions.RegistrationExceptions;
 
 /**
  * This class extends Exception and PasswordException is thrown
@@ -10,7 +10,7 @@ package Exceptions.ExceptionsForRegistration;
  * @since 2021-01-04
  */
 
-public class PasswordException extends Exception {
+public class InvalidPasswordException extends Exception {
 
     /**
      * This method constructs a new PasswordException with specified detail message.
@@ -20,7 +20,7 @@ public class PasswordException extends Exception {
      * @version 1.0
      * @since 2021-01-04
      */
-    public PasswordException (String message){
+    public InvalidPasswordException(String message){
         super(message);
     }
 }

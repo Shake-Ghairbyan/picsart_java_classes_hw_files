@@ -2,8 +2,8 @@ package Services;
 
 import Comparators.AuthorComparator;
 import Comparators.DurationComparator;
-import Exceptions.NameException;
-import Exceptions.TrackDurationException;
+import Exceptions.InvalidAuthorNameException;
+import Exceptions.InvalidTrackDurationException;
 import Model.Audio;
 
 import java.io.IOException;
@@ -26,7 +26,6 @@ public class AudioService {
     /**
      * This field shows where created audio files will be written.
      *
-     * @author Shake Gharibyan
      * @version 1.0
      * @since 2021-01-04
      */
@@ -35,9 +34,9 @@ public class AudioService {
     /**
      * This method is used to create new audio file.
      *
-     * @throws NameException
+     * @throws InvalidAuthorNameException
      * @throws IOException
-     * @throws TrackDurationException
+     * @throws InvalidTrackDurationException
      * @author Shake Gharibyan
      * @version 1.0
      * @since 2021-01-04
@@ -60,7 +59,7 @@ public class AudioService {
             audio.setLicensedRecord(scan.nextInt() == 1);
             FileService.write(PATH, audio);
             System.out.println("***************************");
-        } catch (NameException | TrackDurationException | IOException e) {
+        } catch (InvalidAuthorNameException | InvalidTrackDurationException | IOException e) {
             System.out.println(e);
             System.out.println("Inputs are discarded");
         }
@@ -72,8 +71,8 @@ public class AudioService {
      *
      * @return List
      * @throws IndexOutOfBoundsException
-     * @throws NameException
-     * @throws TrackDurationException
+     * @throws InvalidAuthorNameException
+     * @throws InvalidTrackDurationException
      * @throws IOException
      * @author Shake Gharibyan
      * @version 1.0
@@ -88,7 +87,7 @@ public class AudioService {
                 audios.add(new Audio(s));
             }
             return audios;
-        } catch (IndexOutOfBoundsException | NameException | TrackDurationException e) {
+        } catch (IndexOutOfBoundsException | InvalidAuthorNameException | InvalidTrackDurationException e) {
             System.out.println(e);
         } catch (IOException e) {
             System.out.println("Could not read Audio files");

@@ -14,14 +14,13 @@ import java.util.Comparator;
  */
 
 public class FileNameComparator implements Comparator<File> {
-    private boolean desc;
+    private final boolean desc;
 
     /**
      * This method is used to assign boolean value to desc field.
      *
-     * @param /Boolean boolean/
+     * @param desc
      * @author Shake Gharibyan
-     * @version 1.0
      * @since 2021-01-04
      */
 
@@ -38,14 +37,14 @@ public class FileNameComparator implements Comparator<File> {
      * @param /File file/
      * @return int
      * @author Shake Gharibyan
-     * @version 1.0
      * @since 2021-01-04
      */
 
     @Override
     public int compare(File o1, File o2) {
-        if (desc)
+        if (desc) {
             return o1.getFileName().compareTo(o2.getFileName());
+        }
         return -o1.getFileName().compareTo(o2.getFileName());
     }
 }

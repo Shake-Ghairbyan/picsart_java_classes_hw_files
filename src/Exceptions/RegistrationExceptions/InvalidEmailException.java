@@ -1,4 +1,4 @@
-package Exceptions.ExceptionsForRegistration;
+package Exceptions.RegistrationExceptions;
 
 /**
  * This class extends Exception and EmailException is thrown
@@ -9,7 +9,7 @@ package Exceptions.ExceptionsForRegistration;
  * @version 1.0
  * @since 2021-01-04
  */
-public class EmailException extends Exception {
+public class InvalidEmailException extends Exception {
 
     /**
      * This method constructs a new EmailException with specified detail message.
@@ -19,7 +19,7 @@ public class EmailException extends Exception {
      * @version 1.0
      * @since 2021-01-04
      */
-    public EmailException(String email) {
+    public InvalidEmailException(String email) {
         super("Invalid email address: " + email);
     }
 }

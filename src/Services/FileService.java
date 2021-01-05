@@ -13,8 +13,6 @@ public class FileService {
     /**
      * This field is created to be used as count keeper of how many files were created during current session.
      *
-     * @author Shake Gharibyan
-     * @version 1.0
      * @since 2021-01-04
      */
 

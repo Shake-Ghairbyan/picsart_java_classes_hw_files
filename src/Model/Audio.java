@@ -1,7 +1,7 @@
 package Model;
 
-import Exceptions.TrackDurationException;
-import Exceptions.NameException;
+import Exceptions.InvalidTrackDurationException;
+import Exceptions.InvalidAuthorNameException;
 
 public class Audio extends File {
     private static final int BIT_RATE = 128 * 1024;
@@ -22,17 +22,17 @@ public class Audio extends File {
     /**
      * This method is used to set the duration of the track for an instance of File Audio class.
      *
-     * @throws TrackDurationException
+     * @throws InvalidTrackDurationException
      * @author Shake Gharibyan
      * @version 1.0
      * @since 2021-01-04
      */
 
-    public void setDurationOfTrack(double durationOfTrack) throws TrackDurationException {
+    public void setDurationOfTrack(double durationOfTrack) throws InvalidTrackDurationException {
         if (durationOfTrack >= 0) {
             this.durationOfTrack = durationOfTrack;
         } else {
-            throw new TrackDurationException(durationOfTrack);
+            throw new InvalidTrackDurationException(durationOfTrack);
         }
     }
 
@@ -76,15 +76,15 @@ public class Audio extends File {
      * This method is used to construct new instance of Audio class,
      * from the stringified file that is read from "ForAudioObjects.txt".
      *
-     * @throws NameException
-     * @throws TrackDurationException
+     * @throws InvalidAuthorNameException
+     * @throws InvalidTrackDurationException
      * @param a
      * @author Shake Gharibyan
      * @version 1.0
      * @since 2021-01-04
      */
 
-    public Audio(String a) throws NameException, TrackDurationException {
+    public Audio(String a) throws InvalidAuthorNameException, InvalidTrackDurationException {
         String[] split = a.split(",");
         setCreationDate(split[0]);
         setFileName(split[1]);

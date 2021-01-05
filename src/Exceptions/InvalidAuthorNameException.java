@@ -9,7 +9,7 @@ package Exceptions;
  * @version 1.0
  * @since 2021-01-04
  */
-public class NameException extends Exception {
+public class InvalidAuthorNameException extends Exception {
 
     /**
      * This method constructs a new NameException with specified detail message.
@@ -19,7 +19,7 @@ public class NameException extends Exception {
      * @version 1.0
      * @since 2021-01-04
      */
-    public NameException(String name) {
+    public InvalidAuthorNameException(String name) {
         super("Wrong value for name input: " + name);
     }
 }

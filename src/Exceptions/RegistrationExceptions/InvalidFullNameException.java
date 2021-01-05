@@ -1,4 +1,4 @@
-package Exceptions.ExceptionsForRegistration;
+package Exceptions.RegistrationExceptions;
 
 /**
  * This class extends Exception and FullNameException is thrown
@@ -10,7 +10,7 @@ package Exceptions.ExceptionsForRegistration;
  * @since 2021-01-04
  */
 
-public class FullNameException extends Exception {
+public class InvalidFullNameException extends Exception {
 
     /**
      * This method constructs a new FullNameException with specified detail message.
@@ -21,7 +21,7 @@ public class FullNameException extends Exception {
      * @since 2021-01-04
      */
 
-    public FullNameException(String fullName) {
+    public InvalidFullNameException(String fullName) {
         super("Wrong input for full name: " + fullName);
     }
 }

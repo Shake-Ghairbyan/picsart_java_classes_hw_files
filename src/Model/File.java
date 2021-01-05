@@ -1,6 +1,6 @@
 package Model;
 
-import Exceptions.NameException;
+import Exceptions.InvalidAuthorNameException;
 import Interfaces.Printable;
 import Interfaces.Stringify;
 
@@ -56,17 +56,17 @@ public abstract class File implements Printable, Stringify {
      * This method is used to set the file name
      * for an instance of File class.
      *
-     * @throws NameException
+     * @throws InvalidAuthorNameException
      * @author Shake Gharibyan
      * @version 1.0
      * @since 2021-01-04
      */
 
-    public void setFileName(String fileName) throws NameException {
+    public void setFileName(String fileName) throws InvalidAuthorNameException {
         if (fileName.length() > 0) {
             this.fileName = fileName;
         } else {
-            throw new NameException(fileName);
+            throw new InvalidAuthorNameException(fileName);
         }
     }
 
@@ -88,18 +88,18 @@ public abstract class File implements Printable, Stringify {
      * This method is used to set the Author's name
      * for an instance of File class.
      *
-     * @throws  NameException
+     * @throws InvalidAuthorNameException
      * @param author
      * @author Shake Gharibyan
      * @version 1.0
      * @since 2021-01-04
      */
 
-    public void setAuthor(String author) throws NameException {
+    public void setAuthor(String author) throws InvalidAuthorNameException {
         if (author.matches("[A-Za-z\\s\\.]+")) {
             this.author = author;
         } else {
-            throw new NameException(author);
+            throw new InvalidAuthorNameException(author);
         }
     }
 

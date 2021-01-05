@@ -1,4 +1,4 @@
-package Exceptions.ExceptionsForRegistration;
+package Exceptions.RegistrationExceptions;
 
 /**
  * This class extends Exception and PasswordException is thrown
@@ -10,7 +10,7 @@ package Exceptions.ExceptionsForRegistration;
  * @since 2021-01-04
  */
 
-public class UsernameException extends Exception {
+public class InvalidUsernameException extends Exception {
 
     /**
      * This method constructs a new UsernameException with specified detail message.
@@ -21,7 +21,7 @@ public class UsernameException extends Exception {
      * @version 1.0
      * @since 2021-01-04
      */
-    public UsernameException(String message, String username) {
+    public InvalidUsernameException(String message, String username) {
         super(message + username);
     }
 }

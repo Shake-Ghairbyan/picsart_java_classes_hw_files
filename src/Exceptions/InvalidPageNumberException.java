@@ -10,7 +10,7 @@ package Exceptions;
  * @since 2021-01-04
  */
 
-public class PageException extends Exception {
+public class InvalidPageNumberException extends Exception {
 
     /**
      * This method constructs a new PageException with specified detail message.
@@ -20,7 +20,7 @@ public class PageException extends Exception {
      * @version 1.0
      * @since 2021-01-04
      */
-    public PageException(int numberOfPage) {
+    public InvalidPageNumberException(int numberOfPage) {
         super("Number of Pages can't be negative: " + numberOfPage);
     }
 }

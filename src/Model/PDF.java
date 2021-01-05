@@ -1,8 +1,7 @@
 package Model;
 
-import Exceptions.NameException;
-import Exceptions.PageException;
-import Exceptions.TrackDurationException;
+import Exceptions.InvalidAuthorNameException;
+import Exceptions.InvalidPageNumberException;
 
 public class PDF extends File {
     private static final int PAGE_SIZE = 70 * 1024;
@@ -50,15 +49,15 @@ public class PDF extends File {
      * This method is used to set the number of pages for the instance of PDF class.
      *
      * @param numberOfPages
-     * @throws PageException
+     * @throws InvalidPageNumberException
      * @author Shake Gharibyan
      * @version 1.0
      * @since 2021-01-04
      */
 
-    public void setNumberOfPages(int numberOfPages) throws PageException {
+    public void setNumberOfPages(int numberOfPages) throws InvalidPageNumberException {
         if (numberOfPages < 0) {
-            throw new PageException(numberOfPages);
+            throw new InvalidPageNumberException(numberOfPages);
         } else {
             this.numberOfPages = numberOfPages;
         }
@@ -80,15 +79,15 @@ public class PDF extends File {
      * from the stringified file that is read from "ForPDFObjects.txt".
      *
      * @param s
-     * @throws NameException
+     * @throws InvalidAuthorNameException
      * @throws IndexOutOfBoundsException
-     * @throws PageException
+     * @throws InvalidPageNumberException
      * @author Shake Gharibyan
      * @version 1.0
      * @since 2021-01-04
      */
 
-    public PDF(String s) throws IndexOutOfBoundsException, NameException, PageException {
+    public PDF(String s) throws IndexOutOfBoundsException, InvalidAuthorNameException, InvalidPageNumberException {
         String[] split = s.split(",");
         setCreationDate(split[0]);
         setFileName(split[1]);

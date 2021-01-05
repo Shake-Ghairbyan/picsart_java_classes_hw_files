@@ -1,8 +1,8 @@
 package Services;
 
-import Exceptions.ExceptionsForRegistration.EmailException;
-import Exceptions.ExceptionsForRegistration.FullNameException;
-import Exceptions.ExceptionsForRegistration.UsernameException;
+import Exceptions.RegistrationExceptions.InvalidEmailException;
+import Exceptions.RegistrationExceptions.InvalidFullNameException;
+import Exceptions.RegistrationExceptions.InvalidUsernameException;
 import Model.User;
 
 import java.io.IOException;
@@ -50,7 +50,7 @@ public class UserService {
             if (!readUsers().isEmpty()) {
                 System.out.println("Checking if such username is already used .... ");
                 if (readUsers().containsKey(insertedUsername)) {
-                    throw new UsernameException("Such username already exists: ", insertedUsername);
+                    throw new InvalidUsernameException("Such username already exists: ", insertedUsername);
                 }
             }
             user.setUsername(insertedUsername);
@@ -71,9 +71,9 @@ public class UserService {
      *
      *
      * @throws IndexOutOfBoundsException
-     * @throws EmailException
-     * @throws FullNameException
-     * @throws UsernameException
+     * @throws InvalidEmailException
+     * @throws InvalidFullNameException
+     * @throws InvalidUsernameException
      * @throws IOException
      * @return HashMap of Users
      * @author Shake Gharibyan
@@ -90,7 +90,7 @@ public class UserService {
                 users.put(user.getUsername(), user);
             }
             return users;
-        } catch (IndexOutOfBoundsException | EmailException | FullNameException | UsernameException e) {
+        } catch (IndexOutOfBoundsException | InvalidEmailException | InvalidFullNameException | InvalidUsernameException e) {
             System.out.println(e);
         } catch (IOException e) {
             System.out.println("Users database is empty.");

@@ -1,11 +1,9 @@
 package Model;
 
-import Exceptions.ExceptionsForRegistration.EmailException;
-import Exceptions.ExceptionsForRegistration.FullNameException;
-import Exceptions.ExceptionsForRegistration.PasswordException;
-import Exceptions.ExceptionsForRegistration.UsernameException;
-import Exceptions.NameException;
-import Exceptions.PageException;
+import Exceptions.RegistrationExceptions.InvalidEmailException;
+import Exceptions.RegistrationExceptions.InvalidFullNameException;
+import Exceptions.RegistrationExceptions.InvalidPasswordException;
+import Exceptions.RegistrationExceptions.InvalidUsernameException;
 import Interfaces.Stringify;
 
 import java.math.BigInteger;
@@ -25,15 +23,15 @@ public class User implements Stringify {
      * from the stringified file that is read from "database.txt".
      *
      * @param s
-     * @throws FullNameException
-     * @throws UsernameException
-     * @throws EmailException
+     * @throws InvalidFullNameException
+     * @throws InvalidUsernameException
+     * @throws InvalidEmailException
      * @author Shake Gharibyan
      * @version 1.0
      * @since 2021-01-04
      */
 
-    public User(String s) throws FullNameException, UsernameException, EmailException {
+    public User(String s) throws InvalidFullNameException, InvalidUsernameException, InvalidEmailException {
         String[] split = s.split(",");
         setFullName(split[0]);
         setUsername(split[1]);
@@ -71,17 +69,17 @@ public class User implements Stringify {
      * This method is used to set the full name for the instance of User class.
      *
      * @param fullName
-     * @throws FullNameException
+     * @throws InvalidFullNameException
      * @author Shake Gharibyan
      * @version 1.0
      * @since 2021-01-04
      */
 
-    public void setFullName(String fullName) throws FullNameException {
+    public void setFullName(String fullName) throws InvalidFullNameException {
         if (fullName.matches("[A-Z][a-z]*[ ][A-Z][a-z]*")) {
             this.fullName = fullName;
         } else {
-            throw new FullNameException(fullName);
+            throw new InvalidFullNameException(fullName);
         }
     }
 
@@ -102,17 +100,17 @@ public class User implements Stringify {
      * This method is used to set the username for the instance of User class.
      *
      * @param username
-     * @throws UsernameException
+     * @throws InvalidUsernameException
      * @author Shake Gharibyan
      * @version 1.0
      * @since 2021-01-04
      */
 
-    public void setUsername(String username) throws UsernameException {
+    public void setUsername(String username) throws InvalidUsernameException {
         if (username.length() > 10) {
             this.username = username;
         } else {
-            throw new UsernameException("Invalid input data: ", username);
+            throw new InvalidUsernameException("Invalid input data: ", username);
         }
     }
 
@@ -133,17 +131,17 @@ public class User implements Stringify {
      * This method is used to set the username for the instance of User class.
      *
      * @param email
-     * @throws EmailException
+     * @throws InvalidEmailException
      * @author Shake Gharibyan
      * @version 1.0
      * @since 2021-01-04
      */
 
-    public void setEmail(String email) throws EmailException {
+    public void setEmail(String email) throws InvalidEmailException {
         if (validate(email)) {
             this.email = email;
         } else {
-            throw new EmailException(email);
+            throw new InvalidEmailException(email);
         }
     }
 
@@ -152,15 +150,15 @@ public class User implements Stringify {
      * This method is used to set the password for the instance of User class.
      *
      * @param password
-     * @throws PasswordException
+     * @throws InvalidPasswordException
      * @author Shake Gharibyan
      * @version 1.0
      * @since 2021-01-04
      */
 
-    public void setPassword(String password) throws PasswordException {
+    public void setPassword(String password) throws InvalidPasswordException {
         if (password.length() <= 8) {
-            throw new PasswordException(password);
+            throw new InvalidPasswordException(password);
         }
         validatePasswordUpperCase(password);
         validatePasswordNums(password);
@@ -228,13 +226,13 @@ public class User implements Stringify {
      *
      * @param password
      * @return boolean
-     * @throws PasswordException
+     * @throws InvalidPasswordException
      * @author Shake Gharibyan
      * @version 1.0
      * @since 2021-01-04
      */
 
-    private static boolean validatePasswordNums(String password) throws PasswordException {
+    private static boolean validatePasswordNums(String password) throws InvalidPasswordException {
         int counOfNums = 0;
         for (int i = 0; i < password.length(); i++) {
             if (Character.isDigit(password.charAt(i))) {
@@ -244,7 +242,7 @@ public class User implements Stringify {
         if (counOfNums >= 3) {
             return true;
         }
-        throw new PasswordException("Inserted password doesn't contain numbers or not sufficient quantity.");
+        throw new InvalidPasswordException("Inserted password doesn't contain numbers or not sufficient quantity.");
     }
 
 
@@ -255,12 +253,12 @@ public class User implements Stringify {
      *
      * @param password
      * @return boolean
-     * @throws PasswordException
+     * @throws InvalidPasswordException is being thrown when password is invalid.
      * @author Shake Gharibyan
      * @version 1.0
      * @since 2021-01-04
      */
-    private static boolean validatePasswordUpperCase(String password) throws PasswordException {
+    private static boolean validatePasswordUpperCase(String password) throws InvalidPasswordException {
         int countOfUpperCase = 0;
         for (int i = 0; i < password.length(); i++) {
             if (Character.isUpperCase(password.charAt(i))) {
@@ -270,6 +268,6 @@ public class User implements Stringify {
         if (countOfUpperCase >= 2) {
             return true;
         }
-        throw new PasswordException("Inserted password doesn't contain UpperCase letters /at least 2/.");
+        throw new InvalidPasswordException("Inserted password doesn't contain UpperCase letters /at least 2/.");
     }
 }
