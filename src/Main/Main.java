@@ -27,20 +27,14 @@ public class Main {
             System.out.println("3. Exit Login Menu.");
             int command = scan.nextInt();
             switch (command) {
-                case 1:
-                    UserService.signUp();
-                    break;
-                case 2:
-                    UserService.login();
-                    break;
-                case 3:
+                case 1 -> UserService.signUp();
+                case 2 -> UserService.login();
+                case 3 -> {
                     System.out.println("Leaving so soon?");
                     System.out.println("Bye");
                     isActive = false;
-                    break;
-                default:
-                    System.out.println("Invalid command.");
-                    break;
+                }
+                default -> System.out.println("Invalid command.");
             }
         }
     }

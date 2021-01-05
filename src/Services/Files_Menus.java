@@ -30,22 +30,14 @@ public class Files_Menus {
 
             int command = scan.nextInt();
             switch (command) {
-                case 1:
-                    executePDFSubMenu();
-                    break;
-                case 2:
-                    executeAudioSubMenu();
-                    break;
-                case 3:
-                    System.out.println("Total number of created files during current session: " + FileService.getCount());
-                    break;
-                case 4:
+                case 1 -> executePDFSubMenu();
+                case 2 -> executeAudioSubMenu();
+                case 3 -> System.out.println("Total number of created files during current session: " + FileService.getCount());
+                case 4 -> {
                     System.out.println("Have a nice day.");
                     isActive = false;
-                    break;
-                default:
-                    System.out.println("Invalid command");
-                    break;
+                }
+                default -> System.out.println("Invalid command");
             }
         }
     }
@@ -72,28 +64,16 @@ public class Files_Menus {
             System.out.println("6. Exit the PDF SubMenu");
             int command = scan.nextInt();
             switch (command) {
-                case 1:
-                    PDFService.createPDFFile();
-                    break;
-                case 2:
-                    PDFService.printPDFFiles();
-                    break;
-                case 3:
-                    PDFService.printPDFFilesSortedByPNumberOfPages();
-                    break;
-                case 4:
-                    PDFService.printSortedByAuthor();
-                    break;
-                case 5:
-                    PDFService.printNonSecuredPDFFiles();
-                    break;
-                case 6:
+                case 1 -> PDFService.createPDFFile();
+                case 2 -> PDFService.printPDFFiles();
+                case 3 -> PDFService.printPDFFilesSortedByPNumberOfPages();
+                case 4 -> PDFService.printSortedByAuthor();
+                case 5 -> PDFService.printNonSecuredPDFFiles();
+                case 6 -> {
                     System.out.println("Exit SubMenu");
                     isActive = false;
-                    break;
-                default:
-                    System.out.println("Invalid command");
-                    break;
+                }
+                default -> System.out.println("Invalid command");
             }
         }
     }
@@ -118,25 +98,15 @@ public class Files_Menus {
             System.out.println("5. Exit the Audio SubMenu");
             int command = scan.nextInt();
             switch (command) {
-                case 1:
-                    AudioService.createAudioFile();
-                    break;
-                case 2:
-                    AudioService.printAudioFiles();
-                    break;
-                case 3:
-                    AudioService.sortByTrackDuration();
-                    break;
-                case 4:
-                    AudioService.printSortedByAuthor();
-                    break;
-                case 5:
+                case 1 -> AudioService.createAudioFile();
+                case 2 -> AudioService.printAudioFiles();
+                case 3 -> AudioService.sortByTrackDuration();
+                case 4 -> AudioService.printSortedByAuthor();
+                case 5 -> {
                     System.out.println("Back to the Main Menu.");
                     isActive = false;
-                    break;
-                default:
-                    System.out.println("Invalid command");
-                    break;
+                }
+                default -> System.out.println("Invalid command");
             }
         }
     }
