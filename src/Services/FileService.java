@@ -21,7 +21,8 @@ public class FileService {
     private static int count = 0;
 
     /**
-     * This method is used to get the count of how many files were created during current session at the called moment..
+     * This method is used to get the count of how many files were created during current session
+     * at the called moment.
      *
      * @since 2021-01-04
      */

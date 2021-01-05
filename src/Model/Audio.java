@@ -77,7 +77,8 @@ public class Audio extends File {
      * @since 2021-01-04
      */
 
-    public Audio(String a) throws InvalidAuthorNameException, InvalidTrackDurationException, InvalidFileNameException {
+    public Audio(String a) throws InvalidAuthorNameException, InvalidTrackDurationException,
+            InvalidFileNameException {
         String[] split = a.split(",");
         setCreationDate(split[0]);
         setFileName(split[1]);

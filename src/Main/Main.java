@@ -29,7 +29,7 @@ public class Main {
                     if (UserService.login()) {
                         System.out.println("Successfully logged in.");
                         Files_Menus.executeMainMenu();
-                    };
+                    }
                 }
                 case 3 -> {
                     System.out.println("Leaving so soon?");

@@ -72,9 +72,10 @@ public class PDF extends File {
      *
      * @param s CSVStringified PDF class' instance that is read from "ForPDFObjects.txt".
      * @throws InvalidAuthorNameException is thrown when Author's full name of the File class' instance is not valid
-     *                                    /both first name and last name must be UpperCase and should be separated by space/.
-     * @throws IndexOutOfBoundsException  is thrown if an index of some sort (such as to an array, to a string, or to a vector)
-     *                                    is out of range.
+     *                                    /both first name and last name must be UpperCase and should
+     *                                    be separated by space/.
+     * @throws IndexOutOfBoundsException  is thrown if an index of some sort (such as to an array, to a string,
+     *                                    or to a vector) is out of range.
      * @throws InvalidPageNumberException is thrown when assigned values of pages of PDF file is negative.
      * @since 2021-01-04
      */

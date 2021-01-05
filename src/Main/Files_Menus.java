@@ -7,7 +7,8 @@ import Services.PDFService;
 import java.util.Scanner;
 
 /**
- * This class is used for executing separate menus of different file formats and main menu for the registered users.
+ * This class is used for executing separate menus of different file formats and main menu
+ * for the registered users.
  *
  * @author Shake Gharibyan
  * @version 1.0
@@ -16,7 +17,8 @@ import java.util.Scanner;
 
 public class Files_Menus {
     /**
-     * This function executes Main Menu for the registered users allowing them to enter to files' submenus.
+     * This function executes Main Menu for the registered users allowing them
+     * to enter to files' submenus.
      *
      * @since 2021-01-04
      */
@@ -34,7 +36,8 @@ public class Files_Menus {
             switch (command) {
                 case 1 -> executePDFSubMenu();
                 case 2 -> executeAudioSubMenu();
-                case 3 -> System.out.println("Total number of created files during current session: " + FileService.getCount());
+                case 3 -> System.out.println("Total number of created files during current session: "
+                        + FileService.getCount());
                 case 4 -> {
                     System.out.println("Have a nice day.");
                     isActive = false;

@@ -68,7 +68,7 @@ public abstract class File implements Printable, CSVable {
      * This method is used to get the Author's name
      * of an instance of File class.
      *
-     * @return Author
+     * @return author
      * @since 2021-01-04
      */
 
