@@ -87,7 +87,7 @@ public class UserService {
     }
 
     /**
-     * This method is created to be used to allow registered user to access Files_Menus, if true.
+     * This method is created to be used to allow registered user to access FilesMenus, if true.
      *
      * @return boolean
      * @since 2021-01-04

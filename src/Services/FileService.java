@@ -9,7 +9,10 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.List;
 
-
+/**
+ * File Service is used to write/read to/from text file for classes that implements CSVable interface.
+ *
+ * */
 public class FileService {
 
     /**

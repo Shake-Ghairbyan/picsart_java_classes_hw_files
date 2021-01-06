@@ -4,6 +4,14 @@ import Exceptions.InvalidFileNameException;
 import Exceptions.InvalidTrackDurationException;
 import Exceptions.InvalidAuthorNameException;
 
+/**
+ * This class is used to create Audio files.
+ *
+ * @author Shake Gharibyan
+ * @version 1.0
+ * @since 2021-01-04
+ * */
+
 public class Audio extends File {
     private static final int BIT_RATE = 128 * 1024;
     private double durationOfTrack = 0.0;
@@ -68,7 +76,7 @@ public class Audio extends File {
      * This method is used to construct new instance of Audio class,
      * from the stringified file that is read from "ForAudioObjects.txt".
      *
-     * @param a CSVStringified Audio class' instance that is read from "ForAudioObjects.txt".
+     * @param a CSVString of Audio class.
      * @throws InvalidAuthorNameException    is thrown when Author name of File's instance is invalid.
      * @throws InvalidTrackDurationException is thrown when Track Duration of the Audio's instance
      *                                       is given negative value.

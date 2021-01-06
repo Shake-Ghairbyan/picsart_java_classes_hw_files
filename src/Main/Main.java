@@ -4,6 +4,14 @@ import Services.UserService;
 
 import java.util.Scanner;
 
+/***
+ * Main class of the application.
+ *
+ * @author Shake Gharibyan
+ * @version 1.0
+ * @since 2021-01-04
+ */
+
 public class Main {
     public static void main(String[] args) {
         entryMenu();
@@ -28,7 +36,7 @@ public class Main {
                 case 2 -> {
                     if (UserService.login()) {
                         System.out.println("Successfully logged in.");
-                        Files_Menus.executeMainMenu();
+                        FilesMenus.executeMainMenu();
                     }
                 }
                 case 3 -> {

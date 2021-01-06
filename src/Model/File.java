@@ -5,7 +5,14 @@ import Exceptions.InvalidFileNameException;
 import Interfaces.Printable;
 import Interfaces.CSVable;
 
-
+/**
+ * This class implements Printable, CSVable interface and is created tp provide
+ * its instances base File features /fields, methods/.
+ *
+ * @author Shake Gharibyan
+ * @version 1.0
+ * @since 2021-01-04
+ */
 public abstract class File implements Printable, CSVable {
     private String creationDate = "No date";
     private String fileName = "No name";

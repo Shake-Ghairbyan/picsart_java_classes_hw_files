@@ -4,6 +4,13 @@ import Exceptions.InvalidAuthorNameException;
 import Exceptions.InvalidFileNameException;
 import Exceptions.InvalidPageNumberException;
 
+/**
+ * This class is used to create PDF files.
+ *
+ * @author Shake Gharibyan
+ * @version 1.0
+ * @since 2021-01-04
+ */
 public class PDF extends File {
     private static final int PAGE_SIZE = 70 * 1024;
     private int numberOfPages;
@@ -68,9 +75,9 @@ public class PDF extends File {
 
     /**
      * This method is used to construct new instance of PDF class,
-     * from the stringified file that is read from "ForPDFObjects.txt".
+     * from the stringified file that is read from "PDFObjects.txt".
      *
-     * @param s CSVStringified PDF class' instance that is read from "ForPDFObjects.txt".
+     * @param s CSVString of PDF class.
      * @throws InvalidAuthorNameException is thrown when Author's full name of the File class' instance is not valid
      *                                    /both first name and last name must be UpperCase and should
      *                                    be separated by space/.

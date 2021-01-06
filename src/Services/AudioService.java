@@ -118,7 +118,7 @@ public class AudioService {
     }
 
     /**
-     * This method is used to print those instances of the Audio class that are read from "ForAudioObjects.txt" file,
+     * This method is used to print those instances of the Audio class that are read from text file,
      * which have licensed status.
      *
      * @since 2021-01-04

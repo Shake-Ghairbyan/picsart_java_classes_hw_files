@@ -15,7 +15,7 @@ import java.util.Scanner;
  * @since 2021-01-04
  */
 
-public class Files_Menus {
+public class FilesMenus {
     /**
      * This function executes Main Menu for the registered users allowing them
      * to enter to files' submenus.

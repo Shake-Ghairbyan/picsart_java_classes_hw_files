@@ -5,7 +5,7 @@ import Interfaces.Printable;
 import java.util.List;
 
 /**
- * This class implements Printable interface.
+ * This class is used to work with the instances of the class which implement Printable interface.
  *
  * @author Shake Gharibyan
  * @version 1.0

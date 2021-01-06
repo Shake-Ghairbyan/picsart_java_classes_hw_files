@@ -2,7 +2,6 @@ package Services;
 
 import Comparators.AuthorComparator;
 import Comparators.FileNameComparator;
-import Comparators.PagesComparator;
 import Exceptions.InvalidAuthorNameException;
 import Exceptions.InvalidFileNameException;
 import Exceptions.InvalidPageNumberException;
@@ -10,8 +9,10 @@ import Model.PDF;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 /**
  * This class is used for working with pdf type files /creating, reading, printing,
@@ -28,7 +29,7 @@ public class PDFService {
      *
      * @since 2021-01-04
      */
-    private static final String PATH = "ForPDFObjects.txt";
+    private static final String PATH = "PDFObjects.txt";
 
     /**
      * This method is used to create new pdf file.
@@ -61,7 +62,7 @@ public class PDFService {
     }
 
     /**
-     * This method reads pdf files from the "ForPDFObjects.txt" text file and
+     * This method reads pdf files from the "PDFObjects.txt" text file and
      * returns the written pdf files as an ArrayList of pdf files.
      *
      * @return new ArrayList<>()
@@ -85,7 +86,7 @@ public class PDFService {
     }
 
     /**
-     * Prints pdf files written in the "ForPDFObjects.txt" text file.
+     * Prints pdf files written in the "PDFObjects.txt" text file.
      *
      * @since 2021-01-04
      */
@@ -94,18 +95,18 @@ public class PDFService {
     }
 
     /**
-     * Prints pdf files written in the "ForPDFObjects.txt" text file sorted by number of pages in ascending order.
+     * Prints pdf files written in the text file sorted by number of pages in ascending order.
      *
      * @since 2021-01-04
      */
     public static void printPDFFilesSortedByPNumberOfPages() {
         List<PDF> pdfs = readPDFFiles();
-        pdfs.sort(new PagesComparator());
+        pdfs.sort(Comparator.comparingInt(PDF::getNumberOfPages));
         PrintableService.printAllInfo(pdfs);
     }
 
     /**
-     * Prints non-secured pdf files written in the "ForPDFObjects.txt" text file.
+     * Prints non-secured pdf files written in the "PDFObjects.txt" text file.
      *
      * @since 2021-01-04
      */
@@ -119,7 +120,7 @@ public class PDFService {
     }
 
     /**
-     * This method is used to print instances of the PDF class, which are read from "ForPDFObjects.txt" file,
+     * This method is used to print instances of the PDF class, which are read from "PDFObjects.txt" file,
      * sorted by the filenames of those instances in Ascending Order.
      *
      * @since 2021-01-04
@@ -131,7 +132,7 @@ public class PDFService {
     }
 
     /**
-     * This method is used to print instances of the PDF class, which are read from "ForPDFObjects.txt" file,
+     * This method is used to print instances of the PDF class, which are read from "PDFObjects.txt" file,
      * sorted by the filenames of those instances in Descending Order.
      *
      * @since 2021-01-04

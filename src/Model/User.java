@@ -12,6 +12,13 @@ import java.security.NoSuchAlgorithmException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * This class is used to create users of the application.
+ *
+ * @author Shake Gharibyan
+ * @version 1.0
+ * @since 2021-01-04
+ */
 public class User implements CSVable {
     private String fullName;
     private String username;
@@ -22,7 +29,7 @@ public class User implements CSVable {
      * This method is used to construct new instance of User class,
      * from the stringified file that is read from "database.txt".
      *
-     * @param s CSVStringified User class' instance that is read from "database.txt".
+     * @param s CSVString of User class.
      * @throws InvalidFullNameException is thrown to indicate that full name of the user is not valid
      *                                  /first name and last name must start with UpperCase and separated by space/.
      * @throws InvalidUsernameException is thrown to indicate that username of the user is not valid
