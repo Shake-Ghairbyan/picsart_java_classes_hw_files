@@ -95,23 +95,23 @@ public class Video extends File {
     }
 
 
-//    public void play() {
-//        Thread thread = new Thread(() -> {
-//            int length = contents.length();
-//            for (int i = 0; i < length; i++) {
-//                System.out.println(contents.charAt(i));
-//                try {
-//                    Thread.sleep(duration / length);
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        });
-//        thread.start();
-//        try {
-//            thread.join();
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
-//    }
+    public void play() {
+        Thread thread = new Thread(() -> {
+            int length = contents.length();
+            for (int i = 0; i < length; i++) {
+                System.out.print(contents.charAt(i));
+                try {
+                    Thread.sleep(duration / length);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        thread.start();
+        try {
+            thread.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 }

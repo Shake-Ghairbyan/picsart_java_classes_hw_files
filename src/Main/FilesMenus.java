@@ -142,7 +142,7 @@ public class FilesMenus {
             System.out.println("4. Print Video files with duration more than 10 seconds /10,000 mls/.");
             System.out.println("5. Print Video files with duration more than 10 seconds /10,000 mls/.");
             System.out.println("6. Print all Video files sorted by their contents length.");
-            System.out.println("7. Print selected Video file from the Video files sorted by their contents length");
+            System.out.println("7. Play selected Video file from the Video files.");
             System.out.println("8. Exit the Audio SubMenu");
             int command = scan.nextInt();
             switch (command) {

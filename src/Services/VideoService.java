@@ -132,30 +132,34 @@ public class VideoService {
     }
 
     /**
-     * Prints selected video file out of videos written in the text file sorted by video's content's length in ascending order.
+     * Plays selected video file out of videos.
      *
      * @since 2021-01-04
      */
     public static void playSelectedVideo() {
-//        List<Video> videos = readVideoFiles();
-//        int videosSize = videos.size();
-//
-//        if (videosSize == 0) {
-//            System.out.println("Videos are empty.");
-//            return;
-//        }
-//
-//        Scanner scan = new Scanner(System.in);
-//        System.out.println("Please input number from 1 to " + videosSize
-//                + " to print selected video file.");
-//        System.out.println("Videos are sorted in ascending order based on contents length");
-//        int index = scan.nextInt() - 1;
-//
-//        if (index < 0 || index > videosSize) {
-//            System.out.println("Inputted number is out of range!");
-//        } else {
-//            videos.get(scan.nextInt()).printInfo();
-//        }
+        List<Video> videos = readVideoFiles();
+        int videosSize = videos.size();
+
+        if (videosSize == 0) {
+            System.out.println("No videos to play.");
+            return;
+        }
+
+        if(videosSize == 1) {
+            videos.get(0).play();
+            return;
+        }
+
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Please input number from 1 to " + videosSize
+                + " to play selected video file.");
+        int index = scan.nextInt() - 1;
+
+        if (index < 0 || index >= videosSize) {
+            System.out.println("Number is out of range!");
+        } else {
+            videos.get(index).play();
+        }
     }
 }
 
