@@ -21,8 +21,6 @@ public class PrintableService {
      */
 
     public static void printAllInfo(List<? extends Printable> printables) {
-        for (Printable p : printables) {
-            p.printInfo();
-        }
+        printables.forEach(Printable::printInfo);
     }
 }

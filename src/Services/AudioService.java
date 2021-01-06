@@ -26,7 +26,7 @@ public class AudioService {
      *
      * @since 2021-01-04
      */
-    private static final String PATH = "ForAudioObjects.txt";
+    private static final String PATH = "AudioObjects.txt";
 
     /**
      * This method is used to create new audio file.
@@ -129,7 +129,7 @@ public class AudioService {
         readAudioFiles()
                 .stream()
                 .filter(a -> !a.isLicensedRecord())
-                .forEach(a -> a.printInfo());
+                .forEach(Audio::printInfo);
     }
 
 
