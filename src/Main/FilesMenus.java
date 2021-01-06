@@ -140,7 +140,7 @@ public class FilesMenus {
             System.out.println("2. Print all Video files");
             System.out.println("3. Print all Video files sorted by duration.");
             System.out.println("4. Print Video files with duration more than 10 seconds /10,000 mls/.");
-            System.out.println("5. Print Video files with duration more than 10 seconds /10,000 mls/.");
+            System.out.println("5. Print Video files with duration less/equal than/to 10 seconds /10,000 mls/.");
             System.out.println("6. Print all Video files sorted by their contents length.");
             System.out.println("7. Play selected Video file from the Video files.");
             System.out.println("8. Exit the Video SubMenu");

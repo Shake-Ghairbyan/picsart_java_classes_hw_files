@@ -1,6 +1,7 @@
 package Model;
 
 import Exceptions.InvalidAuthorNameException;
+import Exceptions.InvalidCommaException;
 import Exceptions.InvalidFileNameException;
 import Exceptions.InvalidTrackDurationException;
 
@@ -47,7 +48,10 @@ public class Video extends File {
      * @param contents inserted value for the duration of the video
      * @since 2021-01-04
      */
-    public void setContents(String contents) {
+    public void setContents(String contents) throws InvalidCommaException {
+        if (!contents.matches("^[^,]*[^ ,][^,]*$")) {
+            throw new InvalidCommaException(contents);
+        }
         this.contents = contents;
     }
 
@@ -68,7 +72,7 @@ public class Video extends File {
      */
 
     public Video(String a) throws InvalidAuthorNameException, InvalidTrackDurationException,
-            InvalidFileNameException {
+            InvalidFileNameException, InvalidCommaException {
         String[] split = a.split(",");
         setCreationDate(split[0]);
         setFileName(split[1]);

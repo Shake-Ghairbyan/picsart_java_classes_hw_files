@@ -1,6 +1,7 @@
 package Services;
 
 import Exceptions.InvalidAuthorNameException;
+import Exceptions.InvalidCommaException;
 import Exceptions.InvalidFileNameException;
 import Exceptions.InvalidTrackDurationException;
 import Model.Video;
@@ -39,9 +40,10 @@ public class VideoService {
             System.out.println("Insert the content to be played");
             video.setContents(scan.nextLine());
             FileService.write(PATH, video);
+            System.out.println("Video file was created.");
             System.out.println("***************************");
         } catch (InvalidAuthorNameException | InvalidTrackDurationException | IOException |
-                InvalidFileNameException e) {
+                InvalidFileNameException | InvalidCommaException e) {
             System.out.println(e);
             System.out.println("Inputs are discarded");
         }
@@ -64,7 +66,7 @@ public class VideoService {
             }
             return videos;
         } catch (IndexOutOfBoundsException | InvalidAuthorNameException | InvalidTrackDurationException |
-                InvalidFileNameException e) {
+                InvalidFileNameException | InvalidCommaException e) {
             System.out.println(e);
         } catch (IOException e) {
             System.out.println("Could not read Video files");
@@ -145,7 +147,7 @@ public class VideoService {
             return;
         }
 
-        if(videosSize == 1) {
+        if (videosSize == 1) {
             videos.get(0).play();
             return;
         }
