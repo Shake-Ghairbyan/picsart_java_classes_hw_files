@@ -106,6 +106,7 @@ public class Video extends File {
                     e.printStackTrace();
                 }
             }
+            System.out.println();
         });
         thread.start();
         try {
