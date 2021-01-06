@@ -114,7 +114,6 @@ public class UserService {
             System.out.println("Incorrect password!");
             return false;
         }
-
         return true;
     }
 }
