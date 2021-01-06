@@ -1,7 +1,8 @@
 .idea
 out
 *.iml
-ForPDFObjects.txt
-ForAudioObjects.txt
+PDFObjects.txt
+AudioObjects.txt
 *.txt
 docs/
+git diff
