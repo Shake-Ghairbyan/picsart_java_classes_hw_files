@@ -64,11 +64,10 @@ public abstract class File implements Printable, CSVable {
      */
 
     public void setFileName(String fileName) throws InvalidFileNameException {
-        if (fileName.length() > 0) {
-            this.fileName = fileName;
-        } else {
+        if (fileName.length() <= 0) {
             throw new InvalidFileNameException(fileName);
         }
+        this.fileName = fileName;
     }
 
     /**
@@ -95,11 +94,10 @@ public abstract class File implements Printable, CSVable {
      */
 
     public void setAuthor(String author) throws InvalidAuthorNameException {
-        if (author.matches("[A-Za-z\\s\\.]+")) {
-            this.author = author;
-        } else {
+        if (!author.matches("[A-Za-z\\s\\.]+")) {
             throw new InvalidAuthorNameException(author);
         }
+        this.author = author;
     }
 
     @Override
