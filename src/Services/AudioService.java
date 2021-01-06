@@ -126,16 +126,16 @@ public class AudioService {
 
 
     public static void printLicensedAudioFiles() {
-        List<Audio> audios = readAudioFiles();
-        for (Audio a : audios) {
-            if (!a.isLicensedRecord()) {
-                a.printInfo();
-            }
-        }
+        readAudioFiles()
+                .stream()
+                .filter(a -> !a.isLicensedRecord())
+                .forEach(a -> a.printInfo());
     }
 
+}
+
     /**
-     * This method is used to print instances of the Audio class, which are read from "ForAudioObjects.txt" file,
+     * This method is used to print instances of the Audio class, which are read from text file,
      * sorted by the filenames of those instances in Ascending Order.
      *
      * @since 2021-01-04
@@ -148,7 +148,7 @@ public class AudioService {
     }
 
     /**
-     * This method is used to print instances of the Audio class, which are read from "ForAudioObjects.txt" file,
+     * This method is used to print instances of the Audio class, which are read from text file,
      * sorted by the filenames of those instances in Descending Order.
      *
      * @since 2021-01-04

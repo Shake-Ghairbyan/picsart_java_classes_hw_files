@@ -62,7 +62,7 @@ public class PDFService {
     }
 
     /**
-     * This method reads pdf files from the "PDFObjects.txt" text file and
+     * This method reads pdf files from the text file and
      * returns the written pdf files as an ArrayList of pdf files.
      *
      * @return new ArrayList<>()
@@ -86,7 +86,7 @@ public class PDFService {
     }
 
     /**
-     * Prints pdf files written in the "PDFObjects.txt" text file.
+     * Prints pdf files written in the text file.
      *
      * @since 2021-01-04
      */
@@ -106,21 +106,19 @@ public class PDFService {
     }
 
     /**
-     * Prints non-secured pdf files written in the "PDFObjects.txt" text file.
+     * Prints non-secured pdf files written in the text file.
      *
      * @since 2021-01-04
      */
     public static void printNonSecuredPDFFiles() {
-        List<PDF> pdfs = readPDFFiles();
-        for (PDF p : pdfs) {
-            if (!p.isSecured()) {
-                p.printInfo();
-            }
-        }
+        readPDFFiles()
+                .stream()
+                .filter(pdf -> !pdf.isSecured())
+                .forEach(pdf -> pdf.printInfo());
     }
 
     /**
-     * This method is used to print instances of the PDF class, which are read from "PDFObjects.txt" file,
+     * This method is used to print instances of the PDF class, which are read from text file,
      * sorted by the filenames of those instances in Ascending Order.
      *
      * @since 2021-01-04
@@ -132,7 +130,7 @@ public class PDFService {
     }
 
     /**
-     * This method is used to print instances of the PDF class, which are read from "PDFObjects.txt" file,
+     * This method is used to print instances of the PDF class, which are read from text file,
      * sorted by the filenames of those instances in Descending Order.
      *
      * @since 2021-01-04
