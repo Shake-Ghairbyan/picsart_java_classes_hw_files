@@ -59,9 +59,8 @@ public class PDF extends File {
     public void setNumberOfPages(int numberOfPages) throws InvalidPageNumberException {
         if (numberOfPages < 0) {
             throw new InvalidPageNumberException(numberOfPages);
-        } else {
-            this.numberOfPages = numberOfPages;
         }
+        this.numberOfPages = numberOfPages;
     }
 
     /**
