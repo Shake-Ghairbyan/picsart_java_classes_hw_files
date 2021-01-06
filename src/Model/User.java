@@ -68,11 +68,10 @@ public class User implements CSVable {
      */
 
     public void setFullName(String fullName) throws InvalidFullNameException {
-        if (fullName.matches("[A-Z][a-z]*[ ][A-Z][a-z]*")) {
-            this.fullName = fullName;
-        } else {
+        if (!fullName.matches("[A-Z][a-z]*[ ][A-Z][a-z]*")) {
             throw new InvalidFullNameException(fullName);
         }
+        this.fullName = fullName;
     }
 
     /**
@@ -96,11 +95,10 @@ public class User implements CSVable {
      */
 
     public void setUsername(String username) throws InvalidUsernameException {
-        if (username.length() > 10) {
-            this.username = username;
-        } else {
+        if (username.length() <= 10) {
             throw new InvalidUsernameException("Invalid input data: ", username);
         }
+        this.username = username;
     }
 
     /**
@@ -113,11 +111,10 @@ public class User implements CSVable {
      */
 
     public void setEmail(String email) throws InvalidEmailException {
-        if (validate(email)) {
-            this.email = email;
-        } else {
+        if (!validate(email)) {
             throw new InvalidEmailException(email);
         }
+        this.email = email;
     }
 
 
@@ -235,9 +232,9 @@ public class User implements CSVable {
                 ++countOfUpperCase;
             }
         }
-        if (countOfUpperCase >= 2) {
-            return true;
+        if (countOfUpperCase < 2) {
+            throw new InvalidPasswordException("Inserted password doesn't contain UpperCase letters /at least 2/.");
         }
-        throw new InvalidPasswordException("Inserted password doesn't contain UpperCase letters /at least 2/.");
+        return true;
     }
 }
