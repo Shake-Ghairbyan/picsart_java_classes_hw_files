@@ -18,7 +18,7 @@ public class Audio extends File {
     private boolean isLicensedRecord = false;
 
     /**
-     * This method is used to get the duration of the track for an instance of File Audio class.
+     * This method is used to get the duration of the track for an instance of Audio class.
      *
      * @since 2021-01-04
      */
@@ -27,8 +27,9 @@ public class Audio extends File {
     }
 
     /**
-     * This method is used to set the duration of the track for an instance of File Audio class.
+     * This method is used to set the duration of the track for an instance of Audio class.
      *
+     * @param durationOfTrack inserted value for the duration of the track
      * @throws InvalidTrackDurationException is thrown when track's duration was assigned a negative value.
      * @since 2021-01-04
      */

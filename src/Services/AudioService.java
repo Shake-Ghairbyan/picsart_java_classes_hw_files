@@ -60,7 +60,7 @@ public class AudioService {
 
     /**
      * This method reads audio files from the text file and
-     * returns the written pdf files as an ArrayList of audio files.
+     * returns the written audio files as an ArrayList of audio files.
      *
      * @return new ArrayList<>();
      * @since 2021-01-04
