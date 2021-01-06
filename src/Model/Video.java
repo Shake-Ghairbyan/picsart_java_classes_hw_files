@@ -49,7 +49,7 @@ public class Video extends File {
      * @since 2021-01-04
      */
     public void setContents(String contents) throws InvalidCommaException {
-        if (!contents.matches("^[^,]*[^ ,][^,]*$")) {
+        if (!contents.matches("[A-Z][a - z] *[ ][A - Z][a - z]*")) {
             throw new InvalidCommaException(contents);
         }
         this.contents = contents;
