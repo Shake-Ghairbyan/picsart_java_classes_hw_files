@@ -3,6 +3,7 @@ package Main;
 import Services.AudioService;
 import Services.FileService;
 import Services.PDFService;
+import Services.VideoService;
 
 import java.util.Scanner;
 
@@ -29,16 +30,18 @@ public class FilesMenus {
             System.out.println("----------Menu-----------");
             System.out.println("1. Choose PDF SubMenu");
             System.out.println("2. Choose Audio SubMenu");
-            System.out.println("3. Print total count of created Files.");
-            System.out.println("4. Exit the Menu!");
+            System.out.println("3. Choose Video SubMenu");
+            System.out.println("4. Print total count of created Files.");
+            System.out.println("5. Exit the Menu!");
 
             int command = scan.nextInt();
             switch (command) {
                 case 1 -> executePDFSubMenu();
                 case 2 -> executeAudioSubMenu();
-                case 3 -> System.out.println("Total number of created files during current session: "
+                case 3 -> executeVideoSubMenu();
+                case 4 -> System.out.println("Total number of created files during current session: "
                         + FileService.getCount());
-                case 4 -> {
+                case 5 -> {
                     System.out.println("Have a nice day.");
                     isActive = false;
                 }
@@ -113,6 +116,43 @@ public class FilesMenus {
                 case 5 -> AudioService.printSortedByAudioFileNameInAscendingOrder();
                 case 6 -> AudioService.printSortedByAudioFileNameInDescendingOrder();
                 case 7 -> AudioService.printLicensedAudioFiles();
+                case 8 -> {
+                    System.out.println("Back to the Main Menu.");
+                    isActive = false;
+                }
+                default -> System.out.println("Invalid command");
+            }
+        }
+    }
+
+    /**
+     * This function executes submenu for video files, allowing registered users create video file,
+     * and read video files, that are already written into the text file, with given options.
+     *
+     * @since 2021-01-04
+     */
+    static void executeVideoSubMenu() {
+        Scanner scan = new Scanner(System.in);
+        boolean isActive = true;
+        while (isActive) {
+            System.out.println("------------Video SubMenu--------------");
+            System.out.println("1. Create Video File");
+            System.out.println("2. Print all Video files");
+            System.out.println("3. Print all Video files sorted by duration.");
+            System.out.println("4. Print Video files with duration more than 10 seconds /10,000 mls/.");
+            System.out.println("5. Print Video files with duration more than 10 seconds /10,000 mls/.");
+            System.out.println("6. Print all Video files sorted by their contents length.");
+            System.out.println("7. Print selected Video file from the Video files sorted by their contents length");
+            System.out.println("8. Exit the Audio SubMenu");
+            int command = scan.nextInt();
+            switch (command) {
+                case 1 -> VideoService.createVideoFile();
+                case 2 -> VideoService.printVideoFiles();
+                case 3 -> VideoService.sortByDuration();
+                case 4 -> VideoService.printVideosWithDurationGreaterThan(10000);
+                case 5 -> VideoService.printVideosWithDurationLessOrEqualThan(10000);
+                case 6 -> VideoService.sortByContentsLength();
+                case 7 -> VideoService.playSelectedVideo();
                 case 8 -> {
                     System.out.println("Back to the Main Menu.");
                     isActive = false;

@@ -18,7 +18,7 @@ public class Main {
     }
 
     /**
-     * This method is used to implement a menu for users registration /sing up, login.../.
+     * This method is used to implement a menu for users registration /sign up, login.../.
      *
      * @since 2021-01-04
      */
