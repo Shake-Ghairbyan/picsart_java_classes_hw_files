@@ -10,7 +10,7 @@ import Exceptions.InvalidAuthorNameException;
  * @author Shake Gharibyan
  * @version 1.0
  * @since 2021-01-04
- * */
+ */
 
 public class Audio extends File {
     private static final int BIT_RATE = 128 * 1024;
@@ -35,11 +35,10 @@ public class Audio extends File {
      */
 
     public void setDurationOfTrack(double durationOfTrack) throws InvalidTrackDurationException {
-        if (durationOfTrack >= 0) {
-            this.durationOfTrack = durationOfTrack;
-        } else {
+        if (durationOfTrack < 0) {
             throw new InvalidTrackDurationException(durationOfTrack);
         }
+        this.durationOfTrack = durationOfTrack;
     }
 
     /**
