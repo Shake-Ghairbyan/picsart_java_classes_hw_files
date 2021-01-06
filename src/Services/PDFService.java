@@ -114,7 +114,7 @@ public class PDFService {
         readPDFFiles()
                 .stream()
                 .filter(pdf -> !pdf.isSecured())
-                .forEach(pdf -> pdf.printInfo());
+                .forEach(PDF::printInfo);
     }
 
     /**
