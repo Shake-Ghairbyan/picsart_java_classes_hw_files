@@ -75,7 +75,7 @@ public class PDF extends File {
 
     /**
      * This method is used to construct new instance of PDF class,
-     * from the stringified file that is read from "PDFObjects.txt".
+     * from the stringified file that is read from text file.
      *
      * @param s CSVString of PDF class.
      * @throws InvalidAuthorNameException is thrown when Author's full name of the File class' instance is not valid

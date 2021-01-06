@@ -74,7 +74,7 @@ public class Audio extends File {
 
     /**
      * This method is used to construct new instance of Audio class,
-     * from the stringified file that is read from "ForAudioObjects.txt".
+     * from the stringified file that is read from "AudioObjects.txt".
      *
      * @param a CSVString of Audio class.
      * @throws InvalidAuthorNameException    is thrown when Author name of File's instance is invalid.
