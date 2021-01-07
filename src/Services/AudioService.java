@@ -51,6 +51,7 @@ public class AudioService {
             System.out.println("Set mode for record status: 1. Licensed , 2. Not Licensed.");
             audio.setLicensedRecord(scan.nextInt() == 1);
             FileService.write(PATH, audio);
+            System.out.println("Audio file was created.");
             System.out.println("***************************");
         } catch (InvalidAuthorNameException | InvalidTrackDurationException | IOException |
                 InvalidFileNameException | InputMismatchException e) {
@@ -129,7 +130,7 @@ public class AudioService {
     public static void printLicensedAudioFiles() {
         readAudioFiles()
                 .stream()
-                .filter(a -> !a.isLicensedRecord())
+                .filter(a -> a.isLicensedRecord())
                 .forEach(Audio::printInfo);
     }
 
