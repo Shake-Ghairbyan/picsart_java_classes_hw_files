@@ -1,5 +1,6 @@
 ## Project to apply various concepts of JAVA language
-This project allows registered users to create PDF, Audio and Video files and sort them in the suggested ways.
+This project allows users to register, and registered users can create PDF,
+Audio and Video files and sort them in the suggested ways.
 
 Used concepts: 
   - Streams API 
