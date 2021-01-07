@@ -80,8 +80,7 @@ public class UserService {
         } catch (IndexOutOfBoundsException | InvalidEmailException |
                 InvalidFullNameException | InvalidUsernameException e) {
             System.out.println(e);
-        } catch (IOException e) {
-            System.out.println("Users database is empty.");
+        } catch (IOException ignored) {
         }
         return new HashMap<>();
     }
