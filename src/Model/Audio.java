@@ -105,6 +105,7 @@ public class Audio extends File {
         super.printInfo();
         System.out.println("Duration of track (s): " + getDurationOfTrack() + "s");
         System.out.println("Licensed Record Status: " + (isLicensedRecord ? "Licensed" : "Not Licensed"));
+        System.out.println();
     }
 
     @Override

@@ -46,6 +46,7 @@ public class Video extends File {
      * This method is used to set the contents of the video for an instance of Video class.
      *
      * @param contents inserted value for the duration of the video
+     * @throws InvalidCommaException is thrown when content of the Video class' instance contains comma.
      * @since 2021-01-04
      */
     public void setContents(String contents) throws InvalidCommaException {
@@ -63,6 +64,7 @@ public class Video extends File {
      * from the stringified file.
      *
      * @param a CSVString of Video class.
+     * @throws InvalidCommaException         is thrown when content of the Video class' instance contains comma.
      * @throws InvalidAuthorNameException    is thrown when Author name of File's instance is invalid.
      * @throws InvalidTrackDurationException is thrown when Track Duration of the Video's instance
      *                                       is given negative value.
@@ -96,13 +98,14 @@ public class Video extends File {
         super.printInfo();
         System.out.println("Duration of the video (mls): " + duration);
         System.out.println("Contents of the video: " + contents);
+        System.out.println();
     }
 
 
     public void play() {
         Thread thread = new Thread(() -> {
             int length = contents.length();
-            for (int i = 0; i < length; i++) {
+            for (int i = 0; i < length; ++i) {
                 System.out.print(contents.charAt(i));
                 try {
                     Thread.sleep(duration / length);

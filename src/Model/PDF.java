@@ -111,6 +111,7 @@ public class PDF extends File {
             System.out.println("___________________________________________________");
             System.out.println("Status of PDF file: Secured: Info is not available.");
         }
+        System.out.println();
     }
 
     @Override
