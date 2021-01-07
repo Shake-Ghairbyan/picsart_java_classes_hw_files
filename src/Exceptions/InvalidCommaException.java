@@ -18,6 +18,6 @@ public class InvalidCommaException extends Exception{
      */
 
     public InvalidCommaException(String message){
-        super("Content shoud be without comma. Your input: " + message);
+        super("Content should be without comma. Your input: " + message);
     }
 }
