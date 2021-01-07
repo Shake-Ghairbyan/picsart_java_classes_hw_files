@@ -7,15 +7,14 @@ Used concepts:
   - Threads
   - Runnable
   - Lambda functions
+  - Java Documentation Comments
   - Custom Comparators
   - Custom Exceptions
-  - Handling of Exceptions
   - OOP
   - Inheritance
   - Polymorphism
   - Overloading
   - Overriding
-  - Operations
   - Enhanced switch statements
   - Scanners
   - Boxed types
@@ -29,12 +28,12 @@ Used concepts:
   - Lists
   - Array Lists
   - HashMaps
-  - Java Regular Expressions
+  - Regular Expressions
   - Generic Wildcards
-  - Java Documentation Comments
-  - ...
+  - etc ...
 
-Screen example:
+
+_**Dialogue example 1:**_
 ```
 ----------Menu-----------
 1. Sign up.
@@ -42,7 +41,17 @@ Screen example:
 3. Exit Login Menu.
 ```
 
-Sub Menu example:
+_**Dialogue example 2:**_
+```
+----------Menu-----------
+1. Choose PDF SubMenu
+2. Choose Audio SubMenu
+3. Choose Video SubMenu
+4. Print total count of created Files.
+5. Exit the Menu!
+```
+
+_**Dialogue example 3:**_
 ```
 ------------Video SubMenu--------------
 1. Create Video File
@@ -55,5 +64,5 @@ Sub Menu example:
 8. Exit the Video SubMenu
 
 ```
-JAVA Doc example:
-[![Screen-Shot-2021-01-07-at-4-08-17-PM.png](https://i.postimg.cc/fTyFbbGG/Screen-Shot-2021-01-07-at-4-08-17-PM.png)](https://postimg.cc/CzyJPwL7)
+_**JAVA Doc example:**_
+![java_doc](images/java_doc_example.png)
