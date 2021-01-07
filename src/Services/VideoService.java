@@ -38,6 +38,7 @@ public class VideoService {
         try {
             System.out.println("***************************");
             System.out.println("Insert creation Date");
+            System.out.println("Example: MM-dd-yyyy");
             video.setCreationDate(scan.nextLine());
             System.out.println("Print file name");
             video.setFileName(scan.nextLine());
