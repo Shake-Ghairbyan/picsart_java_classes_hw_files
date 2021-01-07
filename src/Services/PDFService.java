@@ -38,6 +38,7 @@ public class PDFService {
         try {
             System.out.println("***************************");
             System.out.println("Insert creation Date");
+            System.out.println("Example: MM-dd-yyyy");
             pdf.setCreationDate(scan.nextLine());
             System.out.println("Print file name");
             pdf.setFileName(scan.nextLine());

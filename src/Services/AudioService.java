@@ -40,6 +40,7 @@ public class AudioService {
         try {
             System.out.println("***************************");
             System.out.println("Insert creation Date");
+            System.out.println("Example: MM-dd-yyyy");
             audio.setCreationDate(scan.nextLine());
             System.out.println("Print file name");
             audio.setFileName(scan.nextLine());
