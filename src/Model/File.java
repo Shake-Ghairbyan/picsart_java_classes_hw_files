@@ -88,8 +88,7 @@ public abstract class File implements Printable, CSVable {
      *
      * @param author inserted value for the Author's name for an instance of File class.
      * @throws InvalidAuthorNameException is thrown when Author's name of File's
-     *                                    instance is not valid: first name and last name must be upperCase and
-     *                                    separated by space.
+     *                                    instance is not valid.
      * @since 2021-01-04
      */
 
