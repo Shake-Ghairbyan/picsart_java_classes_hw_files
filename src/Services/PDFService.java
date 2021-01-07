@@ -8,10 +8,7 @@ import Exceptions.InvalidPageNumberException;
 import Model.PDF;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * This class is used for working with pdf type files /creating, reading, printing,
@@ -54,7 +51,7 @@ public class PDFService {
             System.out.println("***************************");
             FileService.write(PATH, pdf);
         } catch (InvalidAuthorNameException | InvalidPageNumberException | IOException
-                | InvalidFileNameException e) {
+                | InvalidFileNameException | InputMismatchException e) {
             System.out.println(e);
             System.out.println("Inputs are discarded");
         }

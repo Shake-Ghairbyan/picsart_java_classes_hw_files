@@ -52,7 +52,7 @@ public class AudioService {
             FileService.write(PATH, audio);
             System.out.println("***************************");
         } catch (InvalidAuthorNameException | InvalidTrackDurationException | IOException |
-                InvalidFileNameException e) {
+                InvalidFileNameException | InputMismatchException e) {
             System.out.println(e);
             System.out.println("Inputs are discarded");
         }

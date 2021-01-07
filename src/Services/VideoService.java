@@ -43,7 +43,7 @@ public class VideoService {
             System.out.println("Video file was created.");
             System.out.println("***************************");
         } catch (InvalidAuthorNameException | InvalidTrackDurationException | IOException |
-                InvalidFileNameException | InvalidCommaException e) {
+                InvalidFileNameException | InvalidCommaException | InputMismatchException e) {
             System.out.println(e);
             System.out.println("Inputs are discarded");
         }
