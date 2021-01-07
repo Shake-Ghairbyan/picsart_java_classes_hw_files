@@ -81,6 +81,8 @@ public class PDF extends File {
      * @throws IndexOutOfBoundsException  is thrown if an index of some sort (such as to an array, to a string,
      *                                    or to a vector) is out of range.
      * @throws InvalidPageNumberException is thrown when assigned values of pages of PDF file is negative.
+     * @throws InvalidFileNameException   is thrown when name of the file of the File class' instance is not valid
+     *                                    /non-empty string/.
      * @since 2021-01-04
      */
 

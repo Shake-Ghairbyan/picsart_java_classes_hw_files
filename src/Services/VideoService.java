@@ -9,6 +9,15 @@ import Model.Video;
 import java.io.IOException;
 import java.util.*;
 
+/**
+ * This class is used for working with video type files /creating, reading, printing,
+ * sorting by different options, etc./.
+ *
+ * @author Shake Gharibyan
+ * @version 1.0
+ * @since 2021-01-04
+ */
+
 public class VideoService {
     /**
      * This field shows where created files will be written.

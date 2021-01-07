@@ -13,6 +13,13 @@ import java.util.Scanner;
  */
 
 public class Main {
+
+    /**
+     * Application's entry point.
+     *
+     * @param args Application arguments
+     * @since 2021-01-04
+     */
     public static void main(String[] args) {
         entryMenu();
     }

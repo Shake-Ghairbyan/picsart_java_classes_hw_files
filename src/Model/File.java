@@ -33,7 +33,7 @@ public abstract class File implements Printable, CSVable {
      * This method is used to set the creation date
      * for an instance of File class.
      *
-     * @param creationDate creation
+     * @param creationDate creation Date of the File's instance
      * @since 2021-01-04
      */
     public void setCreationDate(String creationDate) {
@@ -58,6 +58,7 @@ public abstract class File implements Printable, CSVable {
      * This method is used to set the file name
      * for an instance of File class.
      *
+     * @param fileName file name of the File's instance
      * @throws InvalidFileNameException is thrown when name of the file of the File class' instance is not valid
      *                                  /non-empty string/.
      * @since 2021-01-04
@@ -117,6 +118,7 @@ public abstract class File implements Printable, CSVable {
      * This method is to be used to get the estimated storage size of
      * a new instance of File class.
      *
+     * @return int
      * @since 2021-01-04
      */
     public abstract int getEstimatedStorageSize();

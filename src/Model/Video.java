@@ -5,6 +5,14 @@ import Exceptions.InvalidCommaException;
 import Exceptions.InvalidFileNameException;
 import Exceptions.InvalidTrackDurationException;
 
+/**
+ * This class is used to create Video files.
+ *
+ * @author Shake Gharibyan
+ * @version 1.0
+ * @since 2021-01-04
+ */
+
 public class Video extends File {
     private static final int BIT_RATE = 1280 * 720;
     private long duration;
@@ -13,6 +21,7 @@ public class Video extends File {
     /**
      * This method is used to get the duration of the track in milliseconds.
      *
+     * @return duration
      * @since 2021-01-04
      */
     public long getDuration() {
@@ -36,6 +45,7 @@ public class Video extends File {
     /**
      * This method is used to get the content of the video for an instance of Video class.
      *
+     * @return contents
      * @since 2021-01-04
      */
     public String getContents() {
@@ -56,6 +66,11 @@ public class Video extends File {
         this.contents = contents;
     }
 
+    /**
+     * This method is used to construct new instance of Video class.
+     *
+     * @since 2021-01-04
+     */
     public Video() {
     }
 
@@ -101,6 +116,12 @@ public class Video extends File {
         System.out.println();
     }
 
+
+    /**
+     * This method is used to play the instance of the Video class' contents.
+     *
+     * @since 2021-01-04
+     */
 
     public void play() {
         Thread thread = new Thread(() -> {
