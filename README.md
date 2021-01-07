@@ -31,15 +31,6 @@ Used concepts:
   - Java Regular Expressions
   - Generic Wildcards
   - Java Documentation Comments
-  
-  
-  
-  
-  
-  
-  
-
-  
   - ...
 
 Screen example:
@@ -61,5 +52,11 @@ Sub Menu example:
 6. Print all Video files sorted by their contents length.
 7. Play selected Video file from the Video files.
 8. Exit the Video SubMenu
+
+```
+JAVA Doc example:
+
+```
+
 
 ```
