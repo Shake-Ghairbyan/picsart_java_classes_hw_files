@@ -1,59 +1,52 @@
 package Main;
 
-import Interfaces.I_File;
-import Interfaces.I_Video;
-import Media_SubClasses.*;
-import Model.File;
-import Text_SubClasses.*;
+import Services.UserService;
+
+import java.util.Scanner;
+
+/***
+ * Main class of the application.
+ *
+ * @author Shake Gharibyan
+ * @version 1.0
+ * @since 2021-01-04
+ */
 
 public class Main {
     public static void main(String[] args) {
-        Audio audio1 = new Audio("20 Nov 2020", "20 Nov 2020", "mp3", "audio1",
-                444, "Gharibyan Sh.", 44, false, false,
-                "some tracks");
-        audio1.printInfo();
-        audio1.recordAudio();
-        audio1.setVoice_volume(66);
-        System.out.println(audio1.getVoice_volume());
-        audio1.stop();
-        System.out.println(audio1.volumeUp());
-        System.out.println("***************************");
-
-        PDF pdf1 = new PDF();
-        pdf1.setFileFormat("pdf");
-        pdf1.setFileName("SmithSmith");
-        pdf1.setNumberOfPages(4);
-        pdf1.setSecured(true);
-        pdf1.printInfo();
-        System.out.println("***************************");
-
-        Video video1 = new Video("20 Nov 2020", "20 Nov 2020", "mp4", "video1",
-                12560, "Jack Daniels", 3600, false, true,
-                "Avatar, Great Gatsby", "", "", "1,280×720", "Fantasy");
-        video1.printInfo();
-        System.out.println(video1.volumeDown());
-        video1.play();
-        video1.zoomIn();
-        video1.zoomOut();
-        video1.changeQuality("1920x720");
-        video1.turnOnCaptions();
-        video1.turnOffCaptions();
-        System.out.println("***************************");
-
-        PPT ppt1 = new PPT("", "", "ppt", "ppt1", 128, "Sam Smith",
-                12, true);
-        ppt1.printInfo();
-        System.out.println("***************************");
-        ppt1.printAuthor();
-        ppt1.setAuthor("Guuuan hisdl");
-        ppt1.printAuthor();
-        ppt1.setCreationDate("20 Nov 2020");
-        printFile(video1);
+        entryMenu();
     }
 
-    public static void printFile(I_File f) {
-        f.printAuthor();
+    /**
+     * This method is used to implement a menu for users registration /sign up, login.../.
+     *
+     * @since 2021-01-04
+     */
+    private static void entryMenu() {
+        Scanner scan = new Scanner(System.in);
+        boolean isActive = true;
+        while (isActive) {
+            System.out.println("----------Menu-----------");
+            System.out.println("1. Sign up.");
+            System.out.println("2. Already signed in? Log in.");
+            System.out.println("3. Exit Login Menu.");
+            int command = scan.nextInt();
+            switch (command) {
+                case 1 -> UserService.signUp();
+                case 2 -> {
+                    if (UserService.login()) {
+                        System.out.println("Successfully logged in.");
+                        FilesMenus.executeMainMenu();
+                    }
+                }
+                case 3 -> {
+                    System.out.println("Leaving so soon?");
+                    System.out.println("Bye");
+                    isActive = false;
+                }
+                default -> System.out.println("Invalid command.");
+            }
+        }
     }
-
 }
 

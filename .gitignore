@@ -1,0 +1,8 @@
+.idea
+out
+*.iml
+PDFObjects.txt
+AudioObjects.txt
+VideoObjects.txt
+*.txt
+docs/

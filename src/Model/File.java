@@ -1,110 +1,123 @@
 package Model;
 
-import Interfaces.I_File;
+import Exceptions.InvalidAuthorNameException;
+import Exceptions.InvalidFileNameException;
+import Interfaces.Printable;
+import Interfaces.CSVable;
 
-
-public class File implements I_File {
-    private String creationDate = "15 Nov 2020";
-    private String lastModified = "15 Nov 2020";
-    private String fileFormat = "No info available.";
+/**
+ * This class implements Printable, CSVable interface and is created tp provide
+ * its instances base File features /fields, methods/.
+ *
+ * @author Shake Gharibyan
+ * @version 1.0
+ * @since 2021-01-04
+ */
+public abstract class File implements Printable, CSVable {
+    private String creationDate = "No date";
     private String fileName = "No name";
-    private double storageSize;
     private String author = "No Name";
 
+    /**
+     * This method is used to get the creation date
+     * of an instance of File class.
+     *
+     * @return creationDate
+     * @since 2021-01-04
+     */
     public String getCreationDate() {
         return creationDate;
     }
 
-    @Override
+    /**
+     * This method is used to set the creation date
+     * for an instance of File class.
+     *
+     * @param creationDate creation
+     * @since 2021-01-04
+     */
     public void setCreationDate(String creationDate) {
-        if (creationDate != null && creationDate.length() > 0) {
+        if (creationDate.length() > 0) {
             this.creationDate = creationDate;
         }
     }
 
-    public String getLastModified() {
-        return lastModified;
-    }
-
-    @Override
-    public void setLastModified(String lastModified) {
-        if (lastModified != null && lastModified.length() > 0) {
-            this.lastModified = lastModified;
-        }
-    }
+    /**
+     * This method is used to get the file name
+     * of an instance of File class.
+     *
+     * @return String fileName
+     * @since 2021-01-04
+     */
 
     public String getFileName() {
         return fileName;
     }
 
-    @Override
-    public void setFileName(String fileName) {
-        if (fileName != null && fileName.length() > 0) {
-            this.fileName = fileName;
+    /**
+     * This method is used to set the file name
+     * for an instance of File class.
+     *
+     * @throws InvalidFileNameException is thrown when name of the file of the File class' instance is not valid
+     *                                  /non-empty string/.
+     * @since 2021-01-04
+     */
+
+    public void setFileName(String fileName) throws InvalidFileNameException {
+        if (fileName.length() <= 0) {
+            throw new InvalidFileNameException(fileName);
         }
+        this.fileName = fileName;
     }
 
-    public double getStorageSize() {
-        return storageSize;
-    }
-
-    @Override
-    public void setStorageSize(double storageSize) {
-        if (storageSize < 0) {
-            System.out.println("Invalid input for storage size");
-        } else {
-            this.storageSize = storageSize;
-        }
-    }
+    /**
+     * This method is used to get the Author's name
+     * of an instance of File class.
+     *
+     * @return author
+     * @since 2021-01-04
+     */
 
     public String getAuthor() {
         return author;
     }
 
-    @Override
-    public void setAuthor(String author) {
-        if (author != null && author.length() > 0) {
-            this.author = author;
+    /**
+     * This method is used to set the Author's name
+     * for an instance of File class.
+     *
+     * @param author inserted value for the Author's name for an instance of File class.
+     * @throws InvalidAuthorNameException is thrown when Author's name of File's
+     *                                    instance is not valid.
+     * @since 2021-01-04
+     */
+
+    public void setAuthor(String author) throws InvalidAuthorNameException {
+        if (!author.matches("[A-Za-z\\s\\.]+")) {
+            throw new InvalidAuthorNameException(author);
         }
-    }
-
-    public String getFileFormat() {
-        return fileFormat;
+        this.author = author;
     }
 
     @Override
-    public void setFileFormat(String fileFormat) {
-        if (fileFormat != null && fileFormat.length() > 0) {
-            this.fileFormat = fileFormat;
-        }
-    }
-
-
-    public  File(){
-
-    }
-    public File(String creationDate, String lastModified, String fileFormat, String fileName, double storageSize, String author) {
-        setCreationDate(creationDate);
-        setLastModified(lastModified);
-        setFileFormat(fileFormat);
-        setFileName(fileName);
-        setStorageSize(storageSize);
-        setAuthor(author);
+    public String toCSVString() {
+        return creationDate + "," + fileName + "," + author;
     }
 
     @Override
     public void printInfo() {
         System.out.println("___________________________");
-        System.out.println("File name: " + getFileName() + "." + getFileFormat());
-        System.out.println("Author: " + getAuthor()); //%s - string
+        System.out.println("File name: " + getFileName());
+        System.out.println("Author: " + getAuthor());
         System.out.println("Created: " + getCreationDate());
-        System.out.println("Last Modified: " + getLastModified());
-        System.out.println("File Size: " + getStorageSize());
+        System.out.println("Estimated Storage Size: " + getEstimatedStorageSize() + " bytes");
     }
 
-    @Override
-    public void printAuthor() {
-        System.out.println("Author of the file is : " + getAuthor());
-    }
-
+    /**
+     * This method is to be used to get the estimated storage size of
+     * a new instance of File class.
+     *
+     * @since 2021-01-04
+     */
+    public abstract int getEstimatedStorageSize();
 }
