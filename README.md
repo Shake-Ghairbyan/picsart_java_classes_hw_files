@@ -55,8 +55,4 @@ Sub Menu example:
 
 ```
 JAVA Doc example:
-
-```
-
-
-```
+[![Screen-Shot-2021-01-07-at-4-08-17-PM.png](https://i.postimg.cc/fTyFbbGG/Screen-Shot-2021-01-07-at-4-08-17-PM.png)](https://postimg.cc/CzyJPwL7)
