@@ -4,9 +4,42 @@ This project allows registered users to create PDF, Audio and Video files and so
 Used concepts: 
   - Streams API 
   - Threads
+  - Runnable
   - Lambda functions
-  - Comparators
-  - Exceptions
+  - Custom Comparators
+  - Custom Exceptions
+  - Handling of Exceptions
+  - OOP
+  - Inheritance
+  - Polymorphism
+  - Overloading
+  - Overriding
+  - Operations
+  - Enhanced switch statements
+  - Scanners
+  - Boxed types
+  - Constructors
+  - Interfaces
+  - Final variables
+  - Static variables
+  - Static Methods
+  - Abstract methods
+  - Abstract class
+  - Lists
+  - Array Lists
+  - HashMaps
+  - Java Regular Expressions
+  - Generic Wildcards
+  - Java Documentation Comments
+  
+  
+  
+  
+  
+  
+  
+
+  
   - ...
 
 Screen example:
