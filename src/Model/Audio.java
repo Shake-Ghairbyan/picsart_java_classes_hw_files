@@ -20,6 +20,7 @@ public class Audio extends File {
     /**
      * This method is used to get the duration of the track for an instance of Audio class.
      *
+     * @return durationOfTrack
      * @since 2021-01-04
      */
     public double getDurationOfTrack() {

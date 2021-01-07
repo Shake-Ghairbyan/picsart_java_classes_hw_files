@@ -14,6 +14,7 @@ public interface CSVable {
      * This method is to be used to convert the information of the instance
      * of the class, which implements CSVable interface, to string.
      *
+     * @return CSV string
      * @since 2021-01-04
      */
 
